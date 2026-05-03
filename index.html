@@ -209,14 +209,14 @@
     <script>
     (function() {
         const themeImageMap = {
-            light: { library: "assets/Light_Library.png", download: "assets/Light_Download.png", update: "assets/Light_Updates.png", settings: "assets/Light_Settings.png" },
-            dark: { library: "assets/Dark_Library.png", download: "assets/Dark_Download.png", update: "assets/Dark_Updates.png", settings: "assets/Dark_Settings.png" },
-            sepia: { library: "assets/Sepia_Library.png", download: "assets/Sepia_Download.png", update: "assets/Sepia_Updates.png", settings: "assets/Sepia_Settings.png" }
+            light: { library: "assets/Light_Library.avif", download: "assets/Light_Download.avif", update: "assets/Light_Updates.avif", settings: "assets/Light_Settings.avif" },
+            dark: { library: "assets/Dark_Library.avif", download: "assets/Dark_Download.avif", update: "assets/Dark_Updates.avif", settings: "assets/Dark_Settings.avif" },
+            sepia: { library: "assets/Sepia_Library.avif", download: "assets/Sepia_Download.avif", update: "assets/Sepia_Updates.avif", settings: "assets/Sepia_Settings.avif" }
         };
         const heroImages = {
-            light: ["assets/Light_Library.png","assets/Light_Download.png","assets/Light_Updates.png","assets/Light_Settings.png"],
-            dark: ["assets/Dark_Library.png","assets/Dark_Download.png","assets/Dark_Updates.png","assets/Dark_Settings.png"],
-            sepia: ["assets/Sepia_Library.png","assets/Sepia_Download.png","assets/Sepia_Updates.png","assets/Sepia_Settings.png"]
+            light: ["assets/Light_Library.avif","assets/Light_Download.avif","assets/Light_Updates.avif","assets/Light_Settings.avif"],
+            dark: ["assets/Dark_Library.avif","assets/Dark_Download.avif","assets/Dark_Updates.avif","assets/Dark_Settings.avif"],
+            sepia: ["assets/Sepia_Library.avif","assets/Sepia_Download.avif","assets/Sepia_Updates.avif","assets/Sepia_Settings.avif"]
         };
         
         let currentGlobalTheme = 'light';
@@ -314,7 +314,7 @@
         if(phoneFrame) { phoneFrame.addEventListener('mouseenter', stopCarousel); phoneFrame.addEventListener('mouseleave', startCarousel); }
         
         // Preload critical images
-        const critical = ['assets/Light_Library.png', 'assets/Light_Download.png', 'assets/Dark_Library.png', 'assets/Sepia_Library.png'];
+        const critical = ['assets/Light_Library.avif', 'assets/Light_Download.avif', 'assets/Dark_Library.avif', 'assets/Sepia_Library.avif'];
         critical.forEach(src => { const img = new Image(); img.src = src; });
         
         startCarousel();
