@@ -1,326 +1,938 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="google-site-verification" content="YPUKGDfTXaOnOa9iMTg9kQBUcUQKKVsqkXhnk-RI4hA" />
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="NovelDR - Download webnovels, wuxia, and xianxia for offline reading. Free app with customizable reader, multiple themes, and one-tap updates.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <link rel="canonical" href="https://moggle.is-a-good.dev/">
     <link rel="icon" type="image/png" href="app-icon.png">
     <link rel="apple-touch-icon" href="app-icon.png">
-    
-    <title>Novel DR · Download Wuxia & Xianxia novels offline</title>
-    
-    <!-- Critical CSS inlined -->
+    <title>Novel DR · Read Wuxia & Xianxia offline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /*! Critical base styles */
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Inter',sans-serif;background:#fff;color:#1e1b1a;line-height:1.5;min-height:100vh;display:flex;flex-direction:column;transition:background .6s ease,color .6s ease}
-        .skip-link{position:absolute;top:-40px;left:0;background:#2c211c;color:#fff;padding:8px 16px;z-index:100;text-decoration:none;border-radius:0 0 8px 0}
-        .skip-link:focus{top:0}
-        .container{max-width:1300px;margin:0 auto;padding:2rem 1.5rem;width:100%;flex:1}
-        .hero{display:flex;flex-wrap:wrap;align-items:center;gap:2.5rem;margin-bottom:4rem}
-        .hero-text{flex:1 1 300px}
-        .badge{display:inline-block;background:rgba(216,180,160,.25);backdrop-filter:blur(4px);padding:.4rem 1.2rem;border-radius:40px;font-size:.9rem;font-weight:500;color:#5a3e36;border:1px solid rgba(180,140,120,.2);margin-bottom:1.2rem}
-        h1{font-size:3.5rem;font-weight:600;line-height:1.2;letter-spacing:-.02em;color:#2c211c;margin-bottom:1.2rem}
-        .gradient-text{background:linear-gradient(135deg,#b16e5c 0%,#8f5e4e 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
-        .hero-desc{font-size:1.2rem;color:#4d3e37;max-width:500px;margin-bottom:2rem}
-        .cta-button{background:#2c211c;color:#faf6f2;border:none;padding:.9rem 2.2rem;border-radius:48px;font-weight:500;font-size:1.1rem;cursor:pointer;box-shadow:0 12px 18px -8px rgba(44,33,28,.12);transition:transform .1s ease,background .6s ease;display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.08);text-decoration:none}
-        .cta-button i{font-size:1rem}
-        .cta-button:hover{transform:scale(1.01);background:#3f302a}
-        .phone-mock-wrapper{flex:0 0 360px;display:flex;flex-direction:column;align-items:center;gap:16px}
-        .phone-frame{background:#171311;border-radius:42px;padding:12px 6px;box-shadow:0 30px 50px -15px rgba(0,0,0,.3),0 0 0 8px #ece5de,inset 0 0 0 2px #4a3b35;width:300px;transition:all .6s ease}
-        .phone-screen{background:#fff9f5;border-radius:34px;overflow:hidden;aspect-ratio:9/17.2;width:100%;position:relative;transition:background .6s ease}
-        .status-bar{display:flex;justify-content:space-between;padding:8px 16px 4px;font-size:13px;font-weight:600;color:#1e1b1a;border-bottom:1px solid #f0e4dc}
-        .carousel-container{width:100%;flex:1;position:relative;overflow:hidden}
-        .carousel-slides{display:flex;width:100%;height:100%;transition:transform .5s cubic-bezier(.25,.46,.45,.94)}
-        .slide{flex:0 0 100%}
-        .slide-image{width:100%;height:auto;display:block;object-fit:cover}
-        .phone-notch{width:110px;height:26px;background:#171311;margin:0 auto 6px;border-radius:20px}
-        .theme-buttons{display:flex;gap:8px;background:#ece5de;border-radius:30px;padding:4px;transition:background .6s ease}
-        .theme-btn{padding:8px 18px;border-radius:26px;border:none;font-size:13px;font-weight:500;cursor:pointer;background:transparent;color:#5a4a43;transition:all .2s}
-        .theme-btn.active-theme{background:#fffbf9;color:#2c211c;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-        .section-header{font-size:2.2rem;font-weight:600;color:#2c211c;margin-bottom:2rem;display:flex;align-items:center;gap:12px}
-        .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.5rem;margin:1.5rem 0 2rem}
-        .feature-card{background:#fbf6f1;padding:1.8rem 1.2rem;border-radius:36px;text-align:center;border:1px solid #e5d5ca;box-shadow:0 8px 0 #dccfc6;transition:all .6s ease}
-        .feature-card i{font-size:2.2rem;color:#8f5e4e;margin-bottom:1rem}
-        .feature-card h3{font-weight:600;margin-bottom:8px;color:#2e231f;font-size:1.2rem}
-        .feature-card p{color:#5a4a43;font-size:0.9rem}
-        .live-demo-section{margin:4rem 0 2rem}
-        .demo-wrap{display:flex;gap:0;align-items:flex-start;padding:1.5rem;background:rgba(255,250,245,.7);backdrop-filter:blur(8px);border-radius:48px;border:1px solid #e5d8cf;flex-wrap:wrap}
-        .phone-col{display:flex;flex-direction:column;align-items:center;gap:12px;padding-right:1.5rem;border-right:.5px solid #e5d8cf}
-        .p-frame{background:#171311;border-radius:38px;padding:10px 5px 14px;box-shadow:0 0 0 7px #ece5de,0 0 0 9px #c9b8ae40,inset 0 0 0 2px #4a3b35;width:220px}
-        .p-notch{width:80px;height:18px;background:#171311;margin:0 auto 4px;border-radius:14px}
-        .p-screen{background:#fff9f5;border-radius:28px;overflow:hidden;aspect-ratio:9/17.3;width:100%;transition:background .6s ease}
-        .p-status{display:flex;justify-content:space-between;padding:5px 12px 3px;font-size:10px;font-weight:600;color:#1e1b1a;border-bottom:.5px solid #f0e4dc}
-        .p-img{width:100%;height:auto;display:block;transition:opacity .2s ease}
-        .p-home{width:80px;height:3px;background:#cfbcb2;margin:8px auto 0;border-radius:10px}
-        .tab-col{display:flex;flex-direction:column;gap:0;min-width:110px;padding:0 1.5rem;border-right:.5px solid #e5d8cf}
-        .tab-btn{background:none;border:none;padding:10px 14px;border-radius:10px;font-size:13px;font-weight:500;cursor:pointer;text-align:left;color:#6e5b52;transition:all .15s}
-        .tab-btn.active{background:#b16e5c;color:#fff}
-        .content-col{flex:1;padding-left:1.5rem;min-width:0}
-        .feature-list{display:flex;flex-direction:column;gap:10px}
-        .feat-item{padding:10px 14px;background:rgba(255,255,255,.5);border-radius:10px;border:.5px solid #e5d8cf;font-size:13px;font-weight:500;color:#2c211c;cursor:pointer;transition:all .15s}
-        .feat-item.active{border-color:#b16e5c;box-shadow:0 0 0 1.5px #b16e5c;color:#b16e5c}
-        .feat-desc{font-size:12px;color:#6e5b52;margin-top:4px}
-        .download-cta-box{margin-top:2rem;background:linear-gradient(135deg,#2c211c 0%,#4a3830 100%);border-radius:32px;padding:2.5rem 2rem;text-align:center;box-shadow:0 20px 35px -10px rgba(60,40,30,.2);border:1px solid rgba(255,255,255,.1)}
-        .download-cta-box h2{color:#faf6f2;font-size:1.8rem;font-weight:600;margin-bottom:.8rem}
-        .download-cta-box p{color:#c9b8ae;margin-bottom:1.5rem}
-        .download-cta-btn{display:inline-flex;align-items:center;gap:10px;background:#faf6f2;color:#2c211c;border:none;padding:1rem 2.5rem;border-radius:48px;font-weight:600;font-size:1.1rem;cursor:pointer;transition:all .2s;text-decoration:none}
-        .novel-footer{width:100%;border-top:1px solid rgba(0,0,0,.08);background:rgba(255,250,245,.96);padding:3rem 0 2rem;margin-top:3rem}
-        .footer-container{max-width:1300px;margin:0 auto;padding:0 1.5rem}
-        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem}
-        .footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:1rem;text-decoration:none}
-        .footer-icon{background:#8f5e4e;border-radius:12px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-        .footer-app-icon{width:100%;height:100%;object-fit:contain}
-        .footer-brand span{font-weight:700;font-size:1.5rem;color:#2c211c}
-        .footer-description{color:#6e5b52;max-width:280px;font-size:.9rem}
-        .footer-heading{font-weight:700;margin-bottom:1.2rem;font-size:1.1rem;color:#2c211c}
-        .footer-links{list-style:none;padding:0}
-        .footer-links li{margin-bottom:.6rem}
-        .footer-link{text-decoration:none;color:#6e5b52;cursor:pointer;font-size:.9rem;transition:color .2s}
-        .footer-link:hover{color:#8f5e4e}
-        .footer-bottom{border-top:1px solid rgba(0,0,0,.08);margin-top:2rem;padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:#6e5b52;flex-wrap:wrap;gap:1rem}
-        .footer-legal{display:flex;gap:1.5rem}
-        .footer-legal a{text-decoration:none;color:inherit;transition:color .2s}
-        .footer-legal a:hover{color:#8f5e4e}
-        
-        /* Dark theme */
-        body.theme-dark{background:linear-gradient(145deg,#1a1a1a 0%,#121212 100%);color:#e0d8d0}
-        body.theme-dark .badge{background:rgba(180,160,150,.15);color:#c9b8ae}
-        body.theme-dark h1{color:#f0e8e0}
-        body.theme-dark .gradient-text{background:linear-gradient(135deg,#c9a99a 0%,#a08070 70%);-webkit-background-clip:text;background-clip:text}
-        body.theme-dark .hero-desc{color:#b0a098}
-        body.theme-dark .cta-button{background:#4a3830;color:#f0e8e0}
-        body.theme-dark .feature-card{background:#252525;border-color:#3a3a3a;box-shadow:0 8px 0 #1a1a1a}
-        body.theme-dark .feature-card i,.theme-dark .section-header i{color:#c9a99a}
-        body.theme-dark .feature-card h3{color:#e0d8d0}
-        body.theme-dark .feature-card p{color:#a09088}
-        body.theme-dark .phone-frame{background:#0f0f0f;box-shadow:0 30px 50px -15px rgba(0,0,0,.5),0 0 0 8px #2a2522}
-        body.theme-dark .phone-screen,.theme-dark .p-screen{background:#1a1a1a}
-        body.theme-dark .status-bar,.theme-dark .p-status{color:#e0d8d0;border-bottom-color:#333}
-        body.theme-dark .theme-buttons{background:#333}
-        body.theme-dark .theme-btn.active-theme{background:#444;color:#f0e8e0}
-        body.theme-dark .section-header{color:#f0e8e0}
-        body.theme-dark .demo-wrap{background:rgba(30,30,30,.7);border-color:#3a3a3a}
-        body.theme-dark .p-frame{box-shadow:0 0 0 7px #2a2522,inset 0 0 0 2px #5a4a43}
-        body.theme-dark .tab-btn{color:#a09088}
-        body.theme-dark .tab-btn.active{background:#c9a99a;color:#1a1a1a}
-        body.theme-dark .feat-item{background:rgba(30,30,30,.5);border-color:#3a3a3a;color:#e0d8d0}
-        body.theme-dark .feat-item.active{border-color:#c9a99a;color:#c9a99a}
-        body.theme-dark .download-cta-box{background:linear-gradient(135deg,#1a1a1a 0%,#2a2a2a 100%)}
-        body.theme-dark .novel-footer{background:#1c1c1c}
-        body.theme-dark .footer-brand span,.theme-dark .footer-heading{color:#e0d8d0}
-        body.theme-dark .footer-description,.theme-dark .footer-link,.theme-dark .footer-bottom{color:#a09088}
-        
-        /* Sepia theme */
-        body.theme-sepia{background:linear-gradient(145deg,#f9f5f0 0%,#f0ede8 100%);color:#5c4a3a}
-        body.theme-sepia .badge{background:rgba(180,160,120,.25);color:#8b7a60}
-        body.theme-sepia h1{color:#5c4a3a}
-        body.theme-sepia .gradient-text{background:linear-gradient(135deg,#8f6e4e 0%,#6e4e3e 70%);-webkit-background-clip:text;background-clip:text}
-        body.theme-sepia .hero-desc{color:#7a6a5a}
-        body.theme-sepia .cta-button{background:#5c4a3a;color:#f4ecd8}
-        body.theme-sepia .feature-card{background:#f4ecd8;border-color:#d4c5a0;box-shadow:0 8px 0 #c4b590}
-        body.theme-sepia .feature-card i,.theme-sepia .section-header i{color:#8f6e4e}
-        body.theme-sepia .feature-card h3{color:#5c4a3a}
-        body.theme-sepia .feature-card p{color:#7a6a5a}
-        body.theme-sepia .phone-frame{background:#1a140e;box-shadow:0 30px 50px -15px rgba(60,40,20,.35),0 0 0 8px #d4c5a0}
-        body.theme-sepia .phone-screen,.theme-sepia .p-screen{background:#f4ecd8}
-        body.theme-sepia .status-bar,.theme-sepia .p-status{color:#5c4a3a;border-bottom-color:#d4c5a0}
-        body.theme-sepia .theme-buttons{background:#d4c5a0}
-        body.theme-sepia .theme-btn.active-theme{background:#f4ecd8;color:#5c4a3a}
-        body.theme-sepia .section-header{color:#5c4a3a}
-        body.theme-sepia .demo-wrap{background:rgba(244,236,216,.7);border-color:#d4c5a0}
-        body.theme-sepia .p-frame{box-shadow:0 0 0 7px #d4c5a0,inset 0 0 0 2px #8b7a60}
-        body.theme-sepia .tab-btn{color:#7a6a5a}
-        body.theme-sepia .tab-btn.active{background:#8f6e4e;color:#f4ecd8}
-        body.theme-sepia .feat-item{background:rgba(244,236,216,.5);border-color:#d4c5a0;color:#5c4a3a}
-        body.theme-sepia .feat-item.active{border-color:#8f6e4e;color:#8f6e4e}
-        body.theme-sepia .download-cta-box{background:linear-gradient(135deg,#5c4a3a 0%,#7a6a5a 100%)}
-        body.theme-sepia .novel-footer{background:#f0e6d4}
-        body.theme-sepia .footer-brand span,.theme-sepia .footer-heading{color:#5c4a3a}
-        body.theme-sepia .footer-description,.theme-sepia .footer-link,.theme-sepia .footer-bottom{color:#7a6a5a}
-        
-        @media (max-width:800px){
-            .footer-grid{grid-template-columns:1fr}
-            .demo-wrap{flex-direction:column;align-items:center;gap:20px}
-            .phone-col{border-right:none;padding-right:0}
-            .tab-col{border-right:none;padding:0;flex-direction:row;flex-wrap:wrap;justify-content:center}
-            .content-col{padding-left:0;margin-top:15px;width:100%}
-            .tab-btn{text-align:center}
-            .section-header{font-size:1.8rem}
-            h1{font-size:2.5rem}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1e1b1a;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* Header */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ece5de;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            background: #8f5e4e;
+            border-radius: 12px;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 6px;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: -0.02em;
+            color: #2c211c;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            font-weight: 500;
+            background: rgba(143, 94, 78, 0.1);
+            padding: 0.35rem 1rem;
+            border-radius: 40px;
+            color: #5a3e36;
+            border: 1px solid rgba(180, 140, 120, 0.2);
+        }
+
+        /* Removed .nav styles (navigation header completely removed) */
+
+        /* Views */
+        #home-page, #changelog-page, #archives-page {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        #changelog-page, #archives-page {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Marquee */
+        .marquee-modern {
+            background: #fbf6f1;
+            padding: 0.7rem 0;
+            font-weight: 600;
+            color: #5a3e36;
+            border: 1px solid #e5d5ca;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            overflow: hidden;
+            white-space: nowrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .marquee-modern span {
+            display: inline-block;
+            animation: marquee 25s linear infinite;
+            padding-left: 100%;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        /* Content Layout */
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .left-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .download-card {
+            background: #fbf6f1;
+            border-radius: 28px;
+            padding: 2.5rem 2rem;
+            border: 1px solid #e5d5ca;
+            box-shadow: 0 8px 0 #dccfc6;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .download-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 0 #dccfc6, 0 12px 20px -8px rgba(80, 50, 30, 0.15);
+        }
+
+        .download-card .app-icon-large {
+            background: #8f5e4e;
+            width: 80px;
+            height: 80px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .download-card h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c211c;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .version-badge {
+            font-size: 0.85rem;
+            color: #8f5e4e;
+            background: rgba(143, 94, 78, 0.1);
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            font-weight: 500;
+            margin-bottom: 1.8rem;
+            display: inline-block;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #2c211c;
+            color: #faf6f2;
+            border: none;
+            padding: 1.1rem 3rem;
+            border-radius: 48px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 10px 24px rgba(44, 33, 28, 0.2);
+            transition: all 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 1.5rem;
+        }
+
+        .download-btn:hover {
+            background: #3f302a;
+            transform: scale(1.03);
+        }
+
+        .download-btn:active {
+            transform: scale(0.97);
+        }
+
+        .card-links-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            font-size: 0.9rem;
+            align-items: center;
+            line-height: 1.3;
+        }
+
+        .card-links-row a {
+            color: #8f5e4e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .card-links-row a:hover {
+            color: #5a3e36;
+        }
+
+        .card-links-row span {
+            color: #6e5b52;
+        }
+
+        /* Feature List */
+        .features-panel {
+            background: #fbf6f1;
+            border-radius: 24px;
+            padding: 1.8rem;
+            border: 1px solid #e5d5ca;
+            box-shadow: 0 6px 0 #dccfc6;
+        }
+
+        .features-panel h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c211c;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.6rem;
+        }
+
+        .feature-list li {
+            padding: 0.4rem 0 0.4rem 26px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%238f5e4e"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat;
+            background-size: 16px;
+            font-size: 0.9rem;
+            color: #3d2e28;
+            border-bottom: 1px solid #f0e4dc;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li strong {
+            color: #2c211c;
+        }
+
+        /* Info Panel */
+        .info-panel {
+            background: #fbf6f1;
+            border-radius: 24px;
+            padding: 1.5rem;
+            border: 1px solid #e5d5ca;
+            box-shadow: 0 6px 0 #dccfc6;
+        }
+
+        .info-panel h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c211c;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-panel h3 i {
+            color: #8f5e4e;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.45rem 0;
+            border-bottom: 1px solid #f0e4dc;
+            font-size: 0.85rem;
+            color: #3d2e28;
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: #5a3e36;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .stat-value {
+            color: #2c211c;
+            font-weight: 500;
+        }
+
+        .clean-badge {
+            color: #4caf50;
+            font-weight: 600;
+        }
+
+        .clickable-stat {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .clickable-stat:hover {
+            color: #8f5e4e;
+        }
+
+        /* Visitors Panel */
+        .visitors-panel {
+            background: #fbf6f1;
+            border-radius: 24px;
+            padding: 1.5rem;
+            border: 1px solid #e5d5ca;
+            box-shadow: 0 6px 0 #dccfc6;
+            text-align: center;
+        }
+
+        .visitors-panel h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2c211c;
+            margin-bottom: 1rem;
+        }
+
+        .visitors-panel img {
+            max-width: 100%;
+            border-radius: 12px;
+        }
+
+        /* Changelog */
+        .changelog-entry {
+            background: #fbf6f1;
+            border: 1px solid #e5d5ca;
+            border-radius: 24px;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 4px 0 #dccfc6;
+            transition: 0.2s;
+        }
+
+        .changelog-entry:hover {
+            border-color: #8f5e4e;
+            transform: scale(1.01);
+        }
+
+        .changelog-entry h3 {
+            color: #2c211c;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .changelog-date {
+            font-size: 0.85rem;
+            color: #8a7a70;
+            margin-bottom: 0.8rem;
+        }
+
+        .changelog-entry ul {
+            padding-left: 20px;
+            color: #3d2e28;
+        }
+
+        .changelog-entry li {
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .back-btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            border: 1px solid #e5d5ca;
+            background: #fbf6f1;
+            color: #5a4a43;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            box-shadow: 0 4px 0 #dccfc6;
+        }
+
+        .back-btn:hover {
+            background: #f0e8e0;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #dccfc6;
+        }
+
+        /* Archives Table */
+        .archives-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fbf6f1;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 0 #dccfc6;
+            margin-bottom: 2rem;
+            border: 1px solid #e5d5ca;
+        }
+
+        .archives-table th {
+            background: #8f5e4e;
+            color: white;
+            padding: 14px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .archives-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #e5d5ca;
+            font-size: 0.9rem;
+            color: #3d2e28;
+        }
+
+        .archives-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .archives-table tr:hover {
+            background: #f0e8e0;
+        }
+
+        .download-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 8px;
+        }
+
+        .download-links a {
+            color: #8f5e4e;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(143, 94, 78, 0.08);
+            transition: all 0.15s;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .download-links a:hover {
+            background: #8f5e4e;
+            color: white;
+        }
+
+        .download-links span {
+            color: #b0a098;
+            font-size: 0.8rem;
+            align-self: center;
+        }
+
+        /* Page trigger buttons (replaces old navigation) */
+        .page-triggers {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .page-trigger-btn {
+            background: #fbf6f1;
+            border: 1px solid #e5d5ca;
+            padding: 0.7rem 1.6rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #5a4a43;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .page-trigger-btn:hover {
+            background: #f0e8e0;
+            border-color: #8f5e4e;
+            transform: translateY(-2px);
+        }
+        .page-trigger-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+
+        .modal-card {
+            background: #fbf6f1;
+            max-width: 520px;
+            width: 90%;
+            border-radius: 32px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid #e5d5ca;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-scrollable-content {
+            max-height: 55vh;
+            overflow-y: auto;
+            margin: 1rem 0 1.5rem 0;
+            padding-right: 6px;
+        }
+
+        .countdown-number {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #8f5e4e;
+            background: rgba(143, 94, 78, 0.1);
+            width: 110px;
+            height: 110px;
+            line-height: 110px;
+            border-radius: 50%;
+            margin: 1.5rem auto;
+            border: 3px solid #8f5e4e;
+        }
+
+        .modal-progress {
+            width: 100%;
+            height: 12px;
+            background: #e5d5ca;
+            border-radius: 20px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .modal-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #8f5e4e, #b16e5c);
+            transition: width 0.1s;
+        }
+
+        /* Footer */
+        .novel-footer {
+            width: 100%;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 250, 245, 0.96);
+            padding: 2.5rem 0 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6e5b52;
+        }
+
+        @media (max-width: 800px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .download-card h2 {
+                font-size: 1.5rem;
+            }
+            .archives-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Accessibility: Skip to main content link -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="container">
+        <!-- Header (logo & tagline only, no nav tabs) -->
+        <div class="page-header">
+            <a href="#" class="logo-area" id="homeLogoLink">
+                <div class="logo-icon">
+                    <img src="app-icon.png" alt="NovelDR icon">
+                </div>
+                <span class="logo-text">Novel DR</span>
+            </a>
+            <span class="tagline">read · webnovels · offline · anywhere · everywhere</span>
+        </div>
 
-    <div class="container" id="main-content" role="main" aria-label="Main content">
-        <div class="hero">
-            <div class="hero-text">
-                <span class="badge" aria-label="Feature badge"><i class="fas fa-sparkles" aria-hidden="true"></i> NovelDR · read offline</span>
-                <h1>Download novels.<br><span class="gradient-text">Read anywhere.</span></h1>
-                <p class="hero-desc">NovelDR lets you download webnovels from supported sources. Easy updates, customizable reading.</p>
-                <a href="#downloadNow" class="cta-button" id="downloadButton" aria-label="Download the app"><i class="fas fa-cloud-download-alt" aria-hidden="true"></i> Download the App</a>
-            </div>
-            <div class="phone-mock-wrapper">
-                <div class="phone-mock" aria-label="App preview carousel"><div class="phone-frame" id="phoneFrame"><div class="phone-notch" aria-hidden="true"></div><div class="phone-screen" id="phoneScreen"><div class="status-bar" aria-hidden="true"><span>9:41</span><span><i class="fas fa-signal"></i> <i class="fas fa-wifi"></i> 75%</span></div><div class="carousel-container"><div class="carousel-slides" id="carouselSlides"><div class="slide"><img class="slide-image" id="slideImg0" src="assets/Light_Library.png" alt="Library screen showing novel collection" width="300" height="533" loading="eager"></div><div class="slide"><img class="slide-image" id="slideImg1" src="assets/Light_Download.png" alt="Download screen showing chapter selection" width="300" height="533" loading="lazy"></div><div class="slide"><img class="slide-image" id="slideImg2" src="assets/Light_Updates.png" alt="Updates screen showing new chapters" width="300" height="533" loading="lazy"></div><div class="slide"><img class="slide-image" id="slideImg3" src="assets/Light_Settings.png" alt="Settings screen with theme options" width="300" height="533" loading="lazy"></div></div></div></div><div style="width:120px; height:4px; background:#cfbcb2; margin:10px auto; border-radius:20px;" aria-hidden="true"></div></div></div>
-                <div class="theme-buttons" role="group" aria-label="Theme selector"><button class="theme-btn active-theme" data-theme="light" aria-label="Light theme">☀️ Light</button><button class="theme-btn" data-theme="dark" aria-label="Dark theme">🌙 Dark</button><button class="theme-btn" data-theme="sepia" aria-label="Sepia theme">📜 Sepia</button></div>
+        <!-- New action buttons: Changelog & Archives (replaces old nav header) -->
+        <div class="page-triggers"  style="display: none;" >
+            <button id="triggerChangelogBtn" class="page-trigger-btn">📜 Changelog</button>
+            <button id="triggerArchivesBtn" class="page-trigger-btn">📦 Archives</button>
+        </div>
+
+        <!-- Marquee -->
+        <div class="marquee-modern">
+            <span>✔️ 100% virus free • Compatible with Android 8+ • No ADS • No Login Required • Read Offline Anytime/Anywhere ✔️</span>
+        </div>
+
+        <!-- HOME PAGE -->
+        <div id="home-page">
+            <div class="main-content">
+                <div class="left-col">
+                    <!-- Download Card -->
+                    <div class="download-card">
+                        <div class="app-icon-large">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <h2>Novel DR v1.3.11</h2>
+                        <span class="version-badge">Build: v1.3.11rev137</span>
+                        <a id="downloadMainBtn" class="download-btn">
+                            <i class="fas fa-download"></i> Download APK
+                        </a>
+                        <div class="card-links-row">
+                            <a id="link-to-changelog">View detailed changelog</a>
+                            <span>Looking for old versions? <a id="link-to-archives">Browse here</a></span>
+                        </div>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="features-panel">
+                        <h3>✦ Powerful Features</h3>
+                        <ul class="feature-list">
+                            <li><strong>Supports 5+ sites:</strong> ReadNovelFull, NovelBin, NovelFull, FreeWebNovel, and LightNovelWorld.</li>
+                            <li><strong>Reading Comfort:</strong> Adjustable Font size, Line spacing, and Auto-scroll.</li>
+                            <li><strong>3 App Themes:</strong> Dark, Light, and Sepia.</li>
+                            <li><strong>Data Control:</strong> JSON Backup, Restore & Import system.</li>
+                            <li><strong>Stay Updated:</strong> Novel updates in just 2 taps: Select Novel, and tap Update.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="right-col">
+                    <!-- App Stats -->
+                    <div class="info-panel">
+                        <h3><i class="fas fa-chart-bar"></i> App Stats</h3>
+                        <div class="stat-row">
+                            <span class="stat-label"><i class="fas fa-hdd"></i> APK Size:</span>
+                            <span class="stat-value">~92.93 MB</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label"><i class="fas fa-tag"></i> Build Number:</span>
+                            <span class="stat-value">V1.3.11rev137</span>
+                        </div>
+                        <div class="stat-row clickable-stat" onclick="window.open('https://virusscan.jotti.org/en-US/filescanjob/rr218ci9cs', '_blank')">
+                            <span class="stat-label"><i class="fas fa-shield-virus"></i> Jotti's Malware:</span>
+                            <span class="stat-value clean-badge">Clean ✓ (0/15)</span>
+                        </div>
+                        <div class="stat-row clickable-stat" onclick="window.open('https://github.com/Moggle-Khraum/noveldr-site/releases', '_blank')">
+                            <span class="stat-label"><i class="fab fa-github"></i> Github Release:</span>
+                            <span class="stat-value">Official Release</span>
+                        </div>
+                    </div>
+
+                    <!-- Visitors -->
+                    <div class="visitors-panel">
+                        <h3>🌍 Visitors</h3>
+                        <a href="https://info.flagcounter.com/G8tC" target="_blank">
+                            <img src="https://s01.flagcounter.com/count2/G8tC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter">
+                        </a>
+                    </div>
+
+                    <!-- New Relative Links Panel below Visitors -->
+                  <div class="info-panel" style="margin-top: 1.5rem;">
+                      <h3><i class="fas fa-link"></i> Relative Links</h3>
+                      <div class="stat-row">
+                          <span class="stat-label"><i class="fas fa-home"></i> Home:</span>
+                          <span class="stat-value"><a href="#" id="footerHomeLink" style="color: #8f5e4e; text-decoration: none; font-weight: 500;">Novel DR Home</a></span>
+                      </div>
+                      <div class="stat-row">
+                          <span class="stat-label"><i class="fab fa-github"></i> Github Release:</span>
+                          <span class="stat-value"><a href="https://github.com/Moggle-Khraum/noveldr-site/releases" target="_blank" style="color: #8f5e4e; text-decoration: none; font-weight: 500;">Releases</a></span>
+                      </div>
+                      <div class="stat-row">
+                          <span class="stat-label"><i class="fas fa-gavel"></i> Legal:</span>
+                          <span class="stat-value"><a href="#" id="legalLink" style="color: #8f5e4e; text-decoration: none; font-weight: 500;">Terms & Privacy</a></span>
+                      </div>
+                  </div>
+
+                </div>
+                  
             </div>
         </div>
 
-        <div class="section-header" aria-label="Features section"><i class="fas fa-cogs" aria-hidden="true"></i><span>Powerful Features</span></div>
-        <div class="feature-grid" role="list" aria-label="Feature list">
-            <div class="feature-card" role="listitem"><i class="fas fa-bookmark" aria-hidden="true"></i><h3>Dynamic Library</h3><p>Organize your collection, filter by tags, batch delete.</p></div>
-            <div class="feature-card" role="listitem"><i class="fas fa-cloud-arrow-down" aria-hidden="true"></i><h3>Multi-Source Downloader</h3><p>Paste link, set range, download for offline reading.</p></div>
-            <div class="feature-card" role="listitem"><i class="fas fa-bolt" aria-hidden="true"></i><h3>One-Tap Updates</h3><p>Update novels effortlessly with new chapters.</p></div>
-            <div class="feature-card" role="listitem"><i class="fas fa-mobile-alt" aria-hidden="true"></i><h3>Customizable Reader</h3><p>Themes, font controls, backup & restore.</p></div>
-        </div>
-
-        <div class="live-demo-section">
-            <div class="section-header" aria-label="Live demo section"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Live Demo</span></div>
-            <div class="demo-wrap" aria-label="Interactive app demo">
-                <div class="phone-col" aria-label="Phone mockup"><div class="p-frame"><div class="p-notch" aria-hidden="true"></div><div class="p-screen"><div class="p-status" aria-hidden="true"><span>9:41</span><span>📶 🔋 75%</span></div><img class="p-img" id="phoneImg" src="assets/Light_Library.png" alt="App screen preview" width="220" height="422" loading="lazy"></div><div class="p-home" aria-hidden="true"></div></div></div>
-                <div class="tab-col" role="tablist" aria-label="Screen navigation"><div class="col-label" aria-hidden="true">Screens</div><button class="tab-btn active" data-tab="library" role="tab" aria-selected="true">Library</button><button class="tab-btn" data-tab="download" role="tab" aria-selected="false">Download</button><button class="tab-btn" data-tab="update" role="tab" aria-selected="false">Update</button><button class="tab-btn" data-tab="settings" role="tab" aria-selected="false">Settings</button></div>
-                <div class="content-col" id="contentCol" role="tabpanel" aria-label="Feature details"></div>
+        <!-- CHANGELOG PAGE -->
+        <div id="changelog-page">
+            <h2 style="color:#2c211c; margin-bottom: 1.5rem; font-size: 1.8rem;">📜 Version History</h2>
+            <div class="changelog-entry">
+                <h3>v1.3.10rev131</h3>
+                <p class="changelog-date">Apr 25, 2026 Update</p>
+                <ul>
+                    <li>[NEW] Added a 'Duplicity Guard' to the code, checks for existing novel in the library before downloading</li>
+                    <li>[IMPROVEMENT] Improved the scraping code for Novelbin by adding junk filters</li>
+                    <li>[IMPROVEMENT] Improved the code when downloading novels by streamlining and simplifying the title fetching.</li>
+                    <li>[BUGFIX] Fixed the 'Author' scraper for Novelbin during metadata fetching</li>
+                    <li>[BUGFIX] Fixed the download code to avoid freezing when downloading existing novel</li>
+                </ul>
             </div>
+
+            <div class="changelog-entry">
+                <h3>v1.3.9rev128</h3>
+                <p class="changelog-date">Apr 21, 2026 Update</p>
+                <ul>
+                    <li>[NEW] Updates tab now downloads and saves novel covers locally</li>
+                    <li>[NEW] Refreshes cover images if changed on source website</li>
+                    <li>[NEW] System Action Required warning card is now clickable</li>
+                    <li>[NEW] Tapping opens Android settings directly to manage unused apps</li>
+                    <li>[NEW] Batch delete confirmation with item count display</li>
+                    <li>[NEW] Added "Starting Chapter" input field next to "Max Chapters"</li>
+                    <li>[NEW] Updates tab now checks and updates author if changed</li>
+                    <li>[NEW] Refreshes synopsis when source is updated</li>
+                    <li>[IMPROVEMENT] Allows 'SKIPPER' to skip chapters smoothly and starting downloads from specific chapter</li>
+                    <li>[IMPROVEMENT] Improved error handling during updates</li>
+                    <li>[IMPROVEMENT] Better duplicate detection when merging chapters</li>
+                    <li>[IMPROVEMENT] Ensures all selected novels are removed properly during deletion</li>
+                    <li>[FIXED] Make 'Batch Restore' the default for restoring files from Imported Backup</li>
+                    <li>[FIXED] Resolve the dysfunctional 'Restore' system in the Import function</li>
+                    <li>[FIXED] Added 'Fetcher' to the 'Update' tab when downloading Chapters.</li>
+                    <li>[FIXED] Added 'Starting Chapter' field to the 'Update' tab</li>
+                    <li>[FIXED] Delete Tab only deletes one file even after selection</li>
+                    <li>[FIXED] Minor bugs and performance issues</li>
+                </ul>
+            </div>
+
+            <div class="changelog-entry">
+                <h3>v1.3.8rev118</h3>
+                <p class="changelog-date">Apr 15, 2026 Update</p>
+                <ul>
+                    <li>[NEW] Added support for LightNovelWorld</li>
+                    <li>[NEW] Added scraper for Author, Cover, Synopsis, and Chapter Content</li>
+                    <li>[NEW] Added About Developer tab</li>
+                    <li>[NEW] Added Github link in the Developer tab</li>
+                    <li>[NEW] Added Website Link in the Developer tab</li>
+                    <li>[NEW] Added 'Import File' function to the Backup System</li>
+                    <li>[IMPROVEMENTS] Skipper Code functionality</li>
+                    <li>[IMPROVEMENTS] Increased value presets for AutoScroll, Line Spacing, and Font Size</li>
+                    <li>[IMPROVEMENTS] Download Tab now downloads cover locally for offline display</li>
+                    <li>[IMPROVEMENTS] Improved the scraper for the LightNovelWorld</li>
+                    <li>[NEEDS FIXING] 'Delete Tab' only deletes one file even after selection</li>
+                    <li>[NEEDS FIXING] Add 'Starting Chapter' field to the 'Update' tab</li>
+                    <li>[NEEDS FIXING] Add 'Fetcher' to the 'Update' tab when downloading Chapters.</li>
+                    <li>[NEEDS FIXING] Resolve the dysfunctional 'Restore' system in the Import function</li>
+                    <li>[NEEDS FIXING] Make 'Batch Restore' the default for restoring files from Imported Backup</li>
+                    <li>[NEEDS FIXING] Minor bugs and performance issues</li>
+                </ul>
+            </div>
+
+            <div class="changelog-entry">
+                <h3>v1.0.3rev055</h3>
+                <p class="changelog-date">Apr 13, 2026</p>
+                <ul>
+                    <li>[NEW] NovelBin and FreeWebNovel now fully supported</li>
+                    <li>[NEW] Library filters: All, Unread, Reading, Completed</li>
+                    <li>[NEW] Library search, and batch delete (via ⋮ menu)</li>
+                    <li>[NEW] Long press novel cover to update reading status</li>
+                    <li>[NEW] AutoScroll with presets</li>
+                    <li>[NEW] Updates tab now has search function</li>
+                    <li>[NEW] Added Skipper (skip existing chapters) and Traverser (resume downloads)</li>
+                    <li>[NEW] Backup & Restore system</li>
+                    <li>[NEW] 2-prompt warning when deleting a novel</li>
+                    <li>[IMPROVEMENT] Better Download tab stability</li>
+                    <li>[IMPROVEMENT] FreeWebNovel now shows author, cover, and synopsis</li>
+                    <li>[FIXED] Modify the icon of the Update tab</li>
+                    <li>[FIXED] Full FreeWebNovel site support.</li>
+                    <li>[FIXED] Improved Author & Synopsis extraction.</li>
+                </ul>
+            </div>
+
+            <div class="changelog-entry">
+                <h3>v1.0.2rev36</h3>
+                <p class="changelog-date">March 27, 2026</p>
+                <ul>
+                    <li>[NEW] Activity Logs are now visible.</li>
+                    <li>[IMPROVEMENTS] Stabilized downloader & update lifeline code</li>
+                    <li>[NEEDS FIXING] Modify the icon of the Update tab.</li>
+                    <li>[NEEDS FIXING] Full FreeWebNovel site support.</li>
+                    <li>[NEEDS FIXING] Improved Author & Synopsis extraction.</li>
+                </ul>
+            </div>
+
+            <div class="changelog-entry">
+                <h3>v1.0.1rev16</h3>
+                <p class="changelog-date">March 27, 2026</p>
+                <ul>
+                    <li>Initial release of the app, NovelDR</li>
+                    <li>[NEW] Added full support to 'ReadNovelFull' & 'NovelFull' site</li>
+                    <li>[NEW] Added partial support to 'FreeWebNovel' site</li>
+                    <li>[NEW] Added app themes: Dark, Light, Sepia</li>
+                    <li>[NEW] Added basic 'Download' and 'Updates' tab for downloading novel</li>
+                    <li>[NEW] Added 'Library Stats', showing the total chapters and novel in your library.</li>
+                    <li>[NEW] Added 'Delete Novel' by long-pressing the novel.</li>
+                    <li>[NEW] Added 'Reader Settings' which houses adjustable Font Size, & Line Spacing.</li>
+                </ul>
+            </div>
+            <button id="back-to-home-changelog" class="back-btn">← Back to Home</button>
         </div>
 
-        <div class="download-cta-box" id="downloadNow"><h2>Download the App Now</h2><p>Start reading your webnovel today. Available on Android.</p><a href="./download.html" class="download-cta-btn" aria-label="Download NovelDR app"><i class="fas fa-download" aria-hidden="true"></i> Download NovelDR</a></div>
+        <!-- ARCHIVES PAGE -->
+        <div id="archives-page">
+            <h2 style="color:#2c211c; margin-bottom: 1.5rem; font-size: 1.8rem;">📦 App Archives</h2>
+            <table class="archives-table">
+                <thead>
+                    <tr><th>App Name</th><th>Version</th><th>Changelog</th><th>Size</th><th>Download Links</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Novel DR</strong></td><td>v1.3.10rev131</td><td><a href="#" onclick="showVersionChangelog('1.3.10rev131'); return false;" style="color: #8f5e4e; text-decoration: underline; font-weight: 500;">View</a></td><td>92.99 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.3.10rev131', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.3.10rev131', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.3.10rev131', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.3.10rev131', 'itch'); return false;">Itch.io</a></div></td></tr>
+                    <tr><td><strong>Novel DR</strong></td><td>v1.3.9rev128</td><td><a href="#" onclick="showVersionChangelog('1.3.9rev128'); return false;" style="color: #8f5e4e; text-decoration: underline; font-weight: 500;">View</a></td><td>92.93 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.3.9rev128', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.3.9rev128', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.3.9rev128', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.3.9rev128', 'itch'); return false;">Itch.io</a></div></td></tr>
+                    <tr><td><strong>Novel DR</strong></td><td>v1.3.8rev118</td><td><a href="#" onclick="showVersionChangelog('1.3.8rev118'); return false;" style="color: #8f5e4e; text-decoration: underline; font-weight: 500;">View</a></td><td>92.92 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.3.8rev118', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.3.8rev118', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.3.8rev118', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.3.8rev118', 'itch'); return false;">Itch.io</a></div></td></tr>
+                    <tr><td><strong>Novel DR</strong></strong></td><td>v1.0.3rev055</strong></td><td><a href="#" onclick="showVersionChangelog('1.0.3rev055'); return false;" style="color: #8f5e4e; text-decoration: underline; font-weight: 500;">View</a></td><td>92.91 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.0.3rev055', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.0.3rev055', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.0.3rev055', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.0.3rev055', 'itch'); return false;">Itch.io</a></div></td></tr>
+                    <tr><td><strong>Novel DR</strong></strong></td><td>v1.0.2rev36</strong></td><td><a href="#" onclick="showVersionChangelog('1.0.2rev36'); return false;" style="color: #8f5e4e; text-decoration: underline; font-weight: 500;">View</a></td><td>92.87 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.0.2rev36', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.0.2rev36', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.0.2rev36', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.0.2rev36', 'itch'); return false;">Itch.io</a></div></td></tr>
+                    <tr><td><strong>Novel DR</strong></strong></td><td>v1.0.1rev16</strong></td><td><a href="#" onclick="showVersionChangelog('1.0.1rev16'); return false;" style="color: #8f5e4e; text-decoration: underline; font-weight: 500;">View</a></td><td>92.86 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.0.1rev16', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.0.1rev16', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.0.1rev16', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.0.1rev16', 'itch'); return false;">Itch.io</a></div></td></tr>
+                </tbody>
+            </table>
+            <button id="back-to-home-archives" class="back-btn">← Back to Home</button>
+        </div>
+
+        <!-- MODALS (same as before) -->
+        <div class="modal-overlay" id="versionChangelogModal"><div class="modal-card" style="text-align: left;"><h3 style="color:#2c211c;margin-bottom:0.25rem;text-align:center;">📋 Changelog: <span id="modalVersionTitle"></span></h3><div class="modal-scrollable-content" id="modalScrollableContent"><div id="modalChangelogContent"></div></div><button id="closeVersionChangelogBtn" style="padding:12px 24px;border-radius:30px;cursor:pointer;border:1px solid #e5d5ca;background:#fbf6f1;font-weight:600;width:100%;margin-top:0.5rem;">Close</button></div></div>
+        <div class="modal-overlay" id="downloadModal"><div class="modal-card"><h3>💾 Preparing Download</h3><div class="countdown-number" id="countdownDisplay">5</div><div class="modal-progress"><div class="modal-progress-bar" id="modalProgressBar"></div></div><div id="modalStatus">Your download will start in 5 seconds...</div><button id="closeModalBtn" style="margin-top:20px;padding:10px 20px;border-radius:30px;cursor:pointer;">Cancel</button></div></div>
     </div>
-
-    <footer class="novel-footer" role="contentinfo" aria-label="Footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-logo-area"><a href="#" class="footer-brand" aria-label="NovelDR home"><div class="footer-icon"><img src="app-icon.png" class="footer-app-icon" alt="" width="38" height="38" loading="lazy"></div><span>NovelDR</span></a><p class="footer-description">Your ultimate companion for immersive reading.</p></div>
-                <div><h4 class="footer-heading">Quick Links</h4><ul class="footer-links" role="list"><li role="listitem"><a href="#" class="footer-link">Home</a></li><li role="listitem"><a href="https://github.com/Moggle-Khraum/noveldr-site/releases" class="footer-link" rel="noopener noreferrer" target="_blank">GitHub Release</a></li><li role="listitem"><a href="https://github.com/Moggle-Khraum/NovelDRr" class="footer-link" rel="noopener noreferrer" target="_blank">GitHub</a></li></ul></div>
-                <div><h4 class="footer-heading">Legal</h4><ul class="footer-links" role="list"><li role="listitem"><a href="privacy.html" class="footer-link">Privacy Policy</a></li><li role="listitem"><a href="terms.html" class="footer-link">Terms of Service</a></li></ul></div>
-            </div>
-            <div class="footer-bottom"><p>© 2026 NovelDR. All rights reserved.</p></div>
-        </div>
+    <footer class="novel-footer">
+        Novel DR — made for Android.<br>
+        No tracking, no ads, just pure offline reading. <strong>#FOSS</strong>
     </footer>
 
-    <!-- Font Awesome loaded asynchronously -->
-    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></noscript>
-
     <script>
-    (function() {
-        const themeImageMap = {
-            light: { library: "assets/Light_Library.avif", download: "assets/Light_Download.avif", update: "assets/Light_Updates.avif", settings: "assets/Light_Settings.avif" },
-            dark: { library: "assets/Dark_Library.avif", download: "assets/Dark_Download.avif", update: "assets/Dark_Updates.avif", settings: "assets/Dark_Settings.avif" },
-            sepia: { library: "assets/Sepia_Library.avif", download: "assets/Sepia_Download.avif", update: "assets/Sepia_Updates.avif", settings: "assets/Sepia_Settings.avif" }
-        };
-        const heroImages = {
-            light: ["assets/Light_Library.avif","assets/Light_Download.avif","assets/Light_Updates.avif","assets/Light_Settings.avif"],
-            dark: ["assets/Dark_Library.avif","assets/Dark_Download.avif","assets/Dark_Updates.avif","assets/Dark_Settings.avif"],
-            sepia: ["assets/Sepia_Library.avif","assets/Sepia_Download.avif","assets/Sepia_Updates.avif","assets/Sepia_Settings.avif"]
-        };
-        
-        let currentGlobalTheme = 'light';
-        let currentActiveScreen = 'library';
-        let currentTab = 'library';
-        let carouselIndex = 0;
-        let carouselInterval;
-        
-        const phoneImg = document.getElementById('phoneImg');
-        const carouselSlides = document.getElementById('carouselSlides');
-        const totalSlides = 4;
-        
-        function getImageForScreen(screenKey) { return themeImageMap[currentGlobalTheme][screenKey] || themeImageMap[currentGlobalTheme].library; }
-        
-        function setPhoneImg(screenKey) {
-            const newSrc = getImageForScreen(screenKey);
-            if(phoneImg) { phoneImg.style.opacity = '0'; setTimeout(() => { phoneImg.src = newSrc; phoneImg.style.opacity = '1'; }, 120); }
-        }
-        
-        function updateHeroSlide() { if(carouselSlides) carouselSlides.style.transform = `translateX(-${carouselIndex * 100}%)`; }
-        function nextHeroSlide() { carouselIndex = (carouselIndex + 1) % totalSlides; updateHeroSlide(); }
-        
-        function startCarousel() { if(carouselInterval) clearInterval(carouselInterval); carouselInterval = setInterval(nextHeroSlide, 4000); }
-        function stopCarousel() { if(carouselInterval) clearInterval(carouselInterval); }
-        
-        function setGlobalTheme(theme) {
-            currentGlobalTheme = theme;
-            document.body.classList.remove('theme-dark', 'theme-sepia');
-            if(theme === 'dark') document.body.classList.add('theme-dark');
-            else if(theme === 'sepia') document.body.classList.add('theme-sepia');
-            
-            const imgs = heroImages[theme];
-            for(let i = 0; i < 4; i++) {
-                const img = document.getElementById('slideImg'+i);
-                if(img) { img.style.opacity = '0'; setTimeout(() => { img.src = imgs[i]; img.onload = () => img.style.opacity = '1'; }, 100); }
-            }
-            if(phoneImg) { const newSrc = getImageForScreen(currentActiveScreen); phoneImg.style.opacity = '0'; setTimeout(() => { phoneImg.src = newSrc; phoneImg.style.opacity = '1'; }, 100); }
-        }
-        
-        const tabsData = {
-            library: { features: [{ label: "Search feature", desc: "Find any novel instantly by title or author.", screen: "library" }, { label: "Batch delete", desc: "Select multiple novels and remove them at once.", screen: "library" }, { label: "Read novel", desc: "Open any downloaded novel and start reading offline.", screen: "library" }] },
-            download: { features: [{ label: "Paste novel URL", desc: "Drop a link from supported sources like FreeWebNovel.", screen: "download" }, { label: "Set chapter range", desc: "Choose the starting chapter and how many to fetch.", screen: "download" }, { label: "Download offline", desc: "Save chapters to your device for offline reading.", screen: "download" }] },
-            update: { features: [{ label: "Select novel", desc: "Pick a novel already in your library to update.", screen: "update" }, { label: "Set new range", desc: "Enter starting chapter and max chapters to fetch.", screen: "update" }, { label: "Check for updates", desc: "Tap once and new chapters download automatically.", screen: "update" }] },
-            settings: { features: [{ label: "Reading themes", desc: "Switch between Light, Dark, and Sepia reading modes.", screen: "settings" }, { label: "Backup & restore", desc: "Export your library or restore from a backup file.", screen: "settings" }, { label: "Library stats", desc: "See total novels, chapters read, and storage used.", screen: "settings" }] }
-        };
-        
-        function renderContent() {
-            const data = tabsData[currentTab];
-            const contentCol = document.getElementById('contentCol');
-            if(!contentCol) return;
-            contentCol.innerHTML = `<div class="feat-label" aria-hidden="true">Features</div><div class="feature-list" id="featureList" role="list" aria-label="Feature options"></div>`;
-            const list = contentCol.querySelector('#featureList');
-            data.features.forEach((f, i) => {
-                const item = document.createElement('div');
-                item.className = 'feat-item';
-                if(i === 0) item.classList.add('active');
-                item.setAttribute('role', 'listitem');
-                item.innerHTML = `<div>${f.label}</div><div class="feat-desc">${f.desc}</div>`;
-                item.addEventListener('click', () => {
-                    document.querySelectorAll('.feat-item').forEach(el => el.classList.remove('active'));
-                    item.classList.add('active');
-                    currentActiveScreen = f.screen;
-                    setPhoneImg(f.screen);
-                });
-                if(i === 0) { currentActiveScreen = f.screen; setPhoneImg(f.screen); }
-                list.appendChild(item);
-            });
-        }
-        
-        // Tab switching
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.tab-btn').forEach(b => {
-                    b.classList.remove('active');
-                    b.setAttribute('aria-selected', 'false');
-                });
-                btn.classList.add('active');
-                btn.setAttribute('aria-selected', 'true');
-                currentTab = btn.dataset.tab;
-                renderContent();
-            });
-        });
-        
-        // Theme buttons
-        document.querySelectorAll('.theme-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active-theme'));
-                btn.classList.add('active-theme');
-                setGlobalTheme(btn.dataset.theme);
-            });
-        });
-        
-        // Initialize
-        const phoneFrame = document.getElementById('phoneFrame');
-        if(phoneFrame) { phoneFrame.addEventListener('mouseenter', stopCarousel); phoneFrame.addEventListener('mouseleave', startCarousel); }
-        
-        // Preload critical images
-        const critical = ['assets/Light_Library.avif', 'assets/Light_Download.avif', 'assets/Dark_Library.avif', 'assets/Sepia_Library.avif'];
-        critical.forEach(src => { const img = new Image(); img.src = src; });
-        
-        startCarousel();
-        renderContent();
-        setGlobalTheme('light');
-    })();
+        // DOM references
+        const homePage = document.getElementById('home-page');
+        const changelogPage = document.getElementById('changelog-page');
+        const archivesPage = document.getElementById('archives-page');
+
+        function showHome() { homePage.style.display = 'block'; changelogPage.style.display = 'none'; archivesPage.style.display = 'none'; window.scrollTo(0,0); }
+        function showChangelog() { homePage.style.display = 'none'; changelogPage.style.display = 'block'; archivesPage.style.display = 'none'; window.scrollTo(0,0); }
+        function showArchives() { homePage.style.display = 'none'; changelogPage.style.display = 'none'; archivesPage.style.display = 'block'; window.scrollTo(0,0); }
+
+        // New trigger buttons
+        document.getElementById('triggerChangelogBtn').addEventListener('click', showChangelog);
+        document.getElementById('triggerArchivesBtn').addEventListener('click', showArchives);
+        // Logo link back to home
+        document.getElementById('homeLogoLink').addEventListener('click', (e) => { e.preventDefault(); showHome(); });
+        // internal card links
+        document.getElementById('link-to-changelog')?.addEventListener('click', showChangelog);
+        document.getElementById('link-to-archives')?.addEventListener('click', showArchives);
+        document.getElementById('back-to-home-changelog')?.addEventListener('click', showHome);
+        document.getElementById('back-to-home-archives')?.addEventListener('click', showHome);
+
+        // Download logic (fully functional)
+        const modal = document.getElementById('downloadModal');
+        const downloadBtn = document.getElementById('downloadMainBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const countdownDisplay = document.getElementById('countdownDisplay');
+        const modalProgressBar = document.getElementById('modalProgressBar');
+        const modalStatus = document.getElementById('modalStatus');
+        let countdownInterval, progressInterval, currentCountdown = 5;
+        let downloadUrl = 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.11/NovelDR.v1.3.11rev137.apk';
+
+        function resetModal() { if (countdownInterval) clearInterval(countdownInterval); if (progressInterval) clearInterval(progressInterval); currentCountdown = 5; if (countdownDisplay) countdownDisplay.textContent = '5'; if (modalProgressBar) modalProgressBar.style.width = '0%'; if (modalStatus) modalStatus.textContent = 'Your download will start in 5 seconds...'; }
+        function startCountdown() { resetModal(); modal.style.display = 'flex'; let progress = 0; progressInterval = setInterval(() => { progress += 2; if (modalProgressBar) modalProgressBar.style.width = progress + '%'; if (progress >= 100) clearInterval(progressInterval); }, 100); countdownInterval = setInterval(() => { currentCountdown--; if (countdownDisplay) countdownDisplay.textContent = currentCountdown; if (modalStatus) modalStatus.textContent = `Download starting in ${currentCountdown} seconds...`; if (currentCountdown <= 0) { clearInterval(countdownInterval); if (modalStatus) modalStatus.textContent = "✅ Starting Download..."; window.open(downloadUrl, '_blank'); setTimeout(() => { modal.style.display = 'none'; resetModal(); }, 2000); } }, 1000); }
+        if (downloadBtn) downloadBtn.addEventListener('click', (e) => { e.preventDefault(); startCountdown(); });
+        if (closeModalBtn) closeModalBtn.addEventListener('click', () => { resetModal(); modal.style.display = 'none'; });
+        if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) { resetModal(); modal.style.display = 'none'; } });
+
+        // Archive Downloads Mapping
+        const downloadUrls = { '1.3.10rev131': {site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.10/NovelDR.v1.3.10rev131.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.10/NovelDR.v1.3.10rev131.apk', mediafire: 'https://download1326.mediafire.com/7oqxsmgcojxgrBm7PR2rDTytGLAEteS6ayeiQ2Oo9YlxQXywPsoB8T_TMghg62LLGeRnk9ygrxUOkiZc2Jy3Q_gmia-_KHuqf_X6EizwfjYhQzKtrz5miQbST-e0rmqMwQWCdaSG4wRJ70XcRhIpRCadSHmW0RcMc0mcl1avOB8/o53v8sbw0agdt58/NovelDR+v1.3.10rev131.apk', itch: '#' }, '1.3.9rev128': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.9/NovelDR.v1.3.9rev128.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.9/NovelDR.v1.3.9rev128.apk', mediafire: 'https://download942.mediafire.com/ovm3g12s63rg4NzZbGHNe9AsZeeuzYFIWH-_LJdillgsJU6M0krIkx6PYIqfY9y-pv1m58pkuOJpfhhdaIxZYstqqga-zIlDKCVx0ZD3Kp9QtGsQ29ABrfGzyAv-bQ7n_8JR8MASXQPEKSKHqvtLFhqNknTWk5t61EQf3dtrrRNU7A/18j1mucp3nm2wq2/NovelDR+v1.3.9rev128.apk', itch: '#' }, '1.3.8rev118': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk', mediafire: 'https://download1326.mediafire.com/ac4tlso09zkgsglTb4JbR6Ne2XvsdNrhblXz-sZDl3gFZTzzbs1UTnAZbbQfBSM1Ym_kbdinDjSct946WQMnlgdbRwCbM9ViGlqDor6SDbyAwDfmdzVvUzgV_EwXqC-uChO-fvLy9gpM51rBSvdy2JZhJXbby5VOwYg_77L38-As3ok/2s903l8txenzshy/NovelDR+v1.3.8rev118.apk', itch: '#' }, '1.0.3rev055': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.3rev055/NovelDR.v1.0.3rev055.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.3rev055/NovelDR.v1.0.3rev055.apk', mediafire: 'https://download1588.mediafire.com/zq8r7i8doqlgJM5Hf43LK5QdYbykhR2hy9iXrQWSQ9fVEaqHh-2deGoxoLSsjm2qLue0ub1X1k84UYoq42ffN_KywIyBQhhNi7DdGxjOr_iGmScdBn3jE0l_5owGfeQWf8Tu1ixWleCH9irkQB5jPnAwopiVqljH33xS727ukWtfaw/y99wdh734uyhzxt/NovelDR+v1.0.3rev055.apk', itch: '#' }, '1.0.2rev36': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.2rev36/NovelDR.v1.0.2rev36.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.2rev36/NovelDR.v1.0.2rev36.apk', mediafire: 'https://download1590.mediafire.com/fp02lggtg5igYi2B4Z-ND5PaioBimZMEpqc-f-M-y1gGnTPW1rasrkKiXzoNorw5pRnS2vZi5aNUrwebmHh7_GO_VJ6AutAN5z-FNBKDPGPXWW_qfdqLpgWbkOHuKi_3LT9oF1GK93kCOT68pUV4WW74hjY6HtzR9V2fgMkhRadIHw/2ml2qrqdi595eqe/NovelDR+v1.0.2rev36.apk', itch: '#' }, '1.0.1rev16': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.1rev16/NovelDR-Build-16.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.1rev16/NovelDR-Build-16.apk', mediafire: 'https://download1323.mediafire.com/9jeliri9fefgZ_lHHO1wJM7yGf4fVaPAfDLognU0qX_tu_N51TvvIcpM4OWVUEXyYkkRsEt6Nra4_aOt4bZOgY_rvUlbOvTS0ZrY8anpHCZJxy0Lf-X8gTMqniqF-VtxavWiKCIAfn8jT-56sa3yyZ0LQwApsJBsFPdJyrr-iAacq7Q/p4fgkrzjvxl8a44/NovelDR-Build-16.apk', itch: '#' } };
+        function downloadVersion(version, source) { const url = downloadUrls[version]?.[source]; if (url && url !== '#') { downloadUrl = url; startCountdown(); } else { alert(`Download for ${version} from ${source} is not available yet.`); } }
+        window.downloadVersion = downloadVersion;
+
+        // Changelog modal
+        const versionChangelogModal = document.getElementById('versionChangelogModal');
+        const modalVersionTitle = document.getElementById('modalVersionTitle');
+        const modalChangelogContent = document.getElementById('modalChangelogContent');
+        const closeVersionChangelogBtn = document.getElementById('closeVersionChangelogBtn');
+        const versionChangelogs = { '1.3.10rev131': {date:'April 25, 2026', changes:["[NEW] Added a 'Duplicity Guard' to the code, checks for existing novel in the library before downloading","[IMPROVEMENT] Improved the scraping code for Novelbin by adding junk filters","[IMPROVEMENT] Improved the code when downloading novels by streamlining and simplifying the title fetching.","[BUGFIX] Fixed the 'Author' scraper for Novelbin during metadata fetching","[BUGFIX] Fixed the download code to avoid freezing when downloading existing novel"]}, '1.3.9rev128': {date: 'April 21, 2026', changes: ['[NEW] Updates tab now downloads and saves novel covers locally','[NEW] Refreshes cover images if changed on source website','[NEW] System Action Required warning card is now clickable','[NEW] Tapping opens Android settings directly to manage unused apps','[NEW] Batch delete confirmation with item count display','[NEW] Added "Starting Chapter" input field next to "Max Chapters"','[NEW] Updates tab now checks and updates author if changed','[NEW] Refreshes synopsis when source is updated','[IMPROVEMENT] Allows "SKIPPER" to skip chapters smoothly and starting downloads from specific chapter','[IMPROVEMENT] Improved error handling during updates','[IMPROVEMENT] Better duplicate detection when merging chapters','[IMPROVEMENT] Ensures all selected novels are removed properly during deletion','[FIXED] Make "Batch Restore" the default for restoring files from Imported Backup','[FIXED] Resolve the dysfunctional "Restore" system in the Import function','[FIXED] Add "Fetcher" to the "Update" tab when downloading Chapters','[FIXED] Add "Starting Chapter" field to the "Update" tab','[FIXED] Delete Tab only deletes one file even after selection','[FIXED] Minor bugs and performance issues'] }, '1.3.8rev118': { date: 'April 15, 2026', changes: ['[NEW] Added support for LightNovelWorld','Added scraper for Author, Cover, Synopsis, and Chapter Content','Added About Developer tab','Added Github link in the Developer tab','Added Website Link in the Developer tab','Added auto-scroll speed presets','Added "Import File" function to the Backup System','Improved Skipper Code functionality','Increased value presets for AutoScroll, Line Spacing, and Font Size','Download Tab now downloads cover locally for offline display','Improved the scraper for the LightNovelWorld','[NEEDS FIXING] "Delete Tab" only deletes one file even after selection','[NEEDS FIXING] To add "Starting Chapter" field to the "Update" tab','[NEEDS FIXING] To add "Fetcher" to the "Update" tab when downloading Chapters.','[NEEDS FIXING] Resolve the dysfunctional "Restore" system in the Import system','[NEEDS FIXING] Make "Batch Restore" the default for restoring files from Imported Backup','Minor bugs and performance issues'] }, '1.0.3rev055': { date: 'April 13, 2026', changes: ['NovelBin and FreeWebNovel now fully supported','Library filters: All, Unread, Reading, Completed','Library search, and batch delete (via ⋮ menu)','Long press novel cover to update reading status','AutoScroll with presets','Updates tab now has search function','Skipper (skip existing chapters) and Traverser (resume downloads)','Backup & Restore system','2-prompt warning when deleting a novel','Better Download tab stability','FreeWebNovel now shows author, cover, and synopsis'] }, '1.0.2rev36': { date: 'March 27, 2026', changes: ['Activity Logs are now visible.','Progress bar is now visible','Stabilized downloader & update lifeline code','[NEEDS FIXING] Modify the icon of the Update tab.','[NEEDS FIXING] Full FreeWebNovel site support','[NEEDS FIXING] Improved Author & Synopsis extraction'] }, '1.0.1rev16': { date: 'March 27, 2026', changes: ['Initial public release','ReadNovelFull, NovelFull support','Partial FreeWebNovelSupport','Basic download & update functionality','Dark, Light, Sepia themes','Reader Settings presets: Line Spacing & Font Size','Added Delete novel by long-pressing the novel cover'] } };
+        function showVersionChangelog(version) { const log = versionChangelogs[version]; if(log) { modalVersionTitle.textContent = version; let html = `<p class="changelog-date">📅 ${log.date}</p><ul style="list-style:none;padding:0;">`; log.changes.forEach(c => { html += `<li style="padding:8px 0 8px 24px;background:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22%238f5e4e%22><path d=%22M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z%22/></svg>') left center no-repeat;background-size:16px;border-bottom:1px solid #f0e4dc;color:#3d2e28;">${c}</li>`; }); html += '</ul>'; modalChangelogContent.innerHTML = html; versionChangelogModal.style.display = 'flex'; } else { alert('Changelog not available.'); } }
+        window.showVersionChangelog = showVersionChangelog;
+        if(closeVersionChangelogBtn) closeVersionChangelogBtn.addEventListener('click', () => versionChangelogModal.style.display = 'none');
+        if(versionChangelogModal) versionChangelogModal.addEventListener('click', (e) => { if(e.target === versionChangelogModal) versionChangelogModal.style.display = 'none'; });
+        showHome();
     </script>
 </body>
 </html>
