@@ -90,8 +90,6 @@
             border: 1px solid rgba(180, 140, 120, 0.2);
         }
 
-        /* Removed .nav styles (navigation header completely removed) */
-
         /* Views */
         #home-page, #changelog-page, #archives-page {
             animation: fadeIn 0.3s ease-in-out;
@@ -201,23 +199,36 @@
             display: inline-block;
         }
 
+        /* Download Buttons Container */
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         .download-btn {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             background: #2c211c;
             color: #faf6f2;
             border: none;
-            padding: 1.1rem 3rem;
+            padding: 1.1rem 2rem;
             border-radius: 48px;
             font-weight: 600;
-            font-size: 1.2rem;
+            font-size: 1rem;
             cursor: pointer;
             text-decoration: none;
             box-shadow: 0 10px 24px rgba(44, 33, 28, 0.2);
             transition: all 0.2s;
             border: 1px solid rgba(255, 255, 255, 0.08);
-            margin-bottom: 1.5rem;
+            flex: 1;
+            min-width: 140px;
+            justify-content: center;
+            white-space: nowrap;
         }
 
         .download-btn:hover {
@@ -227,6 +238,15 @@
 
         .download-btn:active {
             transform: scale(0.97);
+        }
+
+        .mirror-btn {
+            background: #8f5e4e;
+            box-shadow: 0 10px 24px rgba(143, 94, 78, 0.3);
+        }
+
+        .mirror-btn:hover {
+            background: #a06d5c;
         }
 
         .card-links-row {
@@ -665,9 +685,14 @@
                         </div>
                         <h2>Novel DR v1.4.0</h2>
                         <span class="version-badge">Build: v1.4.0rev147</span>
-                        <a id="downloadMainBtn" class="download-btn">
-                            <i class="fas fa-download"></i> Download APK
-                        </a>
+                        <div class="download-buttons">
+                            <a id="downloadMainBtn" class="download-btn">
+                                <i class="fas fa-download"></i> Download APK
+                            </a>
+                            <a id="downloadMirrorBtn" class="download-btn mirror-btn">
+                                <i class="fas fa-cloud-download-alt"></i> Mirror
+                            </a>
+                        </div>
                         <div class="card-links-row">
                             <a id="link-to-changelog">View detailed changelog</a>
                             <span>Looking for old versions? <a id="link-to-archives">Browse here</a></span>
@@ -925,22 +950,58 @@
         // Download logic (fully functional)
         const modal = document.getElementById('downloadModal');
         const downloadBtn = document.getElementById('downloadMainBtn');
+        const mirrorBtn = document.getElementById('downloadMirrorBtn');
         const closeModalBtn = document.getElementById('closeModalBtn');
         const countdownDisplay = document.getElementById('countdownDisplay');
         const modalProgressBar = document.getElementById('modalProgressBar');
         const modalStatus = document.getElementById('modalStatus');
         let countdownInterval, progressInterval, currentCountdown = 5;
         let downloadUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v.1.4.0rev147/NovelDR.v1.4.0rev147.apk';
+        const mirrorUrl = 'https://download1589.mediafire.com/ye5ahoeodvhg_2A9SiApmQe84CbM-5NLrZQXzY49mwuFtHL5ChK1rV_EIGvhDSCPJom2UQuyud_BoIqNjSHbFJUCfTEXo9sX5utPGnwKUWv7lEG-Iq5K_ee5XDMze89ynFGqxcUMYGkjREtJKe1IvQ3bKGl5DnFGfKGcqO1E6n4utQ/qcqnjoqm828753c/NovelDR+v1.3.11rev137.apk';
 
         function resetModal() { if (countdownInterval) clearInterval(countdownInterval); if (progressInterval) clearInterval(progressInterval); currentCountdown = 5; if (countdownDisplay) countdownDisplay.textContent = '5'; if (modalProgressBar) modalProgressBar.style.width = '0%'; if (modalStatus) modalStatus.textContent = 'Your download will start in 5 seconds...'; }
-        function startCountdown() { resetModal(); modal.style.display = 'flex'; let progress = 0; progressInterval = setInterval(() => { progress += 2; if (modalProgressBar) modalProgressBar.style.width = progress + '%'; if (progress >= 100) clearInterval(progressInterval); }, 100); countdownInterval = setInterval(() => { currentCountdown--; if (countdownDisplay) countdownDisplay.textContent = currentCountdown; if (modalStatus) modalStatus.textContent = `Download starting in ${currentCountdown} seconds...`; if (currentCountdown <= 0) { clearInterval(countdownInterval); if (modalStatus) modalStatus.textContent = "✅ Starting Download..."; window.open(downloadUrl, '_blank'); setTimeout(() => { modal.style.display = 'none'; resetModal(); }, 2000); } }, 1000); }
-        if (downloadBtn) downloadBtn.addEventListener('click', (e) => { e.preventDefault(); startCountdown(); });
+        function startCountdown(url) { 
+            downloadUrl = url;
+            resetModal(); 
+            modal.style.display = 'flex'; 
+            let progress = 0; 
+            progressInterval = setInterval(() => { 
+                progress += 2; 
+                if (modalProgressBar) modalProgressBar.style.width = progress + '%'; 
+                if (progress >= 100) clearInterval(progressInterval); 
+            }, 100); 
+            countdownInterval = setInterval(() => { 
+                currentCountdown--; 
+                if (countdownDisplay) countdownDisplay.textContent = currentCountdown; 
+                if (modalStatus) modalStatus.textContent = `Download starting in ${currentCountdown} seconds...`; 
+                if (currentCountdown <= 0) { 
+                    clearInterval(countdownInterval); 
+                    if (modalStatus) modalStatus.textContent = "✅ Starting Download..."; 
+                    window.open(downloadUrl, '_blank'); 
+                    setTimeout(() => { 
+                        modal.style.display = 'none'; 
+                        resetModal(); 
+                    }, 2000); 
+                } 
+            }, 1000); 
+        }
+        
+        if (downloadBtn) downloadBtn.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            startCountdown('https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v.1.4.0rev147/NovelDR.v1.4.0rev147.apk'); 
+        });
+        
+        if (mirrorBtn) mirrorBtn.addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            startCountdown(mirrorUrl); 
+        });
+        
         if (closeModalBtn) closeModalBtn.addEventListener('click', () => { resetModal(); modal.style.display = 'none'; });
         if (modal) modal.addEventListener('click', (e) => { if (e.target === modal) { resetModal(); modal.style.display = 'none'; } });
 
         // Archive Downloads Mapping
         const downloadUrls = { '1.3.11rev137': {site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.11/NovelDR.v1.3.11rev137.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.11/NovelDR.v1.3.11rev137.apk', mediafire: 'https://download1589.mediafire.com/wq2154h2miegtytGUMRtiQ-aPfh87uCHlPq0qz1sfUktSPQteITpOpnUbio9czO5_mEtidGhaKZFVAYM0EM7RJG8PPg50Jgda1auIghI7kE5c_2KzHjkfnGku7BS3vow_15IKx4Bwg_vkw3BLaLntLSbnMFF6p3JNJTTZ5lmp2U_/qcqnjoqm828753c/NovelDR+v1.3.11rev137.apk', itch: '#' }, '1.3.10rev131': {site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.10/NovelDR.v1.3.10rev131.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.10/NovelDR.v1.3.10rev131.apk', mediafire: 'https://download1326.mediafire.com/7oqxsmgcojxgrBm7PR2rDTytGLAEteS6ayeiQ2Oo9YlxQXywPsoB8T_TMghg62LLGeRnk9ygrxUOkiZc2Jy3Q_gmia-_KHuqf_X6EizwfjYhQzKtrz5miQbST-e0rmqMwQWCdaSG4wRJ70XcRhIpRCadSHmW0RcMc0mcl1avOB8/o53v8sbw0agdt58/NovelDR+v1.3.10rev131.apk', itch: '#' }, '1.3.9rev128': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.9/NovelDR.v1.3.9rev128.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.9/NovelDR.v1.3.9rev128.apk', mediafire: 'https://download942.mediafire.com/ovm3g12s63rg4NzZbGHNe9AsZeeuzYFIWH-_LJdillgsJU6M0krIkx6PYIqfY9y-pv1m58pkuOJpfhhdaIxZYstqqga-zIlDKCVx0ZD3Kp9QtGsQ29ABrfGzyAv-bQ7n_8JR8MASXQPEKSKHqvtLFhqNknTWk5t61EQf3dtrrRNU7A/18j1mucp3nm2wq2/NovelDR+v1.3.9rev128.apk', itch: '#' }, '1.3.8rev118': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk', mediafire: 'https://download1326.mediafire.com/ac4tlso09zkgsglTb4JbR6Ne2XvsdNrhblXz-sZDl3gFZTzzbs1UTnAZbbQfBSM1Ym_kbdinDjSct946WQMnlgdbRwCbM9ViGlqDor6SDbyAwDfmdzVvUzgV_EwXqC-uChO-fvLy9gpM51rBSvdy2JZhJXbby5VOwYg_77L38-As3ok/2s903l8txenzshy/NovelDR+v1.3.8rev118.apk', itch: '#' }, '1.0.3rev055': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.3rev055/NovelDR.v1.0.3rev055.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.3rev055/NovelDR.v1.0.3rev055.apk', mediafire: 'https://download1588.mediafire.com/zq8r7i8doqlgJM5Hf43LK5QdYbykhR2hy9iXrQWSQ9fVEaqHh-2deGoxoLSsjm2qLue0ub1X1k84UYoq42ffN_KywIyBQhhNi7DdGxjOr_iGmScdBn3jE0l_5owGfeQWf8Tu1ixWleCH9irkQB5jPnAwopiVqljH33xS727ukWtfaw/y99wdh734uyhzxt/NovelDR+v1.0.3rev055.apk', itch: '#' }, '1.0.2rev36': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.2rev36/NovelDR.v1.0.2rev36.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.2rev36/NovelDR.v1.0.2rev36.apk', mediafire: 'https://download1590.mediafire.com/fp02lggtg5igYi2B4Z-ND5PaioBimZMEpqc-f-M-y1gGnTPW1rasrkKiXzoNorw5pRnS2vZi5aNUrwebmHh7_GO_VJ6AutAN5z-FNBKDPGPXWW_qfdqLpgWbkOHuKi_3LT9oF1GK93kCOT68pUV4WW74hjY6HtzR9V2fgMkhRadIHw/2ml2qrqdi595eqe/NovelDR+v1.0.2rev36.apk', itch: '#' }, '1.0.1rev16': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.1rev16/NovelDR-Build-16.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.1rev16/NovelDR-Build-16.apk', mediafire: 'https://download1323.mediafire.com/9jeliri9fefgZ_lHHO1wJM7yGf4fVaPAfDLognU0qX_tu_N51TvvIcpM4OWVUEXyYkkRsEt6Nra4_aOt4bZOgY_rvUlbOvTS0ZrY8anpHCZJxy0Lf-X8gTMqniqF-VtxavWiKCIAfn8jT-56sa3yyZ0LQwApsJBsFPdJyrr-iAacq7Q/p4fgkrzjvxl8a44/NovelDR-Build-16.apk', itch: '#' } };
-        function downloadVersion(version, source) { const url = downloadUrls[version]?.[source]; if (url && url !== '#') { downloadUrl = url; startCountdown(); } else { alert(`Download for ${version} from ${source} is not available yet.`); } }
+        function downloadVersion(version, source) { const url = downloadUrls[version]?.[source]; if (url && url !== '#') { startCountdown(url); } else { alert(`Download for ${version} from ${source} is not available yet.`); } }
         window.downloadVersion = downloadVersion;
 
         // Changelog modal
