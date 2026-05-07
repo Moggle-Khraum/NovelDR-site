@@ -663,8 +663,8 @@
                         <div class="app-icon-large">
                             <i class="fab fa-android"></i>
                         </div>
-                        <h2>Novel DR v1.3.11</h2>
-                        <span class="version-badge">Build: v1.3.11rev137</span>
+                        <h2>Novel DR v1.4.0</h2>
+                        <span class="version-badge">Build: v1.4.0rev147</span>
                         <a id="downloadMainBtn" class="download-btn">
                             <i class="fas fa-download"></i> Download APK
                         </a>
@@ -693,11 +693,11 @@
                         <h3><i class="fas fa-chart-bar"></i> App Stats</h3>
                         <div class="stat-row">
                             <span class="stat-label"><i class="fas fa-hdd"></i> APK Size:</span>
-                            <span class="stat-value">~92.93 MB</span>
+                            <span class="stat-value">~92.96 MB</span>
                         </div>
                         <div class="stat-row">
                             <span class="stat-label"><i class="fas fa-tag"></i> Build Number:</span>
-                            <span class="stat-value">V1.3.11rev137</span>
+                            <span class="stat-value">V1.4.0rev147</span>
                         </div>
                         <div class="stat-row clickable-stat" onclick="window.open('https://virusscan.jotti.org/en-US/filescanjob/rr218ci9cs', '_blank')">
                             <span class="stat-label"><i class="fas fa-shield-virus"></i> Jotti's Malware:</span>
@@ -930,7 +930,7 @@
         const modalProgressBar = document.getElementById('modalProgressBar');
         const modalStatus = document.getElementById('modalStatus');
         let countdownInterval, progressInterval, currentCountdown = 5;
-        let downloadUrl = 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.11/NovelDR.v1.3.11rev137.apk';
+        let downloadUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v.1.4.0rev147/NovelDR.v1.4.0rev147.apk';
 
         function resetModal() { if (countdownInterval) clearInterval(countdownInterval); if (progressInterval) clearInterval(progressInterval); currentCountdown = 5; if (countdownDisplay) countdownDisplay.textContent = '5'; if (modalProgressBar) modalProgressBar.style.width = '0%'; if (modalStatus) modalStatus.textContent = 'Your download will start in 5 seconds...'; }
         function startCountdown() { resetModal(); modal.style.display = 'flex'; let progress = 0; progressInterval = setInterval(() => { progress += 2; if (modalProgressBar) modalProgressBar.style.width = progress + '%'; if (progress >= 100) clearInterval(progressInterval); }, 100); countdownInterval = setInterval(() => { currentCountdown--; if (countdownDisplay) countdownDisplay.textContent = currentCountdown; if (modalStatus) modalStatus.textContent = `Download starting in ${currentCountdown} seconds...`; if (currentCountdown <= 0) { clearInterval(countdownInterval); if (modalStatus) modalStatus.textContent = "✅ Starting Download..."; window.open(downloadUrl, '_blank'); setTimeout(() => { modal.style.display = 'none'; resetModal(); }, 2000); } }, 1000); }
