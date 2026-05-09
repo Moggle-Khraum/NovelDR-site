@@ -785,6 +785,37 @@
         <div id="changelog-page">
             <h2 style="color:#2c211c; margin-bottom: 1.5rem; font-size: 1.8rem;">📜 Version History</h2>
             <div class="changelog-entry">
+                <h3 style="color:#008000;">v1.4.0rev147</h3>
+                <p class="changelog-date">May 7, 2026 Update</p>
+                <ul>
+                    <li><strong>[NEW]</strong> Migrated library storage from AsyncStorage to expo-file-system for better data persistence</li>
+                    <li><strong>[NEW]</strong> Added automatic data migration on first launch with visual progress tracking</li>
+                    <li><strong>[NEW]</strong> Added multi-location data recovery to find novels after app updates</li>
+                    <li><strong>[NEW]</strong> Added individual chapter file storage for 3,000+ chapters support</li>
+                    <li><strong>[NEW]</strong> Added manual refresh button and pull-to-refresh to library screen</li>
+                    <li><strong>[NEW]</strong> Added swipe gesture support for switching between filter tabs</li>
+                    <li><strong>[NEW]</strong> Added search filtering by title or author with batch selection mode</li>
+                    <li><strong>[NEW]</strong> Added complete backup system saving all novels and progress to a single file</li>
+                    <li><strong>[NEW]</strong> Added real-time Activity Log showing backup and restore progress</li>
+                    <li><strong>[NEW]</strong> Added 5 export formats: TXT, EPUB, DOCX, RTF, and MOBI</li>
+                    <li><strong>[NEW]</strong> Added animated initialization screen on first launch</li>
+                    <li><strong>[IMPROVEMENT]</strong> 85% RAM reduction with individual chapter file storage</li>
+                    <li><strong>[IMPROVEMENT]</strong> Enhanced chapter number extraction to support decimal and Roman numerals</li>
+                    <li><strong>[IMPROVEMENT]</strong> Replaced spammy logs with cleaner milestone progress (25%, 50%, 75%)</li>
+                    <li><strong>[IMPROVEMENT]</strong> Optimized chapter list with FlatList virtualization</li>
+                    <li><strong>[BUGFIX]</strong> Fixed Table of Contents where chapters downloaded out of order appeared incorrectly</li>
+                    <li><strong>[BUGFIX]</strong> Fixed gear icon crashing with "Something went wrong" by removing recursive settings calls</li>
+                    <li><strong>[BUGFIX]</strong> Fixed data loss when updating from previous app versions</li>
+                    <li><strong>[BUGFIX]</strong> Fixed duplicate chapter entries when updating novels with existing chapters</li>
+                    <li><strong>[FIXED]</strong> Autoscroll not working with smooth continuous scrolling</li>
+                    <li><strong>[FIXED]</strong> Chapter flashing when navigating by persisting previous content</li>
+                    <li><strong>[FIXED]</strong> Backup not saving all chapters from multiple novels</li>
+                    <li><strong>[FIXED]</strong> Reader settings not persisting after app restart</li>
+                    <li><strong>[FIXED]</strong> Progress bar not updating correctly during max chapter limits</li>
+                </ul>
+            </div>
+
+            <div class="changelog-entry">
                 <h3>v1.3.11rev137</h3>
                 <p class="changelog-date">Apr 28, 2026 Update</p>
                 <ul>
