@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novel DR · Full Changelog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1e1b1a;
+            line-height: 1.5;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        .page-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #ece5de;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .logo-icon {
+            background: #8f5e4e;
+            border-radius: 12px;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #2c211c;
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c211c;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .changelog-entry {
+            background: #fbf6f1;
+            border: 1px solid #e5d5ca;
+            border-radius: 24px;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 4px 0 #dccfc6;
+        }
+        .changelog-entry h3 {
+            color: #2c211c;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+        .changelog-date {
+            font-size: 0.85rem;
+            color: #8a7a70;
+            margin-bottom: 0.5rem;
+        }
+        .changelog-codename {
+            font-size: 0.9rem;
+            color: #8f5e4e;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        .changelog-entry ul {
+            padding-left: 20px;
+            color: #3d2e28;
+        }
+        .changelog-entry li {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .changelog-section-title {
+            font-weight: 700;
+            margin-top: 0.8rem;
+            margin-bottom: 0.4rem;
+            color: #2c211c;
+            font-size: 1rem;
+        }
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            border: 1px solid #e5d5ca;
+            background: #fbf6f1;
+            color: #5a4a43;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            margin-top: 1rem;
+        }
+        .back-btn:hover {
+            background: #f0e8e0;
+            transform: translateY(-2px);
+        }
+        @media (max-width: 640px) {
+            .container { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <a href="index.html" class="logo-area">
+                <div class="logo-icon">
+                    <img src="app-icon.png" alt="NovelDR icon">
+                </div>
+                <span class="logo-text">Novel DR</span>
+            </a>
+        </div>
+
+        <h1><i class="fas fa-history"></i> Full Version History</h1>
+        <p style="margin-bottom: 1.5rem; color: #6e5b52;">All releases of Novel DR since initial launch.</p>
+
+        <!-- v1.4.0 -->
+        <div class="changelog-entry">
+            <h3>v1.4.0 (rev147)</h3>
+            <p class="changelog-date">May 7, 2026</p>
+            <p class="changelog-codename">✨ "The Foundation Update"</p>
+            <div class="changelog-section-title">🏗️ Core Storage</div>
+            <ul><li>Migrated entire library storage from AsyncStorage to expo-file-system for better data persistence across app updates.</li><li>Added automatic data migration on first launch with visual progress tracking.</li><li>Added multi-location data recovery to find novels after app updates.</li><li>Added one-time initialization flag so migration only runs once.</li></ul>
+            <div class="changelog-section-title">📖 Chapter Management</div>
+            <ul><li>Added automatic chapter number extraction from titles to sort chapters correctly regardless of download order.</li><li>Added chapterNumber field to Chapter type for reliable sorting without repeated title parsing.</li><li>Enhanced extractChapterNumber to support multiple title patterns (decimal chapters, Roman numerals, etc.).</li><li>Fixed Table of Contents display where chapters downloaded out of order would appear incorrectly.</li><li>Migrated to individual chapter file storage for 3,000+ chapters support with 85%+ RAM reduction.</li></ul>
+            <div class="changelog-section-title">📥 Download & Updates</div>
+            <ul><li>Added chapter number extraction during download for future sorting reliability.</li><li>Replaced spammy "every 30 chapters" skip logs with cleaner milestone progress at 25%, 50%, and 75% completion.</li><li>Added final summary log showing total skipped chapters and destination chapter.</li><li>Fixed chapter sorting to merge existing and new chapters by actual chapter number instead of download sequence.</li><li>Sorted downloaded chapters by chapter number before saving to library.</li><li>Added skip progress logging with milestone tracking.</li></ul>
+            <div class="changelog-section-title">📚 Library Screen</div>
+            <ul><li>Added manual refresh button in header with theme-aware accent color.</li><li>Added pull-to-refresh functionality to force reload library from storage.</li><li>Added swipe gesture support for switching between filter tabs.</li><li>Added search filtering by title or author with batch selection mode.</li></ul>
+            <div class="changelog-section-title">📖 Reader Screen</div>
+            <ul><li>Fixed gear icon crashing with "Something went wrong" by removing recursive settings calls.</li><li>Fixed autoscroll not working with smooth continuous scrolling at configurable speeds.</li><li>Fixed chapter flashing when navigating by persisting previous content during loads.</li><li>Added AsyncStorage fallback chain for loading legacy chapter content.</li><li>Fixed TOC chapter sorting with robust number extraction from multiple patterns.</li></ul>
+            <div class="changelog-section-title">💾 Backup & Restore</div>
+            <ul><li>Added complete backup system saving all novels, chapters, progress, and settings to a single file.</li><li>Added real-time Activity Log showing each backup and restore step with progress.</li><li>Added backup file management with share, delete, and metadata preview.</li><li>Added legacy AsyncStorage data capture in backups for full compatibility.</li><li>Added Import from File option for external backup restoration.</li></ul>
+            <div class="changelog-section-title">🎨 UI & Export</div>
+            <ul><li>Added "⋮" menu button to novel detail screen header with export options.</li><li>Added 5 export formats: TXT, EPUB, DOCX, RTF, and MOBI.</li><li>Added animated initialization screen with step-by-step progress on first launch.</li><li>Optimized chapter list with FlatList virtualization for smooth scrolling.</li></ul>
+            <div class="changelog-section-title">🛠️ Library Context</div>
+            <ul><li>Added refreshLibrary method to manually reload novel data from file system.</li><li>Updated saveChapterContent to accept optional chapterNumber parameter.</li><li>Preserved chapterNumber field when saving and loading library metadata.</li><li>Separated chapter metadata from content for memory-efficient browsing.</li></ul>
+            <div class="changelog-section-title">🎯 Bug Fixes</div>
+            <ul><li>Fixed issue where chapters without numbers in titles would break sorting.</li><li>Fixed duplicate chapter entries when updating novels with existing chapters.</li><li>Fixed data loss when updating from previous app versions.</li><li>Fixed chapter content not loading from AsyncStorage legacy data.</li><li>Fixed backup not saving all chapters from multiple novels.</li><li>Fixed reader settings not persisting after app restart.</li><li>Fixed progress bar not updating correctly during max chapter limits.</li></ul>
+        </div>
+
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+    </div>
+</body>
+</html>
