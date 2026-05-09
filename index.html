@@ -46,10 +46,100 @@
         .feature-card i{font-size:2.2rem;color:#8f5e4e;margin-bottom:1rem}
         .feature-card h3{font-weight:600;margin-bottom:8px;color:#2e231f;font-size:1.2rem}
         .feature-card p{color:#5a4a43;font-size:0.9rem}
+        
+        /* Latest Changelog Section */
+        .latest-changelog-section {
+            margin: 3rem 0 2rem;
+        }
+        .changelog-preview-card {
+            background: #fbf6f1;
+            border-radius: 32px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e5d5ca;
+            box-shadow: 0 8px 0 #dccfc6;
+            transition: all 0.2s ease;
+        }
+        .changelog-preview-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 0 #dccfc6;
+        }
+        .changelog-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid #e5d5ca;
+            padding-bottom: 0.75rem;
+        }
+        .changelog-version {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #2c211c;
+            letter-spacing: -0.02em;
+        }
+        .changelog-date {
+            font-size: 0.9rem;
+            color: #8f5e4e;
+            background: rgba(143, 94, 78, 0.12);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-weight: 500;
+        }
+        .changelog-codename {
+            font-size: 0.9rem;
+            color: #8f5e4e;
+            margin-bottom: 1.2rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+        }
+        .changelog-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .changelog-list li {
+            padding: 0.4rem 0 0.4rem 28px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="%238f5e4e"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat;
+            background-size: 18px;
+            font-size: 0.95rem;
+            color: #3d2e28;
+            border-bottom: 1px solid #f0e4dc;
+        }
+        .changelog-list li:last-child {
+            border-bottom: none;
+        }
+        .changelog-list li strong {
+            color: #2c211c;
+            font-weight: 600;
+        }
+        .changelog-footer-link {
+            margin-top: 1.5rem;
+            text-align: right;
+        }
+        .changelog-footer-link a {
+            color: #8f5e4e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .changelog-footer-link a:hover {
+            color: #5a3e36;
+        }
+        
         .download-cta-box{margin-top:2rem;background:linear-gradient(135deg,#2c211c 0%,#4a3830 100%);border-radius:32px;padding:2.5rem 2rem;text-align:center;box-shadow:0 20px 35px -10px rgba(60,40,30,.2);border:1px solid rgba(255,255,255,.1)}
         .download-cta-box h2{color:#faf6f2;font-size:1.8rem;font-weight:600;margin-bottom:.8rem}
         .download-cta-box p{color:#c9b8ae;margin-bottom:1.5rem}
         .download-cta-btn{display:inline-flex;align-items:center;gap:10px;background:#faf6f2;color:#2c211c;border:none;padding:1rem 2.5rem;border-radius:48px;font-weight:600;font-size:1.1rem;cursor:pointer;transition:all .2s;text-decoration:none}
+        
         .novel-footer{width:100%;border-top:1px solid rgba(0,0,0,.08);background:rgba(255,250,245,.96);padding:3rem 0 2rem;margin-top:3rem}
         .footer-container{max-width:1300px;margin:0 auto;padding:0 1.5rem}
         .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem}
@@ -64,9 +154,6 @@
         .footer-link{text-decoration:none;color:#6e5b52;cursor:pointer;font-size:.9rem;transition:color .2s}
         .footer-link:hover{color:#8f5e4e}
         .footer-bottom{border-top:1px solid rgba(0,0,0,.08);margin-top:2rem;padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:#6e5b52;flex-wrap:wrap;gap:1rem}
-        .footer-legal{display:flex;gap:1.5rem}
-        .footer-legal a{text-decoration:none;color:inherit;transition:color .2s}
-        .footer-legal a:hover{color:#8f5e4e}
         
         /* Dark theme */
         body.theme-dark{background:linear-gradient(145deg,#1a1a1a 0%,#121212 100%);color:#e0d8d0}
@@ -79,6 +166,12 @@
         body.theme-dark .feature-card i,.theme-dark .section-header i{color:#c9a99a}
         body.theme-dark .feature-card h3{color:#e0d8d0}
         body.theme-dark .feature-card p{color:#a09088}
+        body.theme-dark .changelog-preview-card{background:#252525;border-color:#3a3a3a;box-shadow:0 8px 0 #1a1a1a}
+        body.theme-dark .changelog-header{border-bottom-color:#3a3a3a}
+        body.theme-dark .changelog-version{color:#f0e8e0}
+        body.theme-dark .changelog-date,.theme-dark .changelog-codename{background:rgba(180,160,150,.2);color:#c9a99a}
+        body.theme-dark .changelog-list li{color:#c0b0a8;border-bottom-color:#333}
+        body.theme-dark .changelog-list li strong{color:#e0d8d0}
         body.theme-dark .phone-frame{background:#0f0f0f;box-shadow:0 30px 50px -15px rgba(0,0,0,.5),0 0 0 8px #2a2522}
         body.theme-dark .phone-screen{background:#1a1a1a}
         body.theme-dark .status-bar{color:#e0d8d0;border-bottom-color:#333}
@@ -101,6 +194,11 @@
         body.theme-sepia .feature-card i,.theme-sepia .section-header i{color:#8f6e4e}
         body.theme-sepia .feature-card h3{color:#5c4a3a}
         body.theme-sepia .feature-card p{color:#7a6a5a}
+        body.theme-sepia .changelog-preview-card{background:#f4ecd8;border-color:#d4c5a0;box-shadow:0 8px 0 #c4b590}
+        body.theme-sepia .changelog-header{border-bottom-color:#d4c5a0}
+        body.theme-sepia .changelog-version{color:#5c4a3a}
+        body.theme-sepia .changelog-date,.theme-sepia .changelog-codename{background:rgba(140,110,80,.15);color:#8f6e4e}
+        body.theme-sepia .changelog-list li{color:#6a5a4a;border-bottom-color:#e0d0b8}
         body.theme-sepia .phone-frame{background:#1a140e;box-shadow:0 30px 50px -15px rgba(60,40,20,.35),0 0 0 8px #d4c5a0}
         body.theme-sepia .phone-screen{background:#f4ecd8}
         body.theme-sepia .status-bar{color:#5c4a3a;border-bottom-color:#d4c5a0}
@@ -118,6 +216,7 @@
             .section-header{font-size:1.8rem}
             h1{font-size:2.5rem}
             .phone-mock-wrapper{margin-top:1rem}
+            .changelog-version{font-size:1.3rem}
         }
     </style>
 </head>
@@ -139,10 +238,10 @@
                             <div class="status-bar" aria-hidden="true"><span>9:41</span><span><i class="fas fa-signal"></i> <i class="fas fa-wifi"></i> 75%</span></div>
                             <div class="carousel-container">
                                 <div class="carousel-slides" id="carouselSlides">
-                                    <div class="slide"><img class="slide-image" id="slideImg0" src="assets/Light_Library.png" alt="Library screen showing novel collection" width="300" height="533" loading="eager"></div>
-                                    <div class="slide"><img class="slide-image" id="slideImg1" src="assets/Light_Download.png" alt="Download screen showing chapter selection" width="300" height="533" loading="lazy"></div>
-                                    <div class="slide"><img class="slide-image" id="slideImg2" src="assets/Light_Updates.png" alt="Updates screen showing new chapters" width="300" height="533" loading="lazy"></div>
-                                    <div class="slide"><img class="slide-image" id="slideImg3" src="assets/Light_Settings.png" alt="Settings screen with theme options" width="300" height="533" loading="lazy"></div>
+                                    <div class="slide"><img class="slide-image" id="slideImg0" src="assets/Light_Library.png" alt="Library screen" width="300" height="533" loading="eager"></div>
+                                    <div class="slide"><img class="slide-image" id="slideImg1" src="assets/Light_Download.png" alt="Download screen" width="300" height="533" loading="lazy"></div>
+                                    <div class="slide"><img class="slide-image" id="slideImg2" src="assets/Light_Updates.png" alt="Updates screen" width="300" height="533" loading="lazy"></div>
+                                    <div class="slide"><img class="slide-image" id="slideImg3" src="assets/Light_Settings.png" alt="Settings screen" width="300" height="533" loading="lazy"></div>
                                 </div>
                             </div>
                         </div>
@@ -163,6 +262,32 @@
             <div class="feature-card" role="listitem"><i class="fas fa-cloud-arrow-down" aria-hidden="true"></i><h3>Multi-Source Downloader</h3><p>Paste link, set range, download for offline reading.</p></div>
             <div class="feature-card" role="listitem"><i class="fas fa-bolt" aria-hidden="true"></i><h3>One-Tap Updates</h3><p>Update novels effortlessly with new chapters.</p></div>
             <div class="feature-card" role="listitem"><i class="fas fa-mobile-alt" aria-hidden="true"></i><h3>Customizable Reader</h3><p>Themes, font controls, backup & restore.</p></div>
+        </div>
+
+        <!-- LATEST CHANGELOG SECTION (only v1.4.0) -->
+        <div class="latest-changelog-section">
+            <div class="section-header"><i class="fas fa-history" aria-hidden="true"></i><span>Latest Update</span></div>
+            <div class="changelog-preview-card">
+                <div class="changelog-header">
+                    <span class="changelog-version">v1.4.0 (rev147)</span>
+                    <span class="changelog-date">📅 May 7, 2026</span>
+                </div>
+                <div class="changelog-codename">✨ "The Foundation Update"</div>
+                <ul class="changelog-list">
+                    <li><strong>🏗️ Core Storage</strong> — Migrated to expo-file-system for better data persistence</li>
+                    <li><strong>📖 Chapter Management</strong> — Automatic chapter number extraction & 85% RAM reduction</li>
+                    <li><strong>📥 Download & Updates</strong> — Smarter sorting, milestone progress tracking</li>
+                    <li><strong>📚 Library Screen</strong> — Pull-to-refresh, swipe gestures, search filtering</li>
+                    <li><strong>📖 Reader Screen</strong> — Fixed autoscroll, chapter flashing, gear icon crash</li>
+                    <li><strong>💾 Backup & Restore</strong> — Complete backup system with real-time logs</li>
+                    <li><strong>🎨 UI & Export</strong> — 5 export formats (TXT, EPUB, DOCX, RTF, MOBI)</li>
+                    <li><strong>🛠️ Library Context</strong> — Manual reload, memory-efficient browsing</li>
+                    <li><strong>🎯 Bug Fixes</strong> — Sorting, duplicates, data loss, progress bar fixes</li>
+                </ul>
+                <div class="changelog-footer-link">
+                    <a href="changelog.html"><i class="fas fa-book-open"></i> View complete changelog history →</a>
+                </div>
+            </div>
         </div>
 
         <div class="download-cta-box" id="downloadNow">
@@ -210,17 +335,15 @@
 
     <script>
     (function() {
-        // Theme and image mapping for the carousel only (Live Demo completely removed)
+        // Theme and image mapping for carousel
         const heroImages = {
             light: ["assets/Light_Library.avif","assets/Light_Download.avif","assets/Light_Updates.avif","assets/Light_Settings.avif"],
             dark: ["assets/Dark_Library.avif","assets/Dark_Download.avif","assets/Dark_Updates.avif","assets/Dark_Settings.avif"],
             sepia: ["assets/Sepia_Library.avif","assets/Sepia_Download.avif","assets/Sepia_Updates.avif","assets/Sepia_Settings.avif"]
         };
         
-        let currentGlobalTheme = 'light';
         let carouselIndex = 0;
         let carouselInterval;
-        
         const carouselSlides = document.getElementById('carouselSlides');
         const totalSlides = 4;
         
@@ -231,12 +354,10 @@
         function stopCarousel() { if(carouselInterval) clearInterval(carouselInterval); }
         
         function setGlobalTheme(theme) {
-            currentGlobalTheme = theme;
             document.body.classList.remove('theme-dark', 'theme-sepia');
             if(theme === 'dark') document.body.classList.add('theme-dark');
             else if(theme === 'sepia') document.body.classList.add('theme-sepia');
             
-            // Update carousel images only (no live demo phone)
             const imgs = heroImages[theme];
             for(let i = 0; i < 4; i++) {
                 const img = document.getElementById('slideImg'+i);
@@ -250,7 +371,6 @@
             }
         }
         
-        // Theme buttons
         document.querySelectorAll('.theme-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active-theme'));
@@ -259,16 +379,11 @@
             });
         });
         
-        // Initialize carousel and hover events
         const phoneFrame = document.getElementById('phoneFrame');
         if(phoneFrame) { 
             phoneFrame.addEventListener('mouseenter', stopCarousel); 
             phoneFrame.addEventListener('mouseleave', startCarousel); 
         }
-        
-        // Preload critical images for smoother experience
-        const critical = ['assets/Light_Library.avif', 'assets/Light_Download.avif', 'assets/Dark_Library.avif', 'assets/Sepia_Library.avif'];
-        critical.forEach(src => { const img = new Image(); img.src = src; });
         
         startCarousel();
         setGlobalTheme('light');
