@@ -32,20 +32,17 @@ NovelDR is a free, open-source Android application that lets you download webnov
 6. Download and read offline!
 
 ## 📝 TO DO - BUGFIX/PATCHES/IMPROVEMENTS
-- [ ] Fix the app crashes and freezing when chapters of novels go beyond 1.2k chapters long
-- [ ] Add support for 1k+ Chapters long.
-- [ ] Improved the Backup System to literally 'BACKUP' everything including the chapters
-- [ ] Improved the Import Reader to read and restore the compressed backup.
-- [ ] To overhaul the display of Novel Detail screen to Export Novel into EPUB, TXT, and DOCX.
-- [ ] To use the Device's Storage instead of the App's Internal Storage.
+- [ ] Improved the Export of PDF, spacings for DOC, EPUB, 
+- [ ] Add other sources
+- [ ] will be added later on.
+
 ## :dart: COMPLETED IMPROVEMENTS
-- [x] Add spport for ReadNovelFull, NovelFull, FreeWebNovel, LightNovelWorld, & Novelbin.
-- [x] Add basic downloader & reader function
-- [x] Added Filter Tags: All, Unread, Reading, Completed.
-- [x] Added Simple Backup System
-- [x] Added Themes: Light, Dark, Sepia
-- [x] Added AutoSort for Downloading chapters by skipping
-- [x] Added a Duplicity Check for downloader to detect if the novel already exists.
+- [x] Fix the app crashes and freezing when chapters of novels go beyond 1.2k chapters long
+- [x] Add support for 1k+ Chapters long.
+- [x] Improved the Backup System to literally 'BACKUP' everything including the chapters
+- [x] Improved the Import Reader to read and restore the compressed backup.
+- [x] To overhaul the display of Novel Detail screen to Export Novel into EPUB, TXT, and DOCX.
+- [X] To use the Device's Storage instead of the App's Internal Storage.
 - [x] ....and all other stuffs, you can read on the [Changelogs](https://github.com/Moggle-Khraum/NovelDR-site/releases)
 
 ## 📊 App Stats
