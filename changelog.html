@@ -140,31 +140,42 @@
         </div>
 
         <h1><i class="fas fa-history"></i> Latest Version History</h1>
-        <p style="margin-bottom: 1.5rem; color: #6e5b52;">Build 1.4.0rev147 Changelog.</p>
+        <p style="margin-bottom: 1.5rem; color: #6e5b52;">Build 1.4.3rev171 Changelog.</p>
 
         <!-- v1.4.0 -->
         <div class="changelog-entry">
             <h3>v1.4.0 (rev147)</h3>
-            <p class="changelog-date">May 7, 2026</p>
-            <p class="changelog-codename">✨ "The Foundation Update"</p>
-            <div class="changelog-section-title">🏗️ Core Storage</div>
-            <ul><li>Migrated entire library storage from AsyncStorage to expo-file-system for better data persistence across app updates.</li><li>Added automatic data migration on first launch with visual progress tracking.</li><li>Added multi-location data recovery to find novels after app updates.</li><li>Added one-time initialization flag so migration only runs once.</li></ul>
-            <div class="changelog-section-title">📖 Chapter Management</div>
-            <ul><li>Added automatic chapter number extraction from titles to sort chapters correctly regardless of download order.</li><li>Added chapterNumber field to Chapter type for reliable sorting without repeated title parsing.</li><li>Enhanced extractChapterNumber to support multiple title patterns (decimal chapters, Roman numerals, etc.).</li><li>Fixed Table of Contents display where chapters downloaded out of order would appear incorrectly.</li><li>Migrated to individual chapter file storage for 3,000+ chapters support with 85%+ RAM reduction.</li></ul>
-            <div class="changelog-section-title">📥 Download & Updates</div>
-            <ul><li>Added chapter number extraction during download for future sorting reliability.</li><li>Replaced spammy "every 30 chapters" skip logs with cleaner milestone progress at 25%, 50%, and 75% completion.</li><li>Added final summary log showing total skipped chapters and destination chapter.</li><li>Fixed chapter sorting to merge existing and new chapters by actual chapter number instead of download sequence.</li><li>Sorted downloaded chapters by chapter number before saving to library.</li><li>Added skip progress logging with milestone tracking.</li></ul>
+            <p class="changelog-date">May 11, 2026</p>
+            <p class="changelog-codename">✨ "The Library Overhaul Update"</p>
             <div class="changelog-section-title">📚 Library Screen</div>
-            <ul><li>Added manual refresh button in header with theme-aware accent color.</li><li>Added pull-to-refresh functionality to force reload library from storage.</li><li>Added swipe gesture support for switching between filter tabs.</li><li>Added search filtering by title or author with batch selection mode.</li></ul>
+            <ul>
+                <li>Overhauled Library UI to display author, cover, source, progress, and a continue button.</li>
+                <li>Improved the LibraryContext to handle new fields (source, progress).</li>
+            </ul>
+            <div class="changelog-section-title">📖 Chapter Management</div>
+            <ul>
+                <li>Added a more robust synopsis extraction.</li>
+                <li>Added PDF Letter to the list of supported export options.</li>
+                <li>Fixed the synopsis extraction for new added domains.</li>
+                <li>Added junk filter for new and old supported domains.</li>
+            </ul>
+            <div class="changelog-section-title">📥 Download & Updates</div>
+            <ul>
+                <li>Added new supported domains to the app: NovelFull.com, AllNovel.org, and NovGo.net.</li>
+                <li>Removed the 'Clear' button in the Activity Log, its redundant to Clear Button.</li>
+                <li>Added update and download scraper support for the new domains.</li>
+            </ul>
+            
             <div class="changelog-section-title">📖 Reader Screen</div>
-            <ul><li>Fixed gear icon crashing with "Something went wrong" by removing recursive settings calls.</li><li>Fixed autoscroll not working with smooth continuous scrolling at configurable speeds.</li><li>Fixed chapter flashing when navigating by persisting previous content during loads.</li><li>Added AsyncStorage fallback chain for loading legacy chapter content.</li><li>Fixed TOC chapter sorting with robust number extraction from multiple patterns.</li></ul>
-            <div class="changelog-section-title">💾 Backup & Restore</div>
-            <ul><li>Added complete backup system saving all novels, chapters, progress, and settings to a single file.</li><li>Added real-time Activity Log showing each backup and restore step with progress.</li><li>Added backup file management with share, delete, and metadata preview.</li><li>Added legacy AsyncStorage data capture in backups for full compatibility.</li><li>Added Import from File option for external backup restoration.</li></ul>
-            <div class="changelog-section-title">🎨 UI & Export</div>
-            <ul><li>Added "⋮" menu button to novel detail screen header with export options.</li><li>Added 5 export formats: TXT, EPUB, DOCX, RTF, and MOBI.</li><li>Added animated initialization screen with step-by-step progress on first launch.</li><li>Optimized chapter list with FlatList virtualization for smooth scrolling.</li></ul>
-            <div class="changelog-section-title">🛠️ Library Context</div>
-            <ul><li>Added refreshLibrary method to manually reload novel data from file system.</li><li>Updated saveChapterContent to accept optional chapterNumber parameter.</li><li>Preserved chapterNumber field when saving and loading library metadata.</li><li>Separated chapter metadata from content for memory-efficient browsing.</li></ul>
+            <ul>
+                <li>Fixed the 'Content not available for this chapter'</li>
+                <li>Fixed the dysfunctional Synopsis' "See More/See Less".</li>
+                <li>Fixed the spacing of the dysfunctional synopsis.</li>
+            </ul>
             <div class="changelog-section-title">🎯 Bug Fixes</div>
-            <ul><li>Fixed issue where chapters without numbers in titles would break sorting.</li><li>Fixed duplicate chapter entries when updating novels with existing chapters.</li><li>Fixed data loss when updating from previous app versions.</li><li>Fixed chapter content not loading from AsyncStorage legacy data.</li><li>Fixed backup not saving all chapters from multiple novels.</li><li>Fixed reader settings not persisting after app restart.</li><li>Fixed progress bar not updating correctly during max chapter limits.</li></ul>
+            <ul>
+                <li>Fixed all the minor bugs and patched what needs to be patched.</li>
+            </ul>
         </div>
 
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
