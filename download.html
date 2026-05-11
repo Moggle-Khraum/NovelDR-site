@@ -695,8 +695,8 @@
                             <i class="fab fa-android"></i>
                         </div>
                         <h2>Novel DR v1.4.1</h2>
-                        <h3>Download has been disabled, major bug detected</h3>
-                        <span class="version-badge">Build: v1.4.1rev147</span>
+                        <!-- <h3>Download has been disabled, major bug detected</h3> -->
+                        <span class="version-badge">Build: v1.4.3rev171</span>
                         <div class="download-buttons" style="display: none;">
                             <a id="downloadMainBtn" class="download-btn">
                                 <i class="fas fa-download"></i> Download APK
@@ -996,8 +996,8 @@
         const modalProgressBar = document.getElementById('modalProgressBar');
         const modalStatus = document.getElementById('modalStatus');
         let countdownInterval, progressInterval, currentCountdown = 5;
-        let downloadUrl = 'https://download1523.mediafire.com/1agrk48nrm9g8Eb5LsmgjX6cMizOuNHOoopNKYKCtrnXXc_bt-Wshubq5EUhZyUYbxefFLhg5XfCVHLlVF1Ctmrxh3F8bi3S1Bzay0COhlDqZV7BL8ZXX_qj3DnSv8-8Yn8BWOxcX26JN9Oet--KGe56bovFxIt_Tlm_ECTKO_HgdTY/1tjtbd2i86x3ymx/NovelDR.v1.4.0rev147.apk';
-        const mirrorUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v.1.4.0rev147/NovelDR.v1.4.0rev147.apk';
+        let downloadUrl = 'https://download1350.mediafire.com/f6wqf21be6ogt_gHKjzxcthsiy3l-dV2lkkVnYGvzu3-XdedKPrwAuLc1qirkaonCQuwgI0I_DoI0_PG165Uy-BoZxJRs7YNsDeNWqxUbchTxvek-1Lrab7zliP-HY3rPEhxhiVJeu8nPIqLIdQaz0l5sfgxmXk5DgLNcnppT36nMQ/j58qxny1byduwpk/NovelDR+v1.4.3rev171.apk';
+        const mirrorUrl = 'https://github.com/Moggle-Khraum/NovelDR/actions/runs/25643889622/artifacts/6908402100';
 
         function resetModal() { if (countdownInterval) clearInterval(countdownInterval); if (progressInterval) clearInterval(progressInterval); currentCountdown = 5; if (countdownDisplay) countdownDisplay.textContent = '5'; if (modalProgressBar) modalProgressBar.style.width = '0%'; if (modalStatus) modalStatus.textContent = 'Your download will start in 5 seconds...'; }
         function startCountdown(url) { 
@@ -1028,7 +1028,7 @@
         
         if (downloadBtn) downloadBtn.addEventListener('click', (e) => { 
             e.preventDefault(); 
-            startCountdown('https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v.1.4.0rev147/NovelDR.v1.4.0rev147.apk'); 
+            startCountdown(downloadUrl); 
         });
         
         if (mirrorBtn) mirrorBtn.addEventListener('click', (e) => { 
