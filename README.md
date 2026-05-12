@@ -8,7 +8,7 @@
 
 ## 📖 About
 
-NovelDR is a free, open-source Android application that lets you download webnovels from multiple sources and read them offline. Built for readers who want uninterrupted access to their favorite stories without ads, accounts, or internet dependency.
+NovelDR is a free, open-source Android application that lets you download webnovels from multiple sources and read them offline. Built for readers who want uninterrupted access to their favorite stories without ads, or account creation, only use internet when downloading.
 
 ## ✨ Features
 
