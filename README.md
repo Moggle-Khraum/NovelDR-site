@@ -34,6 +34,11 @@ NovelDR is a free, open-source Android application that lets you download webnov
 ## 📝 TO DO - BUGFIX/PATCHES/IMPROVEMENTS
 - [ ] Improved the chapter title Fetcher of some of the domains as other domains already have a complete chapter title extractor.
 - [ ] Fixed the chapter title extractor for FreeWebNovel.
+- [ ] Add TTS to the app, to read each chapter.
+- [ ] Add Import Novel button to the Settings Tab, for loading local EPUB into the App.
+- [ ] Add multilingual domain sources
+- [ ] Add localization to the app.
+- [ ] and if there's anything comes to mind..
 
 ## :dart: COMPLETED IMPROVEMENTS
 - [x] Improved the Export of PDF, spacings for DOC, EPUB, 
