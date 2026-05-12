@@ -4,7 +4,6 @@
 
 [![Android](https://img.shields.io/badge/Android-8.0%2B-green?logo=android)](https://www.android.com)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Release](https://img.shields.io/badge/Release-v1.3.11rev137-brightgreen)](https://github.com/Moggle-Khraum/noveldr-site/releases)
 
 ## 📖 About
 
