@@ -46,10 +46,10 @@ NovelDR is a free, open-source Android application that lets you download webnov
 
 | Stat | Value |
 |------|-------|
-| Version | v1.3.10rev131 |
-| Size | ~92.93 MB |
+| Version | v1.4.3rev171 |
+| Size | ~93.99 MB |
 | Min Android | 8.0 (API 26) |
-| Malware Scan | Clean ✓ [(0/15)](https://virusscan.jotti.org/en-US/filescanjob/rr218ci9cs) |
+| Malware Scan | Clean ✓ [(0/15)](https://virusscan.jotti.org/en-US/filescanjob/fwthkx5sas) |
 | Permissions | Internet, Storage |
 
 ## 🤝 Contributing
