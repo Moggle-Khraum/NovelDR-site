@@ -32,17 +32,14 @@ NovelDR is a free, open-source Android application that lets you download webnov
 6. Download and read offline!
 
 ## 📝 TO DO - BUGFIX/PATCHES/IMPROVEMENTS
-- [ ] Improved the Export of PDF, spacings for DOC, EPUB, 
-- [ ] Add other sources
-- [ ] will be added later on.
+- [ ] Improved the chapter title Fetcher of some of the domains as other domains already have a complete chapter title extractor.
+- [ ] Fixed the chapter title extractor for FreeWebNovel.
 
 ## :dart: COMPLETED IMPROVEMENTS
-- [x] Fix the app crashes and freezing when chapters of novels go beyond 1.2k chapters long
-- [x] Add support for 1k+ Chapters long.
-- [x] Improved the Backup System to literally 'BACKUP' everything including the chapters
-- [x] Improved the Import Reader to read and restore the compressed backup.
-- [x] To overhaul the display of Novel Detail screen to Export Novel into EPUB, TXT, and DOCX.
-- [X] To use the Device's Storage instead of the App's Internal Storage.
+Improved the Export of PDF, spacings for DOC, EPUB, 
+- [x] Add other sources
+- [x] Overhaul the look of the Library UI
+- [x] Fix the app crashes and freezing when chapters of novels go beyond 3k chapters long
 - [x] ....and all other stuffs, you can read on the [Changelogs](https://github.com/Moggle-Khraum/NovelDR-site/releases)
 
 ## 📊 App Stats
