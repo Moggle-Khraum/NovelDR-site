@@ -63,10 +63,13 @@ Contributions are welcome! Feel free to:
 - Suggest features
 - Submit pull requests
 
+## ☕ Sponsor the Project
+
+Leave a Tip or Sponsor the project through Ko-Fi
+
 ## 📜 License
 
-This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
-
+This project is licensed under the MIT License
 ## ⚠️ Disclaimer
 
 NovelDR is a tool for downloading publicly available web content. Users are responsible for ensuring their downloads comply with applicable copyright laws. We encourage supporting authors by purchasing official releases when available.
