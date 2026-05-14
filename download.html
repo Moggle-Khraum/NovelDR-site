@@ -792,6 +792,7 @@
                 <ul>
                     <li><strong>[FIXED]</strong> Fixed the doubling of chapter title of FreeWebNovel, e.g 'Chapter 1: Chapter 1: Prologue' </li>
                     <li><strong>[FIXED]</strong> Fixed the missing chapter title for domains like AllNovel, ReadNovelFull, Novelfull, & Novelbin</li>
+                    <li><strong>[FIXED]</strong> Fixed the stray ' , ' when trimming title for ReadNovelFull
                     <li><strong>[IMPROVEMENT]</strong> Improved the downloader to utilized the new chapter title fetcher mechanism.</li>
                 </ul>
             </div>
@@ -1028,7 +1029,7 @@
         const modalProgressBar = document.getElementById('modalProgressBar');
         const modalStatus = document.getElementById('modalStatus');
         let countdownInterval, progressInterval, currentCountdown = 5;
-        let downloadUrl = 'https://github.com/Moggle-Khraum/NovelDR/actions/runs/25806885486/artifacts/6974051144';
+        let downloadUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v1.4.4rev175/NovelDR.v1.4.4rev178.apk';
         const mirrorUrl = 'https://www.mediafire.com/file/2idja3c1ncopbkh/NovelDR+v1.4.4rev178.apk/file';
 
         function resetModal() { if (countdownInterval) clearInterval(countdownInterval); if (progressInterval) clearInterval(progressInterval); currentCountdown = 5; if (countdownDisplay) countdownDisplay.textContent = '5'; if (modalProgressBar) modalProgressBar.style.width = '0%'; if (modalStatus) modalStatus.textContent = 'Your download will start in 5 seconds...'; }
