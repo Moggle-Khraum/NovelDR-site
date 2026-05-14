@@ -9,30 +9,10 @@
 
 NovelDR is a free, open-source Android application that lets you download webnovels from multiple sources and read them offline. Built for readers who want uninterrupted access to their favorite stories without ads, or account creation, only use internet when downloading.
 
-## ✨ Features
-
-- **🌐 Multi-Source Support** — Download from ReadNovelFull, NovelBin, NovelFull, FreeWebNovel, and LightNovelWorld
-- **📚 Smart Library** — Organize novels with filters (All, Unread, Reading, Completed) and batch selection
-- **🔄 One-Tap Updates** — Update your novels in just 2 taps: select the novel and tap Update
-- **🎨 3 Reading Themes** — Dark, Light, and Sepia modes for comfortable reading
-- **📖 Reading Customization** — Adjustable font size, line spacing, and auto-scroll
-- **💾 Data Control** — JSON Backup, Restore, and Import system for complete data portability
-- **⏭️ Smart Skipper** — Skip existing chapters when downloading to avoid duplicates
-- **🔒 100% Offline** — No account required, no data collection, everything stored locally
-- **🛡️ Clean & Safe** — Verified virus-free by Jotti's Malware Scan (0/15)
-
-## 🚀 Quick Start
-
-1. Download the lates APK from Release or from the [Website](https://moggle.is-a-good.dev/#) 
-2. Open the file and install (allow "Unknown Sources" if prompted)
-3. Launch NovelDR
-4. Paste a supported novel URL
-5. Set starting chapter and max chapters
-6. Download and read offline!
-
 ## 📝 TO DO - BUGFIX/PATCHES/IMPROVEMENTS
 - [x] Improved the chapter title Fetcher of some of the domains as other domains already have a complete chapter title extractor.
 - [x] Fixed the chapter title extractor for FreeWebNovel.
+- [ ] Add RoyalRoad domain support
 - [ ] Add TTS to the app, to read each chapter.
 - [ ] Add Import Novel button to the Settings Tab, for loading local EPUB into the App.
 - [ ] Add multilingual domain sources
@@ -46,15 +26,33 @@ NovelDR is a free, open-source Android application that lets you download webnov
 - [x] Fix the app crashes and freezing when chapters of novels go beyond 3k chapters long
 - [x] ....and all other stuffs, you can read on the [Changelogs](https://github.com/Moggle-Khraum/NovelDR-site/releases)
 
-## 📊 App Stats
+## 🖼️ App Screenshots
 
-| Stat | Value |
-|------|-------|
-| Version | v1.4.3rev171 |
-| Size | ~93.99 MB |
-| Min Android | 8.0 (API 26) |
-| Malware Scan | Clean ✓ [(0/15)](https://virusscan.jotti.org/en-US/filescanjob/fwthkx5sas) |
-| Permissions | Internet, Storage |
+### **Main Screens**
+| Library Tab | Download Tab | Updates Tab | Settings Tab |
+| ----------- | ------------ | ----------- | ------------- |
+| <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Library.png?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Download.png?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Updates.png?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Settings.png?raw=true" width="200"> |
+
+### **Library Features**
+| Search Function | Reload by Pull/Button | Batch Deletion | Swipe Gesture |
+| ----------- | ------------ | ----------- | ------------- |
+| <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/search.gif?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/pullReload.gif?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/batchDelete.gif?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/swipe.gif?raw=true" width="200"> |
+
+### **Novel Reader & App Theme**
+
+| Novel Detail | Export Novel | Reader | App Theme |
+| ----------- | ------------- | ------------ | ----------- |
+| <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/novelView.gif?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/export.gif?raw=true" width="200"> |  <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/reader.gif?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/theme.gif?raw=true" width="200"> |
+
+## 🌐 Supported Sources
+
+| Source | Domain | Status |    | Source | Domain | Status |
+|--------|--------|--------|----|--------|--------|--------|
+| ReadNovelFull | https://readnovelfull.com/ | ✅ Full support |    | NovelFull.com | https://novelfull.com/ | ✅ Full support |
+| NovelFull.net | https://novelfull.net/ | ✅ Full support |     | AllNovel | https://allnovel.org/ | ✅ Full support |
+| FreeWebNovel | https://freewebnovel.com/ | ✅ Full support |   | NovGo | https://novgo.net/ | ✅ Full support |
+| NovelBin | https://novelbin.com/ | ✅ Full support |     |
+| LightNovelWorld | https://lightnovelworld.org/ | ✅ Full support |    |
 
 ## 🤝 Contributing
 
