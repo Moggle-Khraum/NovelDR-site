@@ -1,9 +1,19 @@
-# NovelDR - Offline Webnovel Reader for Android
+# Novel DR
 
-**Read wuxia, xianxia, and webnovels offline. No ads, no login, just pure reading.**
+<div align="center">
 
-[![Android](https://img.shields.io/badge/Android-8.0%2B-green?logo=android)](https://www.android.com)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![Version](https://img.shields.io/badge/version-v1.4.4rev178r1-brightgreen)
+![Android](https://img.shields.io/badge/Android-8.0%2B-8f5e4e?logo=android)
+![Size](https://img.shields.io/badge/size-~92.93_MB-5a3e36)
+![Malware](https://img.shields.io/badge/Jotti's_Malware-Clean_✓_(0/15)-4caf50)
+![License](https://img.shields.io/badge/license-MIT-8f5e4e)
+
+**Download webnovels. Read anywhere. No ads, no login, just pure offline reading.**
+
+🌐 [Website](https://moggle.is-a-good.dev/) · 📦 [Download APK](https://github.com/Moggle-Khraum/noveldr-site/releases) · ☕ [Buy a Coffee](https://ko-fi.com/noveldrapp)
+
+</div>
+
 
 ## 📖 About
 
