@@ -65,7 +65,7 @@ Contributions are welcome! Feel free to:
 
 ## ☕ Sponsor the Project
 
-Leave a Tip or Sponsor the project through Ko-Fi
+Leave a Tip or Sponsor the project through [Ko-Fi](https://ko-fi.com/noveldrapp)
 
 ## 📜 License
 
