@@ -46,13 +46,13 @@ NovelDR is a free, open-source Android application that lets you download webnov
 ### **Library Features**
 | Search Function | Reload by Pull/Button | Batch Deletion | Swipe Gesture |
 | ----------- | ------------ | ----------- | ------------- |
-| <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/search.gif?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/pullReload.gif?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/batchDelete.gif?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/swipe.gif?raw=true" width="200"> |
+| <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/search.gif?raw=true" width="195"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/pullReload.gif?raw=true" width="195"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/batchDelete.gif?raw=true" width="195"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/swipe.gif?raw=true" width="195"> |
 
 ### **Novel Reader & App Theme**
 
 | Novel Detail | Export Novel | Reader | App Theme |
 | ----------- | ------------- | ------------ | ----------- |
-| <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/novelView.gif?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/export.gif?raw=true" width="200"> |  <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/reader.gif?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/theme.gif?raw=true" width="200"> |
+| <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/novelView.gif?raw=true" width="195"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/export.gif?raw=true" width="195"> |  <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/reader.gif?raw=true" width="195"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/gifs/theme.gif?raw=true" width="195"> |
 
 ## 🌐 Supported Sources
 
