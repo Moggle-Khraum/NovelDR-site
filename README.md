@@ -20,8 +20,6 @@
 NovelDR is a free, open-source Android application that lets you download webnovels from multiple sources and read them offline. Built for readers who want uninterrupted access to their favorite stories without ads, or account creation, only use internet when downloading.
 
 ## 📝 TO DO - BUGFIX/PATCHES/IMPROVEMENTS
-- [x] Improved the chapter title Fetcher of some of the domains as other domains already have a complete chapter title extractor.
-- [x] Fixed the chapter title extractor for FreeWebNovel.
 - [x] Added AMOLED, Night Read, and Cool as Themes.
 - [ ] Add RoyalRoad domain support
 - [ ] Add TTS to the app, to read each chapter.
@@ -31,11 +29,10 @@ NovelDR is a free, open-source Android application that lets you download webnov
 - [ ] and if there's anything comes to mind..
 
 ## :dart: COMPLETED IMPROVEMENTS
+- [x] Improved the chapter title Fetcher of some of the domains as other domains already have a complete chapter title extractor.
+- [x] Fixed the chapter title extractor for FreeWebNovel.
 - [x] Improved the Export of PDF, spacings for DOC, EPUB, 
-- [x] Add other sources
-- [x] Overhaul the look of the Library UI
-- [x] Fix the app crashes and freezing when chapters of novels go beyond 3k chapters long
-- [x] ....and all other stuffs, you can read on the [Changelogs](https://github.com/Moggle-Khraum/NovelDR-site/releases)
+- [x] ....and all other stuffs, you can read on the [Changelogs](https://github.com/Moggle-Khraum/NovelDR-site/releases) for more info.
 
 ## 🖼️ App Screenshots
 
