@@ -20,7 +20,7 @@
 NovelDR is a free, open-source Android application that lets you download webnovels from multiple sources and read them offline. Built for readers who want uninterrupted access to their favorite stories without ads, or account creation, only use internet when downloading.
 
 ## 📝 TO DO - BUGFIX/PATCHES/IMPROVEMENTS
-- [x] Added AMOLED, Night Read, and Cool as Themes.
+- [x] Added AMOLED, Warm, and Slate as Themes.
 - [ ] Add RoyalRoad domain support
 - [ ] Add TTS to the app, to read each chapter.
 - [ ] Add Import Novel button to the Settings Tab, for loading local EPUB into the App.
