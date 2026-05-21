@@ -817,13 +817,14 @@
                         <div class="app-icon-large">
                             <i class="fab fa-android"></i>
                         </div>
-                        <h2>[PRE-RELEASE] NovelDR v2.5.18</h2>
-                        <!-- <h3>Download has been disabled, major bug detected</h3> -->
+                        <h2>[TEST] NovelDR v2.5.18</h2>
+                        <!-- <h3>Download has been disabled, major bug detected ---- style="display: none;   </h3> -->
                         <span class="version-badge">Build: v2.5.18rev250</span>
-                        <div class="download-buttons" style="display: none;"=>
+                        <div class="download-buttons">
                             <a id="downloadMainBtn" class="download-btn">
                                 <i class="fas fa-download"></i> Download APK
                             </a>
+                            
                             <a id="downloadMirrorBtn" class="download-btn mirror-btn">
                                 <i class="fas fa-cloud-download-alt"></i> Mirror
                             </a>
@@ -860,7 +861,7 @@
                             <span class="stat-label"><i class="fas fa-tag"></i> Build Number:</span>
                             <span class="stat-value">V2.5.18rev250</span>
                         </div>
-                        <div class="stat-row clickable-stat" onclick="window.open('https://virusscan.jotti.org/en-US/filescanjob/h0x2nbx0xs', '_blank')">
+                        <div class="stat-row clickable-stat" onclick="window.open('https://virusscan.jotti.org/en-US/filescanjob/fc0ibwyft3', '_blank')">
                             <span class="stat-label"><i class="fas fa-shield-virus"></i> Jotti's Malware:</span>
                             <span class="stat-value clean-badge">Clean ✓ (0/15)</span>
                         </div>
@@ -925,10 +926,7 @@
                 <h3 style="color:#008000;">v2.5.18rev250</h3>
                 <p class="changelog-date">May 21, 2026 Update</p>
                 <ul>
-                    <li><strong>[FIXED]</strong>  </li>
-                    <li><strong>[FIXED]</strong> </li>
-                    <li><strong>[FIXED]</strong> 
-                    <li><strong>[IMPROVEMENT]</strong> </li>
+                    <li><strong>[PENDING]</strong> THE CHANGELOG IS STILL BEING WRITTEN </li>
                 </ul>
             </div>
 
@@ -1176,8 +1174,8 @@
         const modalProgressBar = document.getElementById('modalProgressBar');
         const modalStatus = document.getElementById('modalStatus');
         let countdownInterval, progressInterval, currentCountdown = 5;
-        let downloadUrl = '';
-        const mirrorUrl = '';
+        let downloadUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v2.5.18rev250/NovelDR.v2.5.18rev250.apk';
+        const mirrorUrl = 'https://www.mediafire.com/file/6osdu7k7l3is9z5/NovelDR_v2.5.18rev250.apk/file';
 
         function resetModal() { if (countdownInterval) clearInterval(countdownInterval); if (progressInterval) clearInterval(progressInterval); currentCountdown = 5; if (countdownDisplay) countdownDisplay.textContent = '5'; if (modalProgressBar) modalProgressBar.style.width = '0%'; if (modalStatus) modalStatus.textContent = 'Your download will start in 5 seconds...'; }
         function startCountdown(url) { 
