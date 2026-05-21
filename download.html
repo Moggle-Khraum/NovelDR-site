@@ -824,7 +824,6 @@
                             <a id="downloadMainBtn" class="download-btn">
                                 <i class="fas fa-download"></i> Download APK
                             </a>
-                            
                             <a id="downloadMirrorBtn" class="download-btn mirror-btn">
                                 <i class="fas fa-cloud-download-alt"></i> Mirror
                             </a>
@@ -1175,7 +1174,7 @@
         const modalStatus = document.getElementById('modalStatus');
         let countdownInterval, progressInterval, currentCountdown = 5;
         let downloadUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v2.5.18rev250/NovelDR.v2.5.18rev250.apk';
-        const mirrorUrl = 'https://www.mediafire.com/file/6osdu7k7l3is9z5/NovelDR_v2.5.18rev250.apk/file';
+        let mirrorUrl = 'https://www.mediafire.com/file/6osdu7k7l3is9z5/NovelDR_v2.5.18rev250.apk/file';
 
         function resetModal() { if (countdownInterval) clearInterval(countdownInterval); if (progressInterval) clearInterval(progressInterval); currentCountdown = 5; if (countdownDisplay) countdownDisplay.textContent = '5'; if (modalProgressBar) modalProgressBar.style.width = '0%'; if (modalStatus) modalStatus.textContent = 'Your download will start in 5 seconds...'; }
         function startCountdown(url) { 
