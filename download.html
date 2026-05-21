@@ -640,6 +640,129 @@
             margin-bottom: 0.75rem;
         }
 
+        /* Comment Section */
+        .comments-section {
+            background: #fbf6f1;
+            border-radius: 24px;
+            padding: 1.8rem;
+            border: 1px solid #e5d5ca;
+            box-shadow: 0 6px 0 #dccfc6;
+            margin-bottom: 2rem;
+        }
+
+        .comments-section h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c211c;
+            margin-bottom: 1.2rem;
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .comment-form input,
+        .comment-form textarea {
+            font-family: 'Inter', sans-serif;
+            background: #fff;
+            border: 1px solid #e5d5ca;
+            border-radius: 14px;
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            color: #2c211c;
+            outline: none;
+            transition: border-color 0.2s;
+            resize: none;
+        }
+
+        .comment-form input:focus,
+        .comment-form textarea:focus {
+            border-color: #8f5e4e;
+        }
+
+        .comment-form textarea {
+            min-height: 80px;
+        }
+
+        .comment-submit-btn {
+            align-self: flex-end;
+            background: #2c211c;
+            color: #faf6f2;
+            border: none;
+            padding: 0.7rem 1.8rem;
+            border-radius: 40px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(44, 33, 28, 0.2);
+        }
+
+        .comment-submit-btn:hover {
+            background: #3f302a;
+            transform: translateY(-2px);
+        }
+
+        .comment-submit-btn:active {
+            transform: translateY(1px);
+        }
+
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .comment-item {
+            background: #fff;
+            border: 1px solid #ece5de;
+            border-radius: 16px;
+            padding: 0.9rem 1.1rem;
+        }
+
+        .comment-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.4rem;
+        }
+
+        .comment-item-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #8f5e4e;
+        }
+
+        .comment-item-date {
+            font-size: 0.78rem;
+            color: #b0a098;
+        }
+
+        .comment-item-text {
+            font-size: 0.88rem;
+            color: #3d2e28;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .comments-empty {
+            text-align: center;
+            color: #b0a098;
+            font-size: 0.9rem;
+            padding: 1rem 0;
+        }
+
+        .comment-divider {
+            border: none;
+            border-top: 1px solid #f0e4dc;
+            margin: 0.4rem 0 1.2rem;
+        }
+
         @media (max-width: 800px) {
             .main-content {
                 grid-template-columns: 1fr;
@@ -781,9 +904,21 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- CHANGELOG PAGE -->
+            <!-- Comment Section -->
+            <div class="comments-section">
+                <h3>💬 Comments</h3>
+                <form class="comment-form" id="comment-form">
+                    <input type="text" id="username" placeholder="Your name" maxlength="50" required>
+                    <textarea id="comment" placeholder="Leave a comment or feedback…" maxlength="1000" required></textarea>
+                    <button type="submit" class="comment-submit-btn">Post Comment</button>
+                </form>
+                <hr class="comment-divider">
+                <div class="comments-list" id="comments-list">
+                    <p class="comments-empty">Loading comments…</p>
+                </div>
+            </div>
+        </div>
         <div id="changelog-page">
             <h2 style="color:#2c211c; margin-bottom: 1.5rem; font-size: 1.8rem;">📜 Version History</h2>
             <div class="changelog-entry">
@@ -1223,7 +1358,83 @@
         window.showVersionChangelog = showVersionChangelog;
         if(closeVersionChangelogBtn) closeVersionChangelogBtn.addEventListener('click', () => versionChangelogModal.style.display = 'none');
         if(versionChangelogModal) versionChangelogModal.addEventListener('click', (e) => { if(e.target === versionChangelogModal) versionChangelogModal.style.display = 'none'; });
+        // Comment Section
+        loadComments();
         showHome();
+    </script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getFirestore, collection, addDoc, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDX_bsbgeLVoxQzGK24EpFoeoa69d__SC8",
+            authDomain: "noveldr-app-moggle.firebaseapp.com",
+            projectId: "noveldr-app-moggle",
+            storageBucket: "noveldr-app-moggle.firebasestorage.app",
+            messagingSenderId: "154274694948",
+            appId: "1:154274694948:web:4b9a5d8c6c7c128f6b95b1",
+            measurementId: "G-Z8PFFSQ8RW"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const pageSlug = window.location.pathname;
+
+        async function loadComments() {
+            const commentsList = document.getElementById("comments-list");
+            commentsList.innerHTML = '<p class="comments-empty">Loading comments…</p>';
+            const q = query(
+                collection(db, "comments"),
+                where("pageSlug", "==", pageSlug),
+                orderBy("createdAt", "desc")
+            );
+            const querySnapshot = await getDocs(q);
+            commentsList.innerHTML = "";
+            if (querySnapshot.empty) {
+                commentsList.innerHTML = '<p class="comments-empty">No comments yet. Be the first!</p>';
+                return;
+            }
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const div = document.createElement("div");
+                div.className = "comment-item";
+                div.innerHTML = `
+                    <div class="comment-item-header">
+                        <span class="comment-item-name">${escapeHtml(data.username)}</span>
+                        <span class="comment-item-date">${new Date(data.createdAt.seconds * 1000).toLocaleString()}</span>
+                    </div>
+                    <div class="comment-item-text">${escapeHtml(data.comment)}</div>`;
+                commentsList.appendChild(div);
+            });
+        }
+
+        function escapeHtml(str) {
+            return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+        }
+
+        document.getElementById("comment-form").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const username = document.getElementById("username").value.trim();
+            const comment = document.getElementById("comment").value.trim();
+            if (comment.length < 2) { alert("Comment too short"); return; }
+            const btn = e.target.querySelector(".comment-submit-btn");
+            btn.disabled = true;
+            btn.textContent = "Posting…";
+            try {
+                await addDoc(collection(db, "comments"), { pageSlug, username, comment, createdAt: new Date() });
+                document.getElementById("comment-form").reset();
+                await loadComments();
+            } catch (err) {
+                alert("Failed to post comment. Please try again.");
+                console.error(err);
+            } finally {
+                btn.disabled = false;
+                btn.textContent = "Post Comment";
+            }
+        });
+
+        loadComments();
     </script>
 </body>
 </html>
