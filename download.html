@@ -1358,8 +1358,6 @@
         window.showVersionChangelog = showVersionChangelog;
         if(closeVersionChangelogBtn) closeVersionChangelogBtn.addEventListener('click', () => versionChangelogModal.style.display = 'none');
         if(versionChangelogModal) versionChangelogModal.addEventListener('click', (e) => { if(e.target === versionChangelogModal) versionChangelogModal.style.display = 'none'; });
-        // Comment Section
-        loadComments();
         showHome();
     </script>
 
