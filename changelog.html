@@ -140,21 +140,70 @@
         </div>
 
         <h1><i class="fas fa-history"></i> Latest Version History</h1>
-        <p style="margin-bottom: 1.5rem; color: #6e5b52;">Build 1.4.4rev175 Changelog.</p>
+        <p style="margin-bottom: 1.5rem; color: #6e5b52;">Build 2.5.18 (rev250) Changelog.</p>
 
-        <!-- v1.4.4 -->
+        <!-- v2.5.18 -->
         <div class="changelog-entry">
-            <h3>v1.4.4 (rev175)</h3>
-            <p class="changelog-date">May 13, 2026</p>
-            <p class="changelog-codename">✨ "The Overhaul Patch Update"</p>
-            <div class="changelog-section-title">📚 Library Screen</div>
+            <h3>v2.5.18 (rev250)</h3>
+            <p class="changelog-date">May 21, 2026</p>
+            <p class="changelog-codename">✨ "The Novelty Reader Release"</p>
+            
+            <div class="changelog-section-title">🚀 New/Improved/Updated/Patched</div>
             <ul>
-                <li>Fixed the doubling of chapter title of FreeWebNovel, e.g "Chapter 1: Chapter 1: Prologue".</li>
-                <li>Fixed the 'missing chapter title' for domains like AllNovel, ReadNovelFull, Novelfull, & Novelbin.</li>
+                <li><strong>Improved</strong> the automatic data migration on first launch to handle first run crash.</li>
+                <li><strong>Improved</strong> the data migration to work every launch of the app to check for existing files.</li>
+                <li>In Library, the <strong>Novel Card with "Continue"</strong> button now shows <strong>"Read"</strong> if the novel hasn't been started yet</li>
+                <li><strong>Added</strong> <strong>"onPress"</strong> navigation to the continue/read button</li>
+                <li><strong>Added</strong> two <strong>"refreshLibrary"</strong> methods to manually reload novel data from file system via <strong>Reload Button, and Drag-Pull gesture.</strong></li>
+                <li><strong>Improved</strong> the UI of the Library Screen to have flawless fetching execution of novel files</li>
+                <li><strong>Added</strong> <strong>'Smart Text Formatting'</strong> to the reader that handles text formatting</li>
+                <li><strong>Added</strong> <strong>support for multi-space and newline</strong> handling that helps parse text for TTS.</li>
+                <li><strong>Added</strong> a <strong>floating TTS button</strong> on top of the Reader screen</li>
+                <li><strong>Added</strong> status box that displays <strong>"now reading"</strong> which displays current sentence for reference</li>
+                <li><strong>Improved sentence highlighting</strong> — TTS highlight now accurately tracks sentences in real-time with reduced lag</li>
+                <li><strong>Better short word support</strong> — Minimum sentence length reduced from 8 to 2 characters, preventing skipped words like "What," and "(Well)"</li>
+                <li><strong>Symbol-to-speech conversion</strong> — Game lingo and navigation symbols now read naturally:
+                    <ul>
+                        <li><code>→</code>, <code>-></code>, <code>=></code> → reads as <strong>"to"</strong></li>
+                        <li><code>←</code>, <code><-</code>, <code><=</code> → reads as <strong>"from"</strong></li>
+                        <li><code>↔</code>, <code><-></code> → reads as <strong>"between"</strong></li>
+                        <li>Example: <code>[Thief 1 -&gt; Thief 2]</code> now reads as <strong>"from Thief 1 to Thief 2"</strong></li>
+                    </ul>
+                </li>
+                <li>Text like <code>Name: Gu Qingyang\nEssence: Ancient Tree</code> is split into individual readable chunks</li>
+                <li>Each line segment gets its own TTS sentence instead of being skipped</li>
+                <li>Highlights no longer disappear on multi-space sections</li>
+                <li><strong>Preserved parenthetical phrases</strong> — Words in parentheses like <code>(Well)</code>, <code>(though)</code> are no longer filtered out</li>
+                <li>Highlights appear directly in text as TTS reads (dual feedback: highlight + status box)</li>
+                <li><strong>Added</strong> symbol normalization for TTS preprocessing</li>
+                <li><strong>Improved</strong> text matching logic with quote-aware comparison</li>
+                <li><strong>Better</strong> handling of edge cases (multiple spaces, newlines, parentheses)</li>
+                <li><strong>Added</strong> proper line break preservation using "<strong>\n\n</strong>" between paragraphs.</li>
+                <li><strong>Added</strong> <strong>circular URL detection</strong> to prevent infinite download loops.</li>
+                <li><strong>Added</strong> max chapter cap (5000 chapters) as safety guard, previously 3000 chapters.</li>
+                <li><strong>Replaced</strong> broken chapter fetching with restored working version from earlier build.</li>
+                <li><strong>Added</strong> Text-to-Speech with voice selection, speed control, and sentence highlighting.</li>
+                <li><strong>Added</strong> TTS error handling with auto-stop after 3 consecutive errors.</li>
+                <li><strong>Added</strong> <strong>"Report Issue / Feedback" button</strong> in Settings section.
+                    <ul>
+                        <li><strong>Added</strong> alias field (optional) and detailed description text area.</li>
+                        <li><strong>Added</strong> auto-filled device info (app version, platform, OS version) in email body.</li>
+                        <li><strong>Added</strong> email client integration — reports open directly in user's email app.</li>
+                    </ul>
+                </li>
+                <li><strong>Added</strong> 6 themes: Dark, Light, Sepia, AMOLED, Warm, and Slate.</li>
             </ul>
-            <div class="changelog-section-title">📥 Download & Updates</div>
+            
+            <div class="changelog-section-title">🐛 Bug Fixes</div>
             <ul>
-                <li>mproved the downloader to utilized the new chapter title fetcher mechanism.</li>
+                <li><strong>Fixed</strong> TTS button location now properly visible in bottom-right corner</li>
+                <li><strong>Fixed</strong> the position of the floating button positioned with correct z-index layering</li>
+                <li><strong>Fixed</strong> quote handling — Smart quotes (<code>"</code>, <code>"</code>, <code>'</code>, <code>'</code>) no longer trigger "quote" pronunciation in TTS</li>
+                <li><strong>Fixed</strong> paragraph formatting where content was displaying as a single text lump with no line breaks.</li>
+                <li><strong>Added</strong> proper line break preservation using \n\n between paragraphs.</li>
+                <li><strong>Fixed</strong> chapter titles now showing real names instead of generic "Chapter X".</li>
+                <li><strong>Fixed</strong> TTS initialization not loading saved voice preferences.</li>
+            </ul>
         </div>
 
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
