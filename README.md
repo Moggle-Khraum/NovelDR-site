@@ -22,7 +22,7 @@ NovelDR is a free, open-source Android application that lets you download webnov
 ## 📝 TO DO - BUGFIX/PATCHES/IMPROVEMENTS
 - [x] Added AMOLED, Warm, and Slate as Themes.
 - [ ] Add RoyalRoad domain support
-- [ ] Add TTS to the app, to read each chapter.
+- [x] Add TTS to the app, to read each chapter.
 - [ ] Add Import Novel button to the Settings Tab, for loading local EPUB into the App.
 - [ ] Add multilingual domain sources
 - [ ] Add localization to the app.
