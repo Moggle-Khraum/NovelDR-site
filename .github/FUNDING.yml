@@ -1,6 +1,6 @@
 # These are supported funding model platforms
 
-github: moggle-khraum
+github: 
 patreon: # Replace with a single Patreon username
 open_collective: # Replace with a single Open Collective username
 ko_fi: 
@@ -12,4 +12,4 @@ lfx_crowdfunding: # Replace with a single LFX Crowdfunding project-name e.g., cl
 polar: # Replace with a single Polar username
 buy_me_a_coffee: 
 thanks_dev: # Replace with a single thanks.dev username
-custom: wise
+custom: ["https://wise.com/pay/me/davea261]
