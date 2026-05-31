@@ -70,9 +70,10 @@ Contributions are welcome! Feel free to:
 - Submit pull requests
 
 ## ☕ Sponsor the Project
-
-Leave a Tip or Sponsor the project through [Ko-Fi](https://ko-fi.com/noveldrapp)
-
+Leave a Tip or Sponsor the project through [Wise]((https://wise.com/pay/me/davea261)
+## Sponsors:
+- Derek Townswell (50$)
+- 
 ## 📜 License
 
 This project is licensed under the MIT License
