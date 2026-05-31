@@ -37,7 +37,7 @@ NovelDR is a free, open-source Android application that lets you download webnov
 - [x] Improved the Backup System to saved Covers as Base64
 - [x] Added TTS Guidebook with an icon of a book just on top of the TTS Button
 - [x] Improved the Export of PDF, spacings for DOC, EPUB, 
-- [x] ....and bugfixes, you can read on the [Changelogs](https://github.com/Moggle-Khraum/NovelDR-site/releases) for more info.
+- [x] ....and bugfixes, you can read them on the [Changelogs](https://github.com/Moggle-Khraum/NovelDR-site/releases) to know more info.
 
 ## 🖼️ App Screenshots
 
