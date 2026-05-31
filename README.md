@@ -2,15 +2,15 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/version-v1.4.4rev178r1-brightgreen)
+![Version](https://img.shields.io/badge/Version-2.6.5rev256-brightgreen)
 ![Android](https://img.shields.io/badge/Android-8.0%2B-8f5e4e?logo=android)
-![Size](https://img.shields.io/badge/size-~92.93_MB-5a3e36)
+![Size](https://img.shields.io/badge/Size-~93.99_MB-5a3e36?logo=android)
 ![Malware](https://img.shields.io/badge/Jotti's_Malware-Clean_✓_(0/15)-4caf50)
-![License](https://img.shields.io/badge/license-MIT-8f5e4e)
+[![GitHub All Releases](https://img.shields.io/github/downloads/Moggle-Khraum/NovelDR-site/total)](https://github.com/Moggle-Khraum/NovelDR-site/releases)
 
 **Download webnovels. Read anywhere. No ads, no login, just pure offline reading.**
 
-🌐 [Website](https://moggle.is-a-good.dev/) · 📦 [Download APK](https://github.com/Moggle-Khraum/noveldr-site/releases) · ☕ [Buy a Coffee](https://ko-fi.com/noveldrapp)
+🌐 [Website](https://moggle.is-a-good.dev/) · 📦 [Download APK](https://github.com/Moggle-Khraum/noveldr-site/releases) · ☕ [Leave a Tip](https://wise.com/pay/me/davea261)
 
 </div>
 
@@ -70,7 +70,7 @@ Contributions are welcome! Feel free to:
 - Submit pull requests
 
 ## ☕ Sponsor the Project
-Leave a Tip or Sponsor the project through [Wise]((https://wise.com/pay/me/davea261)
+Leave a Tip or Sponsor the project through [Wise](https://wise.com/pay/me/davea261)
 ## Sponsors:
 - Derek Townswell (50$)
 - 
