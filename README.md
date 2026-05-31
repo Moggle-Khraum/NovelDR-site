@@ -9,7 +9,7 @@
 
 **Total Download Counts:**
 
-[![Github Downloads](https://img.shields.io/github/downloads/Moggle-Khraum/NovelDR-site/total?style=for-the-badge&logo=github&logoColor=white&color=1565C0&label=Downloads)](https://github.com/Moggle-Khraum/NovelDR-site/releases) [![MediaFire Downloads](https://img.shields.io/badge/Downloads-1.2k-F05023?style=for-the-badge&logo=mediafire&logoColor=white)](YOUR_MEDIAFIRE_DOWNLOAD_LINK)
+[![Github Downloads](https://img.shields.io/github/downloads/Moggle-Khraum/NovelDR-site/total?style=for-the-badge&logo=github&logoColor=white&color=1565C0&label=Downloads)](https://github.com/Moggle-Khraum/NovelDR-site/releases) [![MediaFire Downloads](https://img.shields.io/badge/Downloads-232-F05023?style=for-the-badge&logo=mediafire&logoColor=white)](https://www.mediafire.com/folder/hcecxy0e22g7c/apk)
 
 **Download webnovels. Read anywhere. No ads, no login, just pure offline reading.**
 
@@ -74,9 +74,15 @@ Contributions are welcome! Feel free to:
 - Suggest features
 
 ## ☕ Sponsor the Project
-Leave a Tip or Sponsor the project through [Wise](https://wise.com/pay/me/davea261)
+Leave a Tip or Sponsor the Project!:
+
+Wise
+Gcash
+
+<!--[Wise](https://wise.com/pay/me/davea261) -->
+
 ## Sponsors:
-- Derek Townswell (50$)
+- [Wise] Derek Townswell (50$)
 - 
 
 ## 📜 License
