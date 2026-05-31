@@ -6,7 +6,10 @@
 ![Android](https://img.shields.io/badge/Android-8.0%2B-8f5e4e?logo=android)
 ![Size](https://img.shields.io/badge/Size-~93.99_MB-5a3e36)
 ![Malware](https://img.shields.io/badge/Jotti's_Malware-Clean_✓_(0/15)-4caf50)
-[![GitHub All Releases](https://img.shields.io/github/downloads/Moggle-Khraum/NovelDR-site/total?logo=github)](https://github.com/Moggle-Khraum/NovelDR-site/releases)
+
+**Total Download Counts:**
+
+[![Github Downloads](https://img.shields.io/github/downloads/Moggle-Khraum/NovelDR-site/total?style=for-the-badge&logo=github&logoColor=white&color=1565C0&label=Downloads)](https://github.com/Moggle-Khraum/NovelDR-site/releases) [![MediaFire Downloads](https://img.shields.io/badge/Downloads-1.2k-F05023?style=for-the-badge&logo=mediafire&logoColor=white)](YOUR_MEDIAFIRE_DOWNLOAD_LINK)
 
 **Download webnovels. Read anywhere. No ads, no login, just pure offline reading.**
 
@@ -20,19 +23,21 @@
 NovelDR is a free, open-source Android application that lets you download webnovels from multiple sources and read them offline. Built for readers who want uninterrupted access to their favorite stories without ads, or account creation, only use internet when downloading.
 
 ## 📝 TO DO - BUGFIX/PATCHES/IMPROVEMENTS
-- [x] Added AMOLED, Warm, and Slate as Themes.
 - [ ] Add RoyalRoad domain support
-- [x] Add TTS to the app, to read each chapter.
-- [ ] Add Import Novel button to the Settings Tab, for loading local EPUB into the App.
 - [ ] Add multilingual domain sources
 - [ ] Add localization to the app.
 - [ ] and if there's anything comes to mind..
 
 ## :dart: COMPLETED IMPROVEMENTS
+- [x] Added AMOLED, Warm, and Slate as Themes.
+- [x] Add TTS to the app, to read each chapter.
 - [x] Improved the chapter title Fetcher of some of the domains as other domains already have a complete chapter title extractor.
 - [x] Fixed the chapter title extractor for FreeWebNovel.
+- [x] Fixed the delayed tracking display on Novel Details
+- [x] Improved the Backup System to saved Covers as Base64
+- [x] Added TTS Guidebook with an icon of a book just on top of the TTS Button
 - [x] Improved the Export of PDF, spacings for DOC, EPUB, 
-- [x] ....and all other stuffs, you can read on the [Changelogs](https://github.com/Moggle-Khraum/NovelDR-site/releases) for more info.
+- [x] ....and bugfixes, you can read on the [Changelogs](https://github.com/Moggle-Khraum/NovelDR-site/releases) for more info.
 
 ## 🖼️ App Screenshots
 
@@ -67,13 +72,13 @@ NovelDR is a free, open-source Android application that lets you download webnov
 Contributions are welcome! Feel free to:
 - Report bugs via Issues
 - Suggest features
-- Submit pull requests
 
 ## ☕ Sponsor the Project
 Leave a Tip or Sponsor the project through [Wise](https://wise.com/pay/me/davea261)
 ## Sponsors:
 - Derek Townswell (50$)
 - 
+
 ## 📜 License
 
 This project is licensed under the MIT License
