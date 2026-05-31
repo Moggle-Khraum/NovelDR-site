@@ -2,11 +2,11 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/Version-2.6.5rev256-brightgreen)
+![Version](https://img.shields.io/badge/Version-2.6.5rev256-brightgreen?)
 ![Android](https://img.shields.io/badge/Android-8.0%2B-8f5e4e?logo=android)
-![Size](https://img.shields.io/badge/Size-~93.99_MB-5a3e36?logo=android)
+![Size](https://img.shields.io/badge/Size-~93.99_MB-5a3e36)
 ![Malware](https://img.shields.io/badge/Jotti's_Malware-Clean_✓_(0/15)-4caf50)
-[![GitHub All Releases](https://img.shields.io/github/downloads/Moggle-Khraum/NovelDR-site/total)](https://github.com/Moggle-Khraum/NovelDR-site/releases)
+[![GitHub All Releases](https://img.shields.io/github/downloads/Moggle-Khraum/NovelDR-site/total?logo=github)](https://github.com/Moggle-Khraum/NovelDR-site/releases)
 
 **Download webnovels. Read anywhere. No ads, no login, just pure offline reading.**
 
