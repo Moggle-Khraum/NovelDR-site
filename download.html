@@ -785,7 +785,35 @@
         <div id="changelog-page">
             <h2 style="color:#2c211c; margin-bottom: 1.5rem; font-size: 1.8rem;">📜 Version History</h2>
             <div class="changelog-entry">
-                <h3 style="color:#008000;">v2.5.18rev250</h3>
+                 <h3 style="color:#008000;">v2.7.4rev260</h3>
+                 <p class="changelog-date">june 8, 2026 Update</p>
+                <ul>
+                    <li><strong>🐛 [ PATCH FIX ] </strong></li>
+                    <li><strong>Fixed</strong> deduplication for LightNovelWorld to prevent the repeating phrase when scraping chapters.</li>
+                    <li><strong>Fixed</strong> fetcher for the novel cover on LightNovelWorld.</li>
+                    
+                    <li><strong>✨ [ NEW ] </strong></li>
+                    <li><strong>Added</strong> a lightweight fetch helper which makes skipping faster.</li>
+                    <li><strong>Added</strong> Credits button under the Report Feedback button in the Settings menu.</li>
+                    <li><strong>Added</strong> Credit's own modal that displays the authors in a scrollable view.</li>
+                    
+                    <li><strong>⚡ [ IMPROVEMENTS ] </strong></li>
+                    <li><strong>Reworked</strong> the skipping logic to work just like the Update Tab.</li>
+                    <li><strong>Changed</strong> the old skipping logic (every 30 chapters) to 25%/50%/75% milestones instead.</li>
+                    <li><strong>Reduced</strong> skip delay from 200ms to 50ms per chapter, increasing skipping speed further.</li>
+                    <li><strong>Reworked</strong> the display modal for the Developer Profile Modal.</li>
+                    <li><strong>Reworked</strong> the display modal for the Credits and Acknowledgements Modal.</li>
+                    
+                    <li><strong>🗑️ [ REMOVED ] </strong></li>
+                    <li><strong>Removed</strong> the old skipping logic "every 30 chapters".</li>
+                    <li><strong>Removed</strong> old, redundant code that used a second navigation loop (unoptimized, crude, and made skipping slow).</li>
+                    <li><strong>Removed</strong> old stale code from the previous skipping logic.</li>
+                    <li><strong>Removed</strong> duplicated emoji prefixes used when logging to the Activity Log.</li>
+                </ul>
+            </div>  
+            
+            <div class="changelog-entry">
+                <h3>v2.5.18rev250</h3>
                 <p class="changelog-date">May 21, 2026 Update</p>
                 <ul>
                     <li><STRONG>⚙️ [ NEW/PATCHED/IMPROVEMENT ]</STRONG></li>
