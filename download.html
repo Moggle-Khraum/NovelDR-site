@@ -694,14 +694,15 @@
                         <div class="app-icon-large">
                             <i class="fab fa-android"></i>
                         </div>
-                        <h2>NovelDR v2.7.4</h2>
-                        <!-- <h3>Download has been disabled, major bug detected ---- style="display: none;   </h3> -->
-                        <span class="version-badge">Build: v2.7.4rev260</span>
+                        <h2>[REVERTED] NovelDR v2..4</h2>
+                        <h3>Version has been REVERTED, Major Bug Detected </h3>
+                        <h2>Reverted back to 2.6.5rev256</h2>
+                        <span class="version-badge">Build: v2.6.5rev256</span>
                         <div class="download-buttons">
                             <a id="downloadMainBtn" class="download-btn">
                                 <i class="fas fa-download"></i> Download APK
                             </a>
-                            <a id="downloadMirrorBtn" class="download-btn mirror-btn">
+                            <a id="downloadMirrorBtn" class="download-btn mirror-btn" style="display: none;>
                                 <i class="fas fa-cloud-download-alt"></i> Mirror APK
                             </a>
                         </div>
@@ -1115,7 +1116,7 @@
         const modalProgressBar = document.getElementById('modalProgressBar');
         const modalStatus = document.getElementById('modalStatus');
         let countdownInterval, progressInterval, currentCountdown = 5;
-        let downloadUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v2.7.4rev260/NovelDR.v2.7.4rev260.apk';
+        let downloadUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v2.6.5rev256/NovelDR.v2.6.5rev256.apk';
         const mirrorUrl = 'https://www.mediafire.com/file/jxgrr95ts4jl46v/NovelDR+v2.7.4rev260.apk/file';
 
         function resetModal() { if (countdownInterval) clearInterval(countdownInterval); if (progressInterval) clearInterval(progressInterval); currentCountdown = 5; if (countdownDisplay) countdownDisplay.textContent = '5'; if (modalProgressBar) modalProgressBar.style.width = '0%'; if (modalStatus) modalStatus.textContent = 'Your download will start in 5 seconds...'; }
