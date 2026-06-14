@@ -1114,8 +1114,8 @@
         const modalProgressBar = document.getElementById('modalProgressBar');
         const modalStatus = document.getElementById('modalStatus');
         let countdownInterval, progressInterval, currentCountdown = 5;
-        let downloadUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v2.6.5rev256/NovelDR.v2.6.5rev256.apk';
-        const mirrorUrl = 'https://www.mediafire.com/file/jxgrr95ts4jl46v/NovelDR+v2.7.4rev260.apk/file';
+        let downloadUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v2.12.12rev278/NovelDR.v2.12.12rev278.apk';
+        const mirrorUrl = 'https://www.mediafire.com/file/sjmjsvx8p95lamw/NovelDR+v2.12.12rev278.apk/file';
 
         function resetModal() { if (countdownInterval) clearInterval(countdownInterval); if (progressInterval) clearInterval(progressInterval); currentCountdown = 5; if (countdownDisplay) countdownDisplay.textContent = '5'; if (modalProgressBar) modalProgressBar.style.width = '0%'; if (modalStatus) modalStatus.textContent = 'Your download will start in 5 seconds...'; }
         function startCountdown(url) { 
