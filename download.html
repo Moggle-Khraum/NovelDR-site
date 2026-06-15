@@ -715,7 +715,7 @@
                         <h3>✦ Powerful Features</h3>
                         <ul class="feature-list">
                             <li><strong>Supports multiple sites:</strong> ReadNovelFull, NovelBin, NovelFull, FreeWebNovel, LightNovelWorld, NovelFull.com, AllNovel.org, and Novgo.net</li>
-                            <li><strong>Reading Comfort:</strong> Adjustable Font size, Line spacing, Auto-scroll, Progress Tracker, & TTS-supported</li>
+                            <li><strong>Reading Comfort:</strong> Adjustable Font size, Margins, Line spacing, Auto-scroll, Background Image & TTS-supported</li>
                             <li><strong>Novel Export:</strong> Export novels into TXT, RTF, DOCX, PDF Letter, EPUB, and Kindle MOBI format.</li>
                             <li><strong>Multiple App Themes:</strong> Dark, Light, Sepia, AMOLED, Warm, & Slate.</li>
                             <li><strong>Data Control:</strong> Full Backup w/ Restore & Import File, & Bug Report.</li>
@@ -783,9 +783,72 @@
         </div>
         <div id="changelog-page">
             <h2 style="color:#2c211c; margin-bottom: 1.5rem; font-size: 1.8rem;">📜 Version History</h2>
+             <div class="changelog-entry">
+                 <h3 style="color:#008000;">v2.12.12rev278</h3>
+                 <p class="changelog-date">June 14, 2026 Update</p>
+                <ul>
+                    <p><strong>✨ [ NEW ]</strong></p>
+                        <li><strong>Added</strong> <code>Margins</code> with 3 presets: <em>Compact, Comfortable, & Spacious.</em></li>
+                        <li><strong>Added</strong> reader <code>backgrounds</code> with 11 presets (solid &amp; gradient): <em>Parchment, Night, Forest, Ocean, Rose, Slate, Dusk, Dawn, Mist, Moss, Ember,</em> or keep the default by choosing <em>None</em> which automatically switches back to the app's theme and font colors.</li>
+                        <li><strong>Added</strong> adaptive text colors to adjust automatically for perfect contrast.</li>
+                        <li><strong>Added</strong> an option to set any image from gallery as a <em>custom reading background.</em></li>
+                        <li><strong>Custom</strong> background images are stored locally; they will not be backed up to any cloud storage.</li>
+                        <li><strong>Added</strong> a function when tapping the progress bar to jump anywhere in the chapter.</li>
+                        <li><strong>Added</strong> UI overhaul to make the TOC display the current reading progress in percentage.</li>
+                        <li><strong>Added</strong> a dynamic search function inside the TOC to quickly search chapters by title, displaying results while typing.</li>
+                    </ul>
+                
+                    <p><strong>⚡ [ IMPROVEMENTS ]</strong></p>
+                    <ul>
+                        <li><strong>Reworked</strong> the skipping logic to work just like the Update Tab.</li>
+                        <li><strong>Improved</strong> LNW Scraping by adding diagnostics and support for direct link downloads.</li>
+                        <li><strong>Reduced</strong> skip delay from 200ms to 50ms per chapter, increasing skipping speed further.</li>
+                        <li><strong>Reworked</strong> the Developer Profile modal display.</li>
+                        <li><strong>Reworked</strong> the Credits and Acknowledgements modal display.</li>
+                        <li><strong>Control panel</strong> now a floating bottom‑sheet overlay — no longer pushes content down.</li>
+                        <li><strong>Progress bar</strong> relocated to just above bottom navigation for better visibility.</li>
+                        <li><strong>TTS highlight map</strong> precomputed with <code>useMemo</code> — no longer recalculated inside every render.</li>
+                        <li><strong>Reading progress</strong> saved every 3 seconds via <code>debounce</code> instead of only <code>on unmount</code>.</li>
+                        <li><strong>TTS scroll</strong> now follows the highlighted sentence using paragraph <code>onLayout</code> y‑positions.</li>
+                        <li><strong>Auto‑scroll</strong> stops when TTS starts; TTS stops when auto‑scroll starts.</li>
+                        <li><strong>Background preferences</strong> now persist across sessions via <code>reader_bg.json</code>.</li>
+                        <li><strong><code>ImageBackground</code></strong> fills screen by width/height with <code>resizeMode="cover"</code>.</li>
+                        <li><strong>Added <code>splitIntoReadableParagraphs()</code></strong> to normalize <code>\r\n</code>, tabs, blank lines, and single‑newline chapter text.</li>
+                    </ul>
+                
+                    <p><strong>🗑️ [ REMOVED / REPLACED ]</strong></p>
+                    <ul>
+                        <li><strong>Removed</strong> dead <code>forceTopRef</code> code.</li>
+                        <li><strong>Replaced</strong> outer content <code>&lt;Text&gt;</code> wrapper with <code>&lt;View&gt;</code> and rendered each paragraph as its own sibling <code>&lt;Text&gt;</code> with <code>marginBottom</code> — spacing is now actually respected.</li>
+                    </ul>
+                
+                    <p><strong>🐞 [ BUG FIXES ]</strong></p>
+                    <ul>
+                        <li><strong>Fixed</strong> covers occasionally saving as corrupted or empty files.</li>
+                        <li><strong>Fixed</strong> cover file extension always being saved as <code>.jpg</code> regardless of source format.</li>
+                        <li><strong>Resolved</strong> rare crashes when switching chapters while TTS was active.</li>
+                        <li><strong>Corrected</strong> text color behavior on gradient backgrounds.</li>
+                        <li><strong>Fixed</strong> “Next Chapter” preloading sometimes failing on the first attempt.</li>
+                        <li><strong>Prevented</strong> TTS from continuing after chapter change or app backgrounding.</li>
+                        <li><strong><code>splitIntoSentences</code></strong> no longer splits on commas/semicolons — sentence-ending punctuation only (<code>.!?…</code>), preventing choppy TTS fragments.</li>
+                        <li><strong>Added</strong> much smarter paragraph and sentence detection that handles dialogue, punctuation, line breaks, and special characters (→, …, —) for a natural reading flow.</li>
+                        <li><strong>Previously loaded chapters</strong> are stored temporarily in cache to make switching chapters flow seamlessly.</li>
+                        <li><strong>Optimized</strong> scrolling and text rendering; old cache entries are automatically cleared after 30 minutes.</li>
+                        <li><strong>Improved</strong> the persistence settings of the reader so that font size, line spacing, margins, auto‑scroll speed, background choice, and TTS preferences are saved automatically.</li>
+                    </ul>
+                
+                    <p><strong>♿ [ ACCESSIBILITY ]</strong></p>
+                    <ul>
+                        <li><strong>Added</strong> haptic feedback for all major interactions.</li>
+                        <li><strong>Added</strong> visual feedback on press for all touch targets.</li>
+                        <li><strong>Long‑press interactions</strong> are clearly documented in the TTS guide (book button) modal.</li>
+                        <li><strong>Added</strong> a <code>Scroll to Top [ ↑ ]</code> button in the reader to scroll directly to the very start of the chapter.</li>      
+                </ul>
+            </div>  
+            
             <div class="changelog-entry">
-                 <h3 style="color:#008000;">v2.7.4rev260</h3>
-                 <p class="changelog-date">june 8, 2026 Update</p>
+                 <h3>v2.7.4rev260</h3>
+                 <p class="changelog-date">June 8, 2026 Update</p>
                 <ul>
                     <li><strong>🐛 [ PATCH FIX ] </strong></li>
                     <li><strong>Fixed</strong> deduplication for LightNovelWorld to prevent the repeating phrase when scraping chapters.</li>
