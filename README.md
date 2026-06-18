@@ -25,9 +25,9 @@ NovelDR is a free, open-source Android application that lets you download webnov
 
 ## 🖼️ App Screenshots
 
-| Library Tab | Download Tab | Updates Tab | Settings Tab |
+| Library | Download | Updates | Settings |
 | ----------- | ------------ | ----------- | ------------- |
-| <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Library.png?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Download.png?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Updates.png?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Settings.png?raw=true" width="200"> |
+| <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Library.jpg?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Download.jpg?raw=true" width="200"> | <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Updates.jpg?raw=true" width="200"> | <img src="[https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Settings.png?raw=true](https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Settings.jpg?raw=true)" width="200"> |
 
 ## 🌐 Supported Sources
 
