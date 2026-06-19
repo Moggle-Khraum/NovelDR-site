@@ -784,7 +784,18 @@
         <div id="changelog-page">
             <h2 style="color:#2c211c; margin-bottom: 1.5rem; font-size: 1.8rem;">📜 Version History</h2>
              <div class="changelog-entry">
-                 <h3 style="color:#008000;">v2.12.12rev278</h3>
+                 <h3 style="color:#008000;">v2.18.13rev292</h3>
+                 <p class="changelog-date">June 19, 2026 Update</p>
+                <ul>
+                    <p><strong>✨ [ PATCHES ]</strong></p>
+                        <li><strong>Added</strong> mirror sources like Novelbin.me, Freewebnovel.com, and BedNovel.com
+                        <li><strong>Tweak</strong> the delay when downloading a novel into Two Seconds to avoid being flagged as bot by sources like FreeWebNovel.
+                        <li><strong>Reworked</strong> the UI Display of the Supported Sites to have a Source List. Clicking it displays all the supported websites in a modal.
+                        <li><strong>Fixing</strong> minor improvements to the app and fixing some minor bugs.
+                </ul>
+             </div>
+            <div class="changelog-entry">
+                 <h3>v2.7.4rev260</h3>
                  <p class="changelog-date">June 14, 2026 Update</p>
                 <ul>
                     <p><strong>✨ [ NEW ]</strong></p>
@@ -1177,8 +1188,8 @@
         const modalProgressBar = document.getElementById('modalProgressBar');
         const modalStatus = document.getElementById('modalStatus');
         let countdownInterval, progressInterval, currentCountdown = 5;
-        let downloadUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v2.12.12rev278/NovelDR.v2.12.12rev278.apk';
-        const mirrorUrl = 'https://www.mediafire.com/file/sjmjsvx8p95lamw/NovelDR+v2.12.12rev278.apk/file';
+        let downloadUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v2.18.13/NovelDR.v2.18.13rev292.apk';
+        const mirrorUrl = 'https://www.mediafire.com/file/ebyozmc0s99c52l/NovelDR+v2.18.13rev292.apk/file';
 
         function resetModal() { if (countdownInterval) clearInterval(countdownInterval); if (progressInterval) clearInterval(progressInterval); currentCountdown = 5; if (countdownDisplay) countdownDisplay.textContent = '5'; if (modalProgressBar) modalProgressBar.style.width = '0%'; if (modalStatus) modalStatus.textContent = 'Your download will start in 5 seconds...'; }
         function startCountdown(url) { 
