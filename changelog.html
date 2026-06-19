@@ -140,69 +140,18 @@
         </div>
 
         <h1><i class="fas fa-history"></i> Latest Version History</h1>
-        <p style="margin-bottom: 1.5rem; color: #6e5b52;">Build 2.5.18 (rev250) Changelog.</p>
+        <p style="margin-bottom: 1.5rem; color: #6e5b52;">Build v2.18.13 (rev292) Changelog.</p>
         
         <div class="changelog-entry">
-            <h3>v2.12.12 (rev278)</h3>
-            <p class="changelog-date">June 15, 2026</p>
-            <p class="changelog-codename">📖 "Reader Renaissance"</p>
-            
-            <p><strong>✨ [ NEW ]</strong></p>
+            <h3>v2.18.13 (rev292)</h3>
+            <p class="changelog-date">June 19, 2026</p>
+            <p class="changelog-codename">📖 "Patch Update"</p>
+            <p><strong>✨ [ PATCHES ]</strong></p>
             <ul>
-                <li><strong>Added</strong> Margins with 3 presets: Compact, Comfortable, & Spacious.</li>
-                <li><strong>Added</strong> reader backgrounds with 11 presets (solid & gradient): Parchment, Night, Forest, Ocean, Rose, Slate, Dusk, Dawn, Mist, Moss, Ember, or keep default by choosing None.</li>
-                <li><strong>Added</strong> adaptive text colors to adjust automatically for perfect contrast.</li>
-                <li><strong>Added</strong> an option to set any image from gallery as a custom reading background (stored locally, no cloud backup).</li>
-                <li><strong>Added</strong> a function when tapping the progress bar to jump anywhere in the chapter.</li>
-                <li><strong>Added</strong> UI overhaul to make the TOC display the current reading progress in percentage.</li>
-                <li><strong>Added</strong> a dynamic search function inside the TOC to quickly search chapters by title, displaying results while typing.</li>
-            </ul>
-            
-            <p><strong>⚡ [ IMPROVEMENTS ]</strong></p>
-            <ul>
-                <li><strong>Reworked</strong> the skipping logic to work just like the Update Tab.</li>
-                <li><strong>Improved</strong> LNW Scraping by adding diagnostics and support for direct link downloads.</li>
-                <li><strong>Reduced</strong> skip delay from 200ms to 50ms per chapter, increasing skipping speed further.</li>
-                <li><strong>Reworked</strong> the Developer Profile modal display.</li>
-                <li><strong>Reworked</strong> the Credits and Acknowledgements modal display.</li>
-                <li><strong>Changed</strong> Control panel to a floating bottom‑sheet overlay — no longer pushes content down.</li>
-                <li><strong>Relocated</strong> Progress bar to just above bottom navigation for better visibility.</li>
-                <li><strong>Precomputed</strong> TTS highlight map with useMemo — no longer recalculated inside every render.</li>
-                <li><strong>Saved</strong> reading progress every 3 seconds via debounce instead of only on unmount.</li>
-                <li><strong>Improved</strong> TTS scroll to follow the highlighted sentence using paragraph onLayout y‑positions.</li>
-                <li><strong>Added</strong> auto‑scroll stops when TTS starts; TTS stops when auto‑scroll starts.</li>
-                <li><strong>Persisted</strong> background preferences across sessions via reader_bg.json.</li>
-                <li><strong>Made</strong> ImageBackground fill screen by width/height with resizeMode="cover".</li>
-                <li><strong>Added</strong> splitIntoReadableParagraphs() to normalize \r\n, tabs, blank lines, and single‑newline chapter text.</li>
-            </ul>
-            
-            <p><strong>🗑️ [ REMOVED / REPLACED ]</strong></p>
-            <ul>
-                <li><strong>Removed</strong> dead forceTopRef code.</li>
-                <li><strong>Replaced</strong> outer content &lt;Text&gt; wrapper with &lt;View&gt; and rendered each paragraph as its own sibling &lt;Text&gt; with marginBottom — spacing is now actually respected.</li>
-            </ul>
-            
-            <p><strong>🐞 [ BUG FIXES ]</strong></p>
-            <ul>
-                <li><strong>Fixed</strong> covers occasionally saving as corrupted or empty files.</li>
-                <li><strong>Fixed</strong> cover file extension always being saved as .jpg regardless of source format.</li>
-                <li><strong>Resolved</strong> rare crashes when switching chapters while TTS was active.</li>
-                <li><strong>Corrected</strong> text colour behaviour on gradient backgrounds.</li>
-                <li><strong>Fixed</strong> “Next Chapter” preloading sometimes failing on the first attempt.</li>
-                <li><strong>Prevented</strong> TTS from continuing after chapter change or app backgrounding.</li>
-                <li><strong>Improved</strong> splitIntoSentences to no longer split on commas/semicolons — sentence-ending punctuation only (.!?…), preventing choppy TTS fragments.</li>
-                <li><strong>Added</strong> much smarter paragraph and sentence detection that handles dialogue, punctuation, line breaks, and special characters (→, …, —) for a natural reading flow.</li>
-                <li><strong>Stored</strong> previously loaded chapters temporarily in cache to make switching chapters flow seamlessly.</li>
-                <li><strong>Optimized</strong> scrolling and text rendering; old cache entries are automatically cleared after 30 minutes.</li>
-                <li><strong>Improved</strong> the persistence settings of the reader so that font size, line spacing, margins, auto‑scroll speed, background choice, and TTS preferences are saved automatically.</li>
-            </ul>
-            
-            <p><strong>♿ [ ACCESSIBILITY ]</strong></p>
-            <ul>
-                <li><strong>Added</strong> haptic feedback for all major interactions.</li>
-                <li><strong>Added</strong> visual feedback on press for all touch targets.</li>
-                <li><strong>Documented</strong> long‑press interactions clearly in the TTS guide (book button) modal.</li>
-                <li><strong>Added</strong> a Scroll to Top [ ↑ ] button in the reader to scroll directly to the very start of the chapter.</li>
+                <li><strong>Added</strong> mirror sources like Novelbin.me, Freewebnovel.com, and BedNovel.com
+                <li><strong>Tweak</strong> the delay when downloading a novel into Two Seconds to avoid being flagged as bot by sources like FreeWebNovel.
+                <li><strong>Reworked</strong> the UI Display of the Supported Sites to have a Source List. Clicking it displays all the supported websites in a modal.
+                <li><strong>Fixing</strong> minor improvements to the app and fixing some minor bugs.
             </ul>
         </div>
 
