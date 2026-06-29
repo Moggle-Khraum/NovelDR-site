@@ -8,7 +8,7 @@
 ![Size](https://img.shields.io/badge/Size-~93.99_MB-5a3e36)
 ![Malware](https://img.shields.io/badge/Jotti's_Malware-Clean_✓_(0/15)-4caf50)
 
-**Total Download Counts: 730+**
+**Total Download Counts: 780+**
 
 [![Github Downloads](https://img.shields.io/github/downloads/Moggle-Khraum/NovelDR-site/total?style=for-the-badge&logo=github&logoColor=white&color=1565C0&label=Downloads)](https://github.com/Moggle-Khraum/NovelDR-site/releases) [![MediaFire Downloads](https://img.shields.io/badge/Downloads-324-F05023?style=for-the-badge&logo=mediafire&logoColor=white)](https://www.mediafire.com/folder/hcecxy0e22g7c/apk)
 
@@ -48,7 +48,13 @@ NovelDR is a free, open-source Android application that lets you download webnov
 | NovelFull.net | https://novelfull.net/ | ✅ Full support |     | AllNovel | https://allnovel.org/ | ✅ Full support |
 | FreeWebNovel | https://freewebnovel.com/ | ✅ Full support |   | NovGo | https://novgo.net/ | ✅ Full support |
 | NovelBin | https://novelbin.com/ | ✅ Full support |     | BedNovel | https://bednovel.com | ✅ Full support |
-| LightNovelWorld | https://lightnovelworld.org/ | ✅ Full support |    |
+| LightNovelWorld | https://lightnovelworld.org/ | ✅ Full support |    | WuxiaWorld.site | https://wuxiaworld.site/ | ✅ Full support |
+| LightNovelPub | https://lightnovelpub.me/ | ✅ Full support |    |  |  | ✅ Full support |
+|  |  | ✅ Full support |     |  |  | ✅ Full support |
+|  |  | ✅ Full support |   |  |  | ✅ Full support |
+|  |  | ✅ Full support |     |  |  | ✅ Full support |
+|  |  | ✅ Full support |    |  |  | ✅ Full support |
+
 
 ## 🌟 Appreciation
 If this project helps you somehow, please dont forget to Star the Repo~!
