@@ -3,10 +3,10 @@
 
 <div align="center">
 
-![Version](https://img.shields.io/badge/Version-2.6.5rev256-brightgreen?)
+
 ![Android](https://img.shields.io/badge/Android-8.0%2B-8f5e4e?logo=android)
 ![Size](https://img.shields.io/badge/Size-~93.99_MB-5a3e36)
-![Malware](https://img.shields.io/badge/Jotti's_Malware-Clean_✓_(0/15)-4caf50)
+
 
 **Total Download Counts: 780+**
 
