@@ -91,10 +91,19 @@
         .changelog-entry ul {
             padding-left: 20px;
             color: #3d2e28;
+            margin-bottom: 0.8rem;
         }
         .changelog-entry li {
             margin-bottom: 0.5rem;
             font-size: 0.9rem;
+        }
+        .changelog-entry li ul {
+            padding-left: 20px;
+            margin-top: 0.2rem;
+            margin-bottom: 0.2rem;
+        }
+        .changelog-entry li ul li {
+            margin-bottom: 0.3rem;
         }
         .changelog-section-title {
             font-weight: 700;
@@ -146,12 +155,69 @@
             <h3>v3.7.55 (rev411)</h3>
             <p class="changelog-date">July 16, 2026</p>
             <p class="changelog-codename">📖 "Sentry Overhaul"</p>
-            <p><strong>✨ [ PATCHES ]</strong></p>
+
+            <!-- ✨ NEW -->
+            <p class="changelog-section-title"><strong>✨ [ NEW ]</strong></p>
             <ul>
-                <li><strong>Added</strong> mirror sources like Novelbin.me, Freewebnovel.com, and BedNovel.com
-                <li><strong>Tweak</strong> the delay when downloading a novel into Two Seconds to avoid being flagged as bot by sources like FreeWebNovel.
-                <li><strong>Reworked</strong> the UI Display of the Supported Sites to have a Source List. Clicking it displays all the supported websites in a modal.
-                <li><strong>Fixing</strong> minor improvements to the app and fixing some minor bugs.
+                <li><strong>ZIP‑only backups</strong> — New backups are now always created as a single <code>.zip</code> file, built via a streaming, memory‑safe export (chapters written in bounded NDJSON parts, covers compressed and copied directly) rather than one giant in‑memory JSON blob.</li>
+                <li><strong>Dual‑format restore</strong> — The restore flow supports both ZIP (v5+) and legacy JSON (v4 and earlier), from the on‑device backup list or the file picker.</li>
+                <li><strong>Share button restored</strong> — The backup completion alert now includes a “Share Backup” button to instantly share the generated <code>.zip</code> file.</li>
+                <li><strong>Native crash reporting (Sentry)</strong> — Native crash capture wired in at app launch, plus Session Replay (10% of normal sessions, 100% of sessions that hit an error).</li>
+                <li><strong>Novel Cover compression</strong> — Covers are resized/compressed via <code>expo-image-manipulator</code> before being packed into the backup, instead of embedded as raw base64.</li>
+                <li><strong>Check for Updates</strong> — Added the button <code>Check for Updates</code> in the Settings to manually check if there's a new version or the update was skipped.</li>
+                <li><strong>Notif Bell Update</strong> — Added a Notif bell icon just on top of the Reload button; it will only appear once there's a new update or has been manually triggered by the <code>Check for Updates</code> in the Settings tab.</li>
+                <li><strong>Chapter Deletion</strong> — Added a chapter deletion system that deletes chapters properly and have the same flow as deleting a novel in the Library tab.</li>
+                <li>
+                    <strong>Self Updater Implementation</strong>
+                    <ul>
+                        <li>Implemented <code>downloadApk</code> using <code>expo-file-system</code>'s <code>createDownloadResumable</code>.</li>
+                        <li>Added an update modal UI component, it looks like a notification bell, to notify users when a new version is available, showing version info, changelog, and a download/install action.</li>
+                        <li>Implemented <code>downloadApk</code> using <code>expo-file-system</code>'s <code>createDownloadResumable</code>, with progress tracking for the modal's download state.</li>
+                        <li>Implemented <code>installApk</code> using <code>FileSystem.getContentUriAsync</code> + <code>expo-intent-launcher</code> to trigger the Android package installer directly from the app, and for Android 7+ compatibility.</li>
+                        <li>Added the <code>REQUEST_INSTALL_PACKAGES</code> permission to <code>app.config.js</code>, since Android blocks "install from unknown sources" for sideloaded apps without it.</li>
+                        <li>Connected <code>downloadApk</code> / <code>installApk</code> into <code>useUpdateChecker.ts</code> so the update flow triggers automatically on version check.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Chapter Limiter</strong>
+                    <ul>
+                        <li>Added a shared <code>useChapterLimiter</code> hook and <code>ChapterLimitModal</code> component.</li>
+                        <li>Thresholds: caution at 200 chapters, danger at 250+, hard cap at 300.</li>
+                        <li>Wired into both <code>add.tsx</code> and <code>updates.tsx</code>.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- ⚡ IMPROVEMENTS -->
+            <p class="changelog-section-title"><strong>⚡ [ IMPROVEMENTS ]</strong></p>
+            <ul>
+                <li><strong>Consolidated code</strong> — Removed <code>collectAppData()</code> and <code>exportBackupJSON()</code>, replaced with a single <code>exportBackup()</code> function for the streaming ZIP export.</li>
+                <li><strong>File picker extended</strong> — Now accepts both <code>application/json</code> and <code>application/zip</code> MIME types, making it easier to import any backup.</li>
+                <li><strong>Silent skip guard</strong> — Update's chapter-skip logging (<code>SKIPPED: already fetched this run</code> / <code>SKIPPED: already in library</code>) no longer prints per‑chapter — the skip guard now runs silently in the background.</li>
+                <li><strong>Faster stuck-loop detection</strong> — Added a consecutive-skip counter (<code>MAX_CONSECUTIVE_SKIPS = 5</code>) that breaks the update loop immediately once 5 chapters in a row are skipped without a real download, instead of waiting on the much higher <code>ITERATION_CEILING</code> (<code>maxCh × 5 + 50</code>).</li>
+                <li><strong>Clear stop message</strong> — When the guard trips, the log now shows a single clean line: <em>“STOPPED: Update has stopped without downloading anything new. The source's "next chapter" link likely nonexistent.”</em></li>
+                <li><strong>Progress-aware reset</strong> — The skip counter resets to 0 the moment a real chapter (new or gap-fill) actually downloads, so long legitimate resume runs over already‑downloaded chapters aren't falsely flagged as stuck.</li>
+                <li>
+                    <strong>Battery drain fix</strong>
+                    <ul>
+                        <li>Traced excessive battery usage to <code>splitSentencesWithLineBreaks</code> and TTS highlight matching running on every single render frame.</li>
+                        <li>Fixed <code>useMemo</code> and a <code>ttsToRenderKeyMap</code> for <code>O(1)</code> lookups, for TTS render optimization.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Update checker fix</strong>
+                    <ul>
+                        <li>Fixed a bug where the app could never actually tell what version was currently installed, so it kept thinking every release — even older ones — was a new update.</li>
+                        <li>The update check now correctly recognizes the version you already have, so you won't get repeat "update available" prompts or be offered a downgrade disguised as an update.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- 🗑️ REMOVED / REPLACED -->
+            <p class="changelog-section-title"><strong>🗑️ [ REMOVED / REPLACED ]</strong></p>
+            <ul>
+                <li><strong>Removed JSON backup path</strong> — The old <code>exportBackupJSON()</code> and its supporting code are no longer used.</li>
+                <li><strong>Old single‑blob JSON export path removed</strong> — the original <code>collectAppData()</code> (full library + chapters + base64 covers built in memory, then double‑copied via <code>JSON.stringify</code>) is gone; this was the likely source of the OOM crashes on large libraries.</li>
             </ul>
         </div>
 
