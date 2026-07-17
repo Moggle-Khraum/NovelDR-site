@@ -12,705 +12,127 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #ffffff;
-            color: #1e1b1a;
-            line-height: 1.5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-            width: 100%;
-            flex: 1;
-        }
-
-        /* Header */
-        .page-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #ece5de;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            background: #8f5e4e;
-            border-radius: 12px;
-            width: 38px;
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            padding: 6px;
-        }
-
-        .logo-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .logo-text {
-            font-weight: 700;
-            font-size: 1.5rem;
-            letter-spacing: -0.02em;
-            color: #2c211c;
-        }
-
-        .tagline {
-            font-size: 0.9rem;
-            font-weight: 500;
-            background: rgba(143, 94, 78, 0.1);
-            padding: 0.35rem 1rem;
-            border-radius: 40px;
-            color: #5a3e36;
-            border: 1px solid rgba(180, 140, 120, 0.2);
-        }
-
-        /* Views */
-        #home-page, #changelog-page, #archives-page {
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
-        #changelog-page, #archives-page {
-            display: none;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Marquee */
-        .marquee-modern {
-            background: #fbf6f1;
-            padding: 0.7rem 0;
-            font-weight: 600;
-            color: #5a3e36;
-            border: 1px solid #e5d5ca;
-            border-radius: 16px;
-            font-size: 0.9rem;
-            overflow: hidden;
-            white-space: nowrap;
-            margin-bottom: 1.5rem;
-        }
-
-        .marquee-modern span {
-            display: inline-block;
-            animation: marquee 25s linear infinite;
-            padding-left: 100%;
-        }
-
-        @keyframes marquee {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-100%, 0); }
-        }
-
-        /* Content Layout */
-        .main-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .left-col {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .right-col {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .download-card {
-            background: #fbf6f1;
-            border-radius: 28px;
-            padding: 2.5rem 2rem;
-            border: 1px solid #e5d5ca;
-            box-shadow: 0 8px 0 #dccfc6;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: all 0.2s ease;
-        }
-
-        .download-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 14px 0 #dccfc6, 0 12px 20px -8px rgba(80, 50, 30, 0.15);
-        }
-
-        .download-card .app-icon-large {
-            background: #8f5e4e;
-            width: 80px;
-            height: 80px;
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .download-card h2 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #2c211c;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .version-badge {
-            font-size: 0.85rem;
-            color: #8f5e4e;
-            background: rgba(143, 94, 78, 0.1);
-            padding: 0.25rem 1rem;
-            border-radius: 30px;
-            font-weight: 500;
-            margin-bottom: 1.8rem;
-            display: inline-block;
-        }
-
-        /* Download Buttons Container */
-        .download-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            width: 100%;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #2c211c;
-            color: #faf6f2;
-            border: none;
-            padding: 1.1rem 2rem;
-            border-radius: 48px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            text-decoration: none;
-            box-shadow: 0 10px 24px rgba(44, 33, 28, 0.2);
-            transition: all 0.2s;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            flex: 1;
-            min-width: 140px;
-            justify-content: center;
-            white-space: nowrap;
-        }
-
-        .download-btn:hover {
-            background: #3f302a;
-            transform: scale(1.03);
-        }
-
-        .download-btn:active {
-            transform: scale(0.97);
-        }
-
-        .mirror-btn {
-            background: #8f5e4e;
-            box-shadow: 0 10px 24px rgba(143, 94, 78, 0.3);
-        }
-
-        .mirror-btn:hover {
-            background: #a06d5c;
-        }
-
-        .card-links-row {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            font-size: 0.9rem;
-            align-items: center;
-            line-height: 1.3;
-        }
-
-        .card-links-row a {
-            color: #8f5e4e;
-            text-decoration: underline;
-            text-underline-offset: 3px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .card-links-row a:hover {
-            color: #5a3e36;
-        }
-
-        .card-links-row span {
-            color: #6e5b52;
-        }
-
-        /* Feature List */
-        .features-panel {
-            background: #fbf6f1;
-            border-radius: 24px;
-            padding: 1.8rem;
-            border: 1px solid #e5d5ca;
-            box-shadow: 0 6px 0 #dccfc6;
-        }
-
-        .features-panel h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #2c211c;
-            margin-bottom: 1rem;
-        }
-
-        .feature-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 0.6rem;
-        }
-
-        .feature-list li {
-            padding: 0.4rem 0 0.4rem 26px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%238f5e4e"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat;
-            background-size: 16px;
-            font-size: 0.9rem;
-            color: #3d2e28;
-            border-bottom: 1px solid #f0e4dc;
-        }
-
-        .feature-list li:last-child {
-            border-bottom: none;
-        }
-
-        .feature-list li strong {
-            color: #2c211c;
-        }
-
-        /* Info Panel */
-        .info-panel {
-            background: #fbf6f1;
-            border-radius: 24px;
-            padding: 1.5rem;
-            border: 1px solid #e5d5ca;
-            box-shadow: 0 6px 0 #dccfc6;
-        }
-
-        .info-panel h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #2c211c;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .info-panel h3 i {
-            color: #8f5e4e;
-        }
-
-        .stat-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.45rem 0;
-            border-bottom: 1px solid #f0e4dc;
-            font-size: 0.85rem;
-            color: #3d2e28;
-        }
-
-        .stat-row:last-child {
-            border-bottom: none;
-        }
-
-        .stat-label {
-            font-weight: 600;
-            color: #5a3e36;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .stat-value {
-            color: #2c211c;
-            font-weight: 500;
-        }
-
-        .clean-badge {
-            color: #4caf50;
-            font-weight: 600;
-        }
-
-        .clickable-stat {
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .clickable-stat:hover {
-            color: #8f5e4e;
-        }
-
-        /* Visitors Panel */
-        .visitors-panel {
-            background: #fbf6f1;
-            border-radius: 24px;
-            padding: 1.5rem;
-            border: 1px solid #e5d5ca;
-            box-shadow: 0 6px 0 #dccfc6;
-            text-align: center;
-        }
-
-        .visitors-panel h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #2c211c;
-            margin-bottom: 1rem;
-        }
-
-        .visitors-panel img {
-            max-width: 100%;
-            border-radius: 12px;
-        }
-
-        /* Changelog */
-        .changelog-entry {
-            background: #fbf6f1;
-            border: 1px solid #e5d5ca;
-            border-radius: 24px;
-            padding: 1.5rem;
-            margin-bottom: 1.2rem;
-            box-shadow: 0 4px 0 #dccfc6;
-            transition: 0.2s;
-        }
-
-        .changelog-entry:hover {
-            border-color: #8f5e4e;
-            transform: scale(1.01);
-        }
-
-        .changelog-entry h3 {
-            color: #2c211c;
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .changelog-date {
-            font-size: 0.85rem;
-            color: #8a7a70;
-            margin-bottom: 0.8rem;
-        }
-
-        .changelog-entry ul {
-            padding-left: 20px;
-            color: #3d2e28;
-        }
-
-        .changelog-entry li {
-            margin-bottom: 0.3rem;
-            font-size: 0.9rem;
-        }
-
-        .back-btn {
-            padding: 12px 24px;
-            border-radius: 30px;
-            cursor: pointer;
-            border: 1px solid #e5d5ca;
-            background: #fbf6f1;
-            color: #5a4a43;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-            box-shadow: 0 4px 0 #dccfc6;
-        }
-
-        .back-btn:hover {
-            background: #f0e8e0;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 0 #dccfc6;
-        }
-
-        /* Archives Table */
-        .archives-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #fbf6f1;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 0 #dccfc6;
-            margin-bottom: 2rem;
-            border: 1px solid #e5d5ca;
-        }
-
-        .archives-table th {
-            background: #8f5e4e;
-            color: white;
-            padding: 14px 12px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .archives-table td {
-            padding: 14px 12px;
-            border-bottom: 1px solid #e5d5ca;
-            font-size: 0.9rem;
-            color: #3d2e28;
-        }
-
-        .archives-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .archives-table tr:hover {
-            background: #f0e8e0;
-        }
-
-        .download-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px 8px;
-        }
-
-        .download-links a {
-            color: #8f5e4e;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.85rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-            background: rgba(143, 94, 78, 0.08);
-            transition: all 0.15s;
-            white-space: nowrap;
-            cursor: pointer;
-        }
-
-        .download-links a:hover {
-            background: #8f5e4e;
-            color: white;
-        }
-
-        .download-links span {
-            color: #b0a098;
-            font-size: 0.8rem;
-            align-self: center;
-        }
-
-        /* Page trigger buttons (replaces old navigation) */
-        .page-triggers {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        .page-trigger-btn {
-            background: #fbf6f1;
-            border: 1px solid #e5d5ca;
-            padding: 0.7rem 1.6rem;
-            border-radius: 60px;
-            font-weight: 600;
-            font-size: 1rem;
-            color: #5a4a43;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .page-trigger-btn:hover {
-            background: #f0e8e0;
-            border-color: #8f5e4e;
-            transform: translateY(-2px);
-        }
-        .page-trigger-btn:active {
-            transform: translateY(1px);
-        }
-
-        /* Modal Overlay */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(8px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-        }
-
-        .modal-card {
-            background: #fbf6f1;
-            max-width: 520px;
-            width: 90%;
-            border-radius: 32px;
-            padding: 2rem;
-            text-align: center;
-            border: 1px solid #e5d5ca;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-scrollable-content {
-            max-height: 55vh;
-            overflow-y: auto;
-            margin: 1rem 0 1.5rem 0;
-            padding-right: 6px;
-        }
-
-        .countdown-number {
-            font-size: 4rem;
-            font-weight: 800;
-            color: #8f5e4e;
-            background: rgba(143, 94, 78, 0.1);
-            width: 110px;
-            height: 110px;
-            line-height: 110px;
-            border-radius: 50%;
-            margin: 1.5rem auto;
-            border: 3px solid #8f5e4e;
-        }
-
-        .modal-progress {
-            width: 100%;
-            height: 12px;
-            background: #e5d5ca;
-            border-radius: 20px;
-            margin: 20px 0;
-            overflow: hidden;
-        }
-
-        .modal-progress-bar {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #8f5e4e, #b16e5c);
-            transition: width 0.1s;
-        }
-
-        /* Footer */
-        .novel-footer {
-            width: 100%;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
-            background: rgba(255, 250, 245, 0.96);
-            padding: 2.5rem 0 2rem;
-            margin-top: 2rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #6e5b52;
-        }
-
-        /* Custom spacing fix for Legal section */
-        .legal-section-spacing {
-            margin-top: 1.25rem;
-            padding-top: 0.25rem;
-        }
-        
-        .legal-heading-spacing {
-            margin-top: 0.75rem;
-            margin-bottom: 0.75rem;
-        }
-
-        @media (max-width: 800px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
-            .download-card h2 {
-                font-size: 1.5rem;
-            }
-            .archives-table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .container {
-                padding: 1rem;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #ffffff; color: #1e1b1a; line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; width: 100%; flex: 1; }
+        .page-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #ece5de; }
+        .logo-area { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-icon { background: #8f5e4e; border-radius: 12px; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 6px; }
+        .logo-icon img { width: 100%; height: 100%; object-fit: contain; }
+        .logo-text { font-weight: 700; font-size: 1.5rem; letter-spacing: -0.02em; color: #2c211c; }
+        .tagline { font-size: 0.9rem; font-weight: 500; background: rgba(143,94,78,0.1); padding: 0.35rem 1rem; border-radius: 40px; color: #5a3e36; border: 1px solid rgba(180,140,120,0.2); }
+        #home-page, #changelog-page, #archives-page { animation: fadeIn 0.3s ease-in-out; }
+        #changelog-page, #archives-page { display: none; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .marquee-modern { background: #fbf6f1; padding: 0.7rem 0; font-weight: 600; color: #5a3e36; border: 1px solid #e5d5ca; border-radius: 16px; font-size: 0.9rem; overflow: hidden; white-space: nowrap; margin-bottom: 1.5rem; }
+        .marquee-modern span { display: inline-block; animation: marquee 25s linear infinite; padding-left: 100%; }
+        @keyframes marquee { 0% { transform: translate(0,0); } 100% { transform: translate(-100%,0); } }
+        .main-content { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+        .left-col { display: flex; flex-direction: column; gap: 1.5rem; }
+        .right-col { display: flex; flex-direction: column; gap: 1.5rem; }
+        .download-card { background: #fbf6f1; border-radius: 28px; padding: 2.5rem 2rem; border: 1px solid #e5d5ca; box-shadow: 0 8px 0 #dccfc6; text-align: center; display: flex; flex-direction: column; align-items: center; transition: all 0.2s ease; }
+        .download-card:hover { transform: translateY(-4px); box-shadow: 0 14px 0 #dccfc6, 0 12px 20px -8px rgba(80,50,30,0.15); }
+        .download-card .app-icon-large { background: #8f5e4e; width: 80px; height: 80px; border-radius: 24px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .download-card h2 { font-size: 1.8rem; font-weight: 700; color: #2c211c; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+        .version-badge { font-size: 0.85rem; color: #8f5e4e; background: rgba(143,94,78,0.1); padding: 0.25rem 1rem; border-radius: 30px; font-weight: 500; margin-bottom: 1.8rem; display: inline-block; }
+        .download-buttons { display: flex; gap: 1rem; margin-bottom: 1.5rem; width: 100%; justify-content: center; flex-wrap: wrap; }
+        .download-btn { display: inline-flex; align-items: center; gap: 8px; background: #2c211c; color: #faf6f2; border: none; padding: 1.1rem 2rem; border-radius: 48px; font-weight: 600; font-size: 1rem; cursor: pointer; text-decoration: none; box-shadow: 0 10px 24px rgba(44,33,28,0.2); transition: all 0.2s; border: 1px solid rgba(255,255,255,0.08); flex: 1; min-width: 140px; justify-content: center; white-space: nowrap; }
+        .download-btn:hover { background: #3f302a; transform: scale(1.03); }
+        .download-btn:active { transform: scale(0.97); }
+        .mirror-btn { background: #8f5e4e; box-shadow: 0 10px 24px rgba(143,94,78,0.3); }
+        .mirror-btn:hover { background: #a06d5c; }
+        .card-links-row { display: flex; flex-direction: column; gap: 0; font-size: 0.9rem; align-items: center; line-height: 1.3; }
+        .card-links-row a { color: #8f5e4e; text-decoration: underline; text-underline-offset: 3px; font-weight: 500; cursor: pointer; transition: color 0.2s; }
+        .card-links-row a:hover { color: #5a3e36; }
+        .card-links-row span { color: #6e5b52; }
+        .features-panel { background: #fbf6f1; border-radius: 24px; padding: 1.8rem; border: 1px solid #e5d5ca; box-shadow: 0 6px 0 #dccfc6; }
+        .features-panel h3 { font-size: 1.3rem; font-weight: 700; color: #2c211c; margin-bottom: 1rem; }
+        .feature-list { list-style: none; display: grid; grid-template-columns: 1fr; gap: 0.6rem; }
+        .feature-list li { padding: 0.4rem 0 0.4rem 26px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%238f5e4e"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat; background-size: 16px; font-size: 0.9rem; color: #3d2e28; border-bottom: 1px solid #f0e4dc; }
+        .feature-list li:last-child { border-bottom: none; }
+        .feature-list li strong { color: #2c211c; }
+        .info-panel { background: #fbf6f1; border-radius: 24px; padding: 1.5rem; border: 1px solid #e5d5ca; box-shadow: 0 6px 0 #dccfc6; }
+        .info-panel h3 { font-size: 1.1rem; font-weight: 700; color: #2c211c; margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+        .info-panel h3 i { color: #8f5e4e; }
+        .stat-row { display: flex; justify-content: space-between; padding: 0.45rem 0; border-bottom: 1px solid #f0e4dc; font-size: 0.85rem; color: #3d2e28; }
+        .stat-row:last-child { border-bottom: none; }
+        .stat-label { font-weight: 600; color: #5a3e36; display: flex; align-items: center; gap: 6px; }
+        .stat-value { color: #2c211c; font-weight: 500; }
+        .clean-badge { color: #4caf50; font-weight: 600; }
+        .clickable-stat { cursor: pointer; transition: color 0.2s; }
+        .clickable-stat:hover { color: #8f5e4e; }
+        .visitors-panel { background: #fbf6f1; border-radius: 24px; padding: 1.5rem; border: 1px solid #e5d5ca; box-shadow: 0 6px 0 #dccfc6; text-align: center; }
+        .visitors-panel h3 { font-size: 1.1rem; font-weight: 700; color: #2c211c; margin-bottom: 1rem; }
+        .visitors-panel img { max-width: 100%; border-radius: 12px; }
+        .changelog-entry { background: #fbf6f1; border: 1px solid #e5d5ca; border-radius: 24px; padding: 1.5rem; margin-bottom: 1.2rem; box-shadow: 0 4px 0 #dccfc6; transition: 0.2s; }
+        .changelog-entry:hover { border-color: #8f5e4e; transform: scale(1.01); }
+        .changelog-entry h3 { color: #2c211c; font-size: 1.2rem; margin-bottom: 0.3rem; }
+        .changelog-date { font-size: 0.85rem; color: #8a7a70; margin-bottom: 0.8rem; }
+        .changelog-entry ul { padding-left: 20px; color: #3d2e28; }
+        .changelog-entry li { margin-bottom: 0.3rem; font-size: 0.9rem; }
+        .back-btn { padding: 12px 24px; border-radius: 30px; cursor: pointer; border: 1px solid #e5d5ca; background: #fbf6f1; color: #5a4a43; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; box-shadow: 0 4px 0 #dccfc6; }
+        .back-btn:hover { background: #f0e8e0; transform: translateY(-2px); box-shadow: 0 6px 0 #dccfc6; }
+        .archives-table { width: 100%; border-collapse: collapse; background: #fbf6f1; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 0 #dccfc6; margin-bottom: 2rem; border: 1px solid #e5d5ca; }
+        .archives-table th { background: #8f5e4e; color: white; padding: 14px 12px; text-align: left; font-weight: 600; font-size: 0.9rem; }
+        .archives-table td { padding: 14px 12px; border-bottom: 1px solid #e5d5ca; font-size: 0.9rem; color: #3d2e28; }
+        .archives-table tr:last-child td { border-bottom: none; }
+        .archives-table tr:hover { background: #f0e8e0; }
+        .download-links { display: flex; flex-wrap: wrap; gap: 4px 8px; }
+        .download-links a { color: #8f5e4e; text-decoration: none; font-weight: 500; font-size: 0.85rem; padding: 4px 10px; border-radius: 20px; background: rgba(143,94,78,0.08); transition: all 0.15s; white-space: nowrap; cursor: pointer; }
+        .download-links a:hover { background: #8f5e4e; color: white; }
+        .download-links span { color: #b0a098; font-size: 0.8rem; align-self: center; }
+        .page-triggers { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .page-trigger-btn { background: #fbf6f1; border: 1px solid #e5d5ca; padding: 0.7rem 1.6rem; border-radius: 60px; font-weight: 600; font-size: 1rem; color: #5a4a43; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.02); display: inline-flex; align-items: center; gap: 8px; }
+        .page-trigger-btn:hover { background: #f0e8e0; border-color: #8f5e4e; transform: translateY(-2px); }
+        .page-trigger-btn:active { transform: translateY(1px); }
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; z-index: 10000; }
+        .modal-card { background: #fbf6f1; max-width: 520px; width: 90%; border-radius: 32px; padding: 2rem; text-align: center; border: 1px solid #e5d5ca; box-shadow: 0 30px 60px rgba(0,0,0,0.3); }
+        .modal-scrollable-content { max-height: 55vh; overflow-y: auto; margin: 1rem 0 1.5rem 0; padding-right: 6px; }
+        .countdown-number { font-size: 4rem; font-weight: 800; color: #8f5e4e; background: rgba(143,94,78,0.1); width: 110px; height: 110px; line-height: 110px; border-radius: 50%; margin: 1.5rem auto; border: 3px solid #8f5e4e; }
+        .modal-progress { width: 100%; height: 12px; background: #e5d5ca; border-radius: 20px; margin: 20px 0; overflow: hidden; }
+        .modal-progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #8f5e4e, #b16e5c); transition: width 0.1s; }
+        .novel-footer { width: 100%; border-top: 1px solid rgba(0,0,0,0.08); background: rgba(255,250,245,0.96); padding: 2.5rem 0 2rem; margin-top: 2rem; text-align: center; font-size: 0.9rem; color: #6e5b52; }
+        .legal-section-spacing { margin-top: 1.25rem; padding-top: 0.25rem; }
+        .legal-heading-spacing { margin-top: 0.75rem; margin-bottom: 0.75rem; }
+        @media (max-width:800px){ .main-content{ grid-template-columns:1fr; } .download-card h2{ font-size:1.5rem; } .archives-table{ display:block; overflow-x:auto; white-space:nowrap; } }
+        @media (max-width:640px){ .container{ padding:1rem; } }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header (logo & tagline only, no nav tabs) -->
         <div class="page-header">
             <a href="" class="logo-area" id="homeLogoLink">
-                <div class="logo-icon">
-                    <img src="app-icon.png" alt="NovelDR icon">
-                </div>
+                <div class="logo-icon"><img src="app-icon.png" alt="NovelDR icon"></div>
                 <span class="logo-text">Novel DR</span>
             </a>
             <span class="tagline">read · webnovels · offline · anywhere · everywhere</span>
         </div>
 
-        <!-- New action buttons: Changelog & Archives (replaces old nav header) -->
         <div class="page-triggers" style="display: none;">
             <button id="triggerChangelogBtn" class="page-trigger-btn">📜 Changelog</button>
             <button id="triggerArchivesBtn" class="page-trigger-btn">📦 Archives</button>
         </div>
 
-        <!-- Marquee -->
         <div class="marquee-modern">
             <span>✔️ 100% virus free • Compatible with Android 8+ • No ADS • No Login Required • Read Offline Anytime/Anywhere ✔️</span>
         </div>
 
-        <!-- HOME PAGE -->
         <div id="home-page">
             <div class="main-content">
                 <div class="left-col">
-                    <!-- Download Card -->
                     <div class="download-card">
-                        <div class="app-icon-large">
-                            <i class="fab fa-android"></i>
-                        </div>
+                        <div class="app-icon-large"><i class="fab fa-android"></i></div>
                         <h2>NovelDR v3.7.55rev411</h2>
                         <span class="version-badge">Build: v3.7.55rev411</span>
                         <div class="download-buttons">
-                            <a id="downloadMainBtn" class="download-btn">
-                                <i class="fas fa-download"></i> Download APK
-                            </a>
-                            <a id="downloadMirrorBtn" class="download-btn mirror-btn">
-                                <i class="fas fa-cloud-download-alt"></i> Mirror APK
-                            </a>
+                            <a id="downloadMainBtn" class="download-btn"><i class="fas fa-download"></i> Download APK</a>
+                            <a id="downloadMirrorBtn" class="download-btn mirror-btn"><i class="fas fa-cloud-download-alt"></i> Mirror APK</a>
                         </div>
                         <div class="card-links-row">
                             <a id="link-to-changelog">View detailed changelog</a>
                             <span>Looking for old versions? <a id="link-to-archives">Browse here</a></span>
                         </div>
                     </div>
-
-                    <!-- Features -->
                     <div class="features-panel">
                         <h3>✦ Powerful Features</h3>
                         <ul class="feature-list">
@@ -724,74 +146,38 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="right-col">
-                    <!-- App Stats -->
                     <div class="info-panel">
                         <h3><i class="fas fa-chart-bar"></i> App Stats</h3>
-                        <div class="stat-row">
-                            <span class="stat-label"><i class="fas fa-hdd"></i> APK Size:</span>
-                            <span class="stat-value">~94.67 MB</span>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-label"><i class="fas fa-tag"></i> Build Number:</span>
-                            <span class="stat-value">v3.7.55rev411</span>
-                        </div>
-                        <div class="stat-row clickable-stat" onclick="window.open('https://virusscan.jotti.org/en-US/filescanjob/oql6v3ec5k', '_blank')">
-                            <span class="stat-label"><i class="fas fa-shield-virus"></i> Jotti's Malware:</span>
-                            <span class="stat-value clean-badge">Clean ✓ (0/15)</span>
-                        </div>
-                        <div class="stat-row clickable-stat" onclick="window.open('https://github.com/Moggle-Khraum/noveldr-site/releases', '_blank')">
-                            <span class="stat-label"><i class="fab fa-github"></i> Github Release:</span>
-                            <span class="stat-value">Official Release</span>
-                        </div>
+                        <div class="stat-row"><span class="stat-label"><i class="fas fa-hdd"></i> APK Size:</span><span class="stat-value">~94.67 MB</span></div>
+                        <div class="stat-row"><span class="stat-label"><i class="fas fa-tag"></i> Build Number:</span><span class="stat-value">v3.7.55rev411</span></div>
+                        <div class="stat-row clickable-stat" onclick="window.open('https://virusscan.jotti.org/en-US/filescanjob/oql6v3ec5k', '_blank')"><span class="stat-label"><i class="fas fa-shield-virus"></i> Jotti's Malware:</span><span class="stat-value clean-badge">Clean ✓ (0/15)</span></div>
+                        <div class="stat-row clickable-stat" onclick="window.open('https://github.com/Moggle-Khraum/noveldr-site/releases', '_blank')"><span class="stat-label"><i class="fab fa-github"></i> Github Release:</span><span class="stat-value">Official Release</span></div>
                     </div>
-
-                    <!-- Visitors -->
                     <div class="visitors-panel">
                         <h3>🌍 Visitors</h3>
-                        <a href="https://info.flagcounter.com/G8tC" target="_blank">
-                            <img src="https://s01.flagcounter.com/count2/G8tC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter">
-                        </a>
+                        <a href="https://info.flagcounter.com/G8tC" target="_blank"><img src="https://s01.flagcounter.com/count2/G8tC/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter"></a>
                     </div>
-
-                    <!-- Relative Links Panel with fixed spacing between Legal and Github Release -->
-                    <div class="info-panel" style="margin-top: 1.5rem;">
+                    <div class="info-panel" style="margin-top:1.5rem;">
                         <h3><i class="fas fa-link"></i> Relative Links</h3>
-                        <div class="stat-row">
-                            <span class="stat-label"><i class="fas fa-home"></i> Home:</span>
-                            <span class="stat-value"><a href="/index.html" style="color: #8f5e4e; text-decoration: none; font-weight: 500;">Novel DR Home</a></span>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-label"><i class="fab fa-github"></i> Github Release:</span>
-                            <span class="stat-value"><a href="https://github.com/Moggle-Khraum/noveldr-site/releases" target="_blank" style="color: #8f5e4e; text-decoration: none; font-weight: 500;">Releases</a></span>
-                        </div>
-
-                        <!-- Improved Legal Section with clear top spacing -->
+                        <div class="stat-row"><span class="stat-label"><i class="fas fa-home"></i> Home:</span><span class="stat-value"><a href="/index.html" style="color:#8f5e4e;text-decoration:none;font-weight:500;">Novel DR Home</a></span></div>
+                        <div class="stat-row"><span class="stat-label"><i class="fab fa-github"></i> Github Release:</span><span class="stat-value"><a href="https://github.com/Moggle-Khraum/noveldr-site/releases" target="_blank" style="color:#8f5e4e;text-decoration:none;font-weight:500;">Releases</a></span></div>
                         <div class="legal-section-spacing"></div>
                         <h3 class="legal-heading-spacing"><i class="fas fa-gavel"></i> Legal</h3>
-                        <div class="stat-row">
-                            <span class="stat-label"><i class="fas fa-scroll"></i> Terms of Service:</span>
-                            <span class="stat-value"><a href="download-terms.html" style="color: #8f5e4e; text-decoration: none; font-weight: 500;">View Here</a></span>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-label"><i class="fas fa-shield-alt"></i> Privacy Policy:</span>
-                            <span class="stat-value"><a href="download-privacy.html" style="color: #8f5e4e; text-decoration: none; font-weight: 500;">Read Here</a></span>
-                        </div>
+                        <div class="stat-row"><span class="stat-label"><i class="fas fa-scroll"></i> Terms of Service:</span><span class="stat-value"><a href="download-terms.html" style="color:#8f5e4e;text-decoration:none;font-weight:500;">View Here</a></span></div>
+                        <div class="stat-row"><span class="stat-label"><i class="fas fa-shield-alt"></i> Privacy Policy:</span><span class="stat-value"><a href="download-privacy.html" style="color:#8f5e4e;text-decoration:none;font-weight:500;">Read Here</a></span></div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div id="changelog-page">
-            <h2 style="color:#2c211c; margin-bottom: 1.5rem; font-size: 1.8rem;">📜 Version History</h2>
-             <div class="changelog-entry">
-                 <h3 style="color:#008000;">v3.7.55rev411</h3>
-                 <p class="changelog-date">July 16, 2026 Update</p>
-                 
-                 <!-- ⚙️ NEW -->
-                   <p class="changelog-section-title"><strong>⚙️ [ NEW ]</strong></p>
-                
-                   <ul>
+            <h2 style="color:#2c211c;margin-bottom:1.5rem;font-size:1.8rem;">📜 Version History</h2>
+            <div class="changelog-entry">
+                <h3 style="color:#008000;">v3.7.55rev411</h3>
+                <p class="changelog-date">July 16, 2026 Update</p>
+                <p class="changelog-section-title"><strong>⚙️ [ NEW ]</strong></p>
+                <ul>
                     <li><strong>ZIP‑only backups</strong> — New backups are now always created as a single <code>.zip</code> file, built via a streaming, memory‑safe export (chapters written in bounded NDJSON parts, covers compressed and copied directly) rather than one giant in‑memory JSON blob.</li>
                     <li><strong>Dual‑format restore</strong> — The restore flow supports both ZIP (v5+) and legacy JSON (v4 and earlier), from the on‑device backup list or the file picker.</li>
                     <li><strong>Share button restored</strong> — The backup completion alert now includes a “Share Backup” button to instantly share the generated <code>.zip</code> file.</li>
@@ -800,28 +186,20 @@
                     <li><strong>Check for Updates</strong> — Added the button <code>Check for Updates</code> in the Settings to manually check if there's a new version or the update was skipped.</li>
                     <li><strong>Notif Bell Update</strong> — Added a Notif bell icon just on top of the Reload button; it will only appear once there's a new update or has been manually triggered by the <code>Check for Updates</code> in the Settings tab.</li>
                     <li><strong>Chapter Deletion</strong> — Added a chapter deletion system that deletes chapters properly and have the same flow as deleting a novel in the Library tab.</li>
-                    <li>
-                        <strong>Self Updater Implementation</strong>
-                        <ul>
-                            <li>Implemented <code>downloadApk</code> using <code>expo-file-system</code>'s <code>createDownloadResumable</code>.</li>
-                            <li>Added an update modal UI component, it looks like a notification bell, to notify users when a new version is available, showing version info, changelog, and a download/install action.</li>
-                            <li>Implemented <code>downloadApk</code> using <code>expo-file-system</code>'s <code>createDownloadResumable</code>, with progress tracking for the modal's download state.</li>
-                            <li>Implemented <code>installApk</code> using <code>FileSystem.getContentUriAsync</code> + <code>expo-intent-launcher</code> to trigger the Android package installer directly from the app, and for Android 7+ compatibility.</li>
-                            <li>Added the <code>REQUEST_INSTALL_PACKAGES</code> permission to <code>app.config.js</code>, since Android blocks "install from unknown sources" for sideloaded apps without it.</li>
-                            <li>Connected <code>downloadApk</code> / <code>installApk</code> into <code>useUpdateChecker.ts</code> so the update flow triggers automatically on version check.</li>
-                        </ul>
+                    <li><strong>Self Updater Implementation</strong>
+                        <ul><li>Implemented <code>downloadApk</code> using <code>expo-file-system</code>'s <code>createDownloadResumable</code>.</li>
+                        <li>Added an update modal UI component, it looks like a notification bell, to notify users when a new version is available, showing version info, changelog, and a download/install action.</li>
+                        <li>Implemented <code>downloadApk</code> using <code>expo-file-system</code>'s <code>createDownloadResumable</code>, with progress tracking for the modal's download state.</li>
+                        <li>Implemented <code>installApk</code> using <code>FileSystem.getContentUriAsync</code> + <code>expo-intent-launcher</code> to trigger the Android package installer directly from the app, and for Android 7+ compatibility.</li>
+                        <li>Added the <code>REQUEST_INSTALL_PACKAGES</code> permission to <code>app.config.js</code>, since Android blocks "install from unknown sources" for sideloaded apps without it.</li>
+                        <li>Connected <code>downloadApk</code> / <code>installApk</code> into <code>useUpdateChecker.ts</code> so the update flow triggers automatically on version check.</li></ul>
                     </li>
-                    <li>
-                        <strong>Chapter Limiter</strong>
-                        <ul>
-                            <li>Added a shared <code>useChapterLimiter</code> hook and <code>ChapterLimitModal</code> component.</li>
-                            <li>Thresholds: caution at 200 chapters, danger at 250+, hard cap at 300.</li>
-                            <li>Wired into both <code>add.tsx</code> and <code>updates.tsx</code>.</li>
-                        </ul>
+                    <li><strong>Chapter Limiter</strong>
+                        <ul><li>Added a shared <code>useChapterLimiter</code> hook and <code>ChapterLimitModal</code> component.</li>
+                        <li>Thresholds: caution at 200 chapters, danger at 250+, hard cap at 300.</li>
+                        <li>Wired into both <code>add.tsx</code> and <code>updates.tsx</code>.</li></ul>
                     </li>
                 </ul>
-    
-                <!-- ⚡ IMPROVEMENTS -->
                 <p class="changelog-section-title"><strong>⚡ [ IMPROVEMENTS ]</strong></p>
                 <ul>
                     <li><strong>Consolidated code</strong> — Removed <code>collectAppData()</code> and <code>exportBackupJSON()</code>, replaced with a single <code>exportBackup()</code> function for the streaming ZIP export.</li>
@@ -830,121 +208,103 @@
                     <li><strong>Faster stuck-loop detection</strong> — Added a consecutive-skip counter (<code>MAX_CONSECUTIVE_SKIPS = 5</code>) that breaks the update loop immediately once 5 chapters in a row are skipped without a real download, instead of waiting on the much higher <code>ITERATION_CEILING</code> (<code>maxCh × 5 + 50</code>).</li>
                     <li><strong>Clear stop message</strong> — When the guard trips, the log now shows a single clean line: <em>“STOPPED: Update has stopped without downloading anything new. The source's "next chapter" link likely nonexistent.”</em></li>
                     <li><strong>Progress-aware reset</strong> — The skip counter resets to 0 the moment a real chapter (new or gap-fill) actually downloads, so long legitimate resume runs over already‑downloaded chapters aren't falsely flagged as stuck.</li>
-                    <li>
-                        <strong>Battery drain fix</strong>
-                        <ul>
-                            <li>Traced excessive battery usage to <code>splitSentencesWithLineBreaks</code> and TTS highlight matching running on every single render frame.</li>
-                            <li>Fixed <code>useMemo</code> and a <code>ttsToRenderKeyMap</code> for <code>O(1)</code> lookups, for TTS render optimization.</li>
-                        </ul>
+                    <li><strong>Battery drain fix</strong>
+                        <ul><li>Traced excessive battery usage to <code>splitSentencesWithLineBreaks</code> and TTS highlight matching running on every single render frame.</li>
+                        <li>Fixed <code>useMemo</code> and a <code>ttsToRenderKeyMap</code> for <code>O(1)</code> lookups, for TTS render optimization.</li></ul>
                     </li>
-                    <li>
-                        <strong>Update checker fix</strong>
-                        <ul>
-                            <li>Fixed a bug where the app could never actually tell what version was currently installed, so it kept thinking every release — even older ones — was a new update.</li>
-                            <li>The update check now correctly recognizes the version you already have, so you won't get repeat "update available" prompts or be offered a downgrade disguised as an update.</li>
-                        </ul>
+                    <li><strong>Update checker fix</strong>
+                        <ul><li>Fixed a bug where the app could never actually tell what version was currently installed, so it kept thinking every release — even older ones — was a new update.</li>
+                        <li>The update check now correctly recognizes the version you already have, so you won't get repeat "update available" prompts or be offered a downgrade disguised as an update.</li></ul>
                     </li>
                 </ul>
-    
-                <!-- 🗑️ REMOVED / REPLACED -->
                 <p class="changelog-section-title"><strong>🗑️ [ REMOVED / REPLACED ]</strong></p>
                 <ul>
                     <li><strong>Removed JSON backup path</strong> — The old <code>exportBackupJSON()</code> and its supporting code are no longer used.</li>
                     <li><strong>Old single‑blob JSON export path removed</strong> — the original <code>collectAppData()</code> (full library + chapters + base64 covers built in memory, then double‑copied via <code>JSON.stringify</code>) is gone; this was the likely source of the OOM crashes on large libraries.</li>
                 </ul>
-                 
-             </div>
+            </div>
             <div class="changelog-entry">
-                 <h3>v3.1.0rev322</h3>
-                 <p class="changelog-date">July 4, 2026 Update</p>
+                <h3>v3.1.0rev322</h3>
+                <p class="changelog-date">July 4, 2026 Update</p>
                 <ul>
                     <p><strong>✨ [ NEW ]</strong></p>
-                        <li><strong>Added</strong> <code>Margins</code> with 3 presets: <em>Compact, Comfortable, & Spacious.</em></li>
-                        <li><strong>Added</strong> reader <code>backgrounds</code> with 11 presets (solid &amp; gradient): <em>Parchment, Night, Forest, Ocean, Rose, Slate, Dusk, Dawn, Mist, Moss, Ember,</em> or keep the default by choosing <em>None</em> which automatically switches back to the app's theme and font colors.</li>
-                        <li><strong>Added</strong> adaptive text colors to adjust automatically for perfect contrast.</li>
-                        <li><strong>Added</strong> an option to set any image from gallery as a <em>custom reading background.</em></li>
-                        <li><strong>Custom</strong> background images are stored locally; they will not be backed up to any cloud storage.</li>
-                        <li><strong>Added</strong> a function when tapping the progress bar to jump anywhere in the chapter.</li>
-                        <li><strong>Added</strong> UI overhaul to make the TOC display the current reading progress in percentage.</li>
-                        <li><strong>Added</strong> a dynamic search function inside the TOC to quickly search chapters by title, displaying results while typing.</li>
-                    </ul>
-                
-                    <p><strong>⚡ [ IMPROVEMENTS ]</strong></p>
-                    <ul>
-                        <li><strong>Reworked</strong> the skipping logic to work just like the Update Tab.</li>
-                        <li><strong>Improved</strong> LNW Scraping by adding diagnostics and support for direct link downloads.</li>
-                        <li><strong>Reduced</strong> skip delay from 200ms to 50ms per chapter, increasing skipping speed further.</li>
-                        <li><strong>Reworked</strong> the Developer Profile modal display.</li>
-                        <li><strong>Reworked</strong> the Credits and Acknowledgements modal display.</li>
-                        <li><strong>Control panel</strong> now a floating bottom‑sheet overlay — no longer pushes content down.</li>
-                        <li><strong>Progress bar</strong> relocated to just above bottom navigation for better visibility.</li>
-                        <li><strong>TTS highlight map</strong> precomputed with <code>useMemo</code> — no longer recalculated inside every render.</li>
-                        <li><strong>Reading progress</strong> saved every 3 seconds via <code>debounce</code> instead of only <code>on unmount</code>.</li>
-                        <li><strong>TTS scroll</strong> now follows the highlighted sentence using paragraph <code>onLayout</code> y‑positions.</li>
-                        <li><strong>Auto‑scroll</strong> stops when TTS starts; TTS stops when auto‑scroll starts.</li>
-                        <li><strong>Background preferences</strong> now persist across sessions via <code>reader_bg.json</code>.</li>
-                        <li><strong><code>ImageBackground</code></strong> fills screen by width/height with <code>resizeMode="cover"</code>.</li>
-                        <li><strong>Added <code>splitIntoReadableParagraphs()</code></strong> to normalize <code>\r\n</code>, tabs, blank lines, and single‑newline chapter text.</li>
-                    </ul>
-                
-                    <p><strong>🗑️ [ REMOVED / REPLACED ]</strong></p>
-                    <ul>
-                        <li><strong>Removed</strong> dead <code>forceTopRef</code> code.</li>
-                        <li><strong>Replaced</strong> outer content <code>&lt;Text&gt;</code> wrapper with <code>&lt;View&gt;</code> and rendered each paragraph as its own sibling <code>&lt;Text&gt;</code> with <code>marginBottom</code> — spacing is now actually respected.</li>
-                    </ul>
-                
-                    <p><strong>🐞 [ BUG FIXES ]</strong></p>
-                    <ul>
-                        <li><strong>Fixed</strong> covers occasionally saving as corrupted or empty files.</li>
-                        <li><strong>Fixed</strong> cover file extension always being saved as <code>.jpg</code> regardless of source format.</li>
-                        <li><strong>Resolved</strong> rare crashes when switching chapters while TTS was active.</li>
-                        <li><strong>Corrected</strong> text color behavior on gradient backgrounds.</li>
-                        <li><strong>Fixed</strong> “Next Chapter” preloading sometimes failing on the first attempt.</li>
-                        <li><strong>Prevented</strong> TTS from continuing after chapter change or app backgrounding.</li>
-                        <li><strong><code>splitIntoSentences</code></strong> no longer splits on commas/semicolons — sentence-ending punctuation only (<code>.!?…</code>), preventing choppy TTS fragments.</li>
-                        <li><strong>Added</strong> much smarter paragraph and sentence detection that handles dialogue, punctuation, line breaks, and special characters (→, …, —) for a natural reading flow.</li>
-                        <li><strong>Previously loaded chapters</strong> are stored temporarily in cache to make switching chapters flow seamlessly.</li>
-                        <li><strong>Optimized</strong> scrolling and text rendering; old cache entries are automatically cleared after 30 minutes.</li>
-                        <li><strong>Improved</strong> the persistence settings of the reader so that font size, line spacing, margins, auto‑scroll speed, background choice, and TTS preferences are saved automatically.</li>
-                    </ul>
-                
-                    <p><strong>♿ [ ACCESSIBILITY ]</strong></p>
-                    <ul>
-                        <li><strong>Added</strong> haptic feedback for all major interactions.</li>
-                        <li><strong>Added</strong> visual feedback on press for all touch targets.</li>
-                        <li><strong>Long‑press interactions</strong> are clearly documented in the TTS guide (book button) modal.</li>
-                        <li><strong>Added</strong> a <code>Scroll to Top [ ↑ ]</code> button in the reader to scroll directly to the very start of the chapter.</li>      
+                    <li><strong>Added</strong> <code>Margins</code> with 3 presets: <em>Compact, Comfortable, & Spacious.</em></li>
+                    <li><strong>Added</strong> reader <code>backgrounds</code> with 11 presets (solid &amp; gradient): <em>Parchment, Night, Forest, Ocean, Rose, Slate, Dusk, Dawn, Mist, Moss, Ember,</em> or keep the default by choosing <em>None</em> which automatically switches back to the app's theme and font colors.</li>
+                    <li><strong>Added</strong> adaptive text colors to adjust automatically for perfect contrast.</li>
+                    <li><strong>Added</strong> an option to set any image from gallery as a <em>custom reading background.</em></li>
+                    <li><strong>Custom</strong> background images are stored locally; they will not be backed up to any cloud storage.</li>
+                    <li><strong>Added</strong> a function when tapping the progress bar to jump anywhere in the chapter.</li>
+                    <li><strong>Added</strong> UI overhaul to make the TOC display the current reading progress in percentage.</li>
+                    <li><strong>Added</strong> a dynamic search function inside the TOC to quickly search chapters by title, displaying results while typing.</li>
                 </ul>
-            </div>  
-            
+                <p><strong>⚡ [ IMPROVEMENTS ]</strong></p>
+                <ul>
+                    <li><strong>Reworked</strong> the skipping logic to work just like the Update Tab.</li>
+                    <li><strong>Improved</strong> LNW Scraping by adding diagnostics and support for direct link downloads.</li>
+                    <li><strong>Reduced</strong> skip delay from 200ms to 50ms per chapter, increasing skipping speed further.</li>
+                    <li><strong>Reworked</strong> the Developer Profile modal display.</li>
+                    <li><strong>Reworked</strong> the Credits and Acknowledgements modal display.</li>
+                    <li><strong>Control panel</strong> now a floating bottom‑sheet overlay — no longer pushes content down.</li>
+                    <li><strong>Progress bar</strong> relocated to just above bottom navigation for better visibility.</li>
+                    <li><strong>TTS highlight map</strong> precomputed with <code>useMemo</code> — no longer recalculated inside every render.</li>
+                    <li><strong>Reading progress</strong> saved every 3 seconds via <code>debounce</code> instead of only <code>on unmount</code>.</li>
+                    <li><strong>TTS scroll</strong> now follows the highlighted sentence using paragraph <code>onLayout</code> y‑positions.</li>
+                    <li><strong>Auto‑scroll</strong> stops when TTS starts; TTS stops when auto‑scroll starts.</li>
+                    <li><strong>Background preferences</strong> now persist across sessions via <code>reader_bg.json</code>.</li>
+                    <li><strong><code>ImageBackground</code></strong> fills screen by width/height with <code>resizeMode="cover"</code>.</li>
+                    <li><strong>Added <code>splitIntoReadableParagraphs()</code></strong> to normalize <code>\r\n</code>, tabs, blank lines, and single‑newline chapter text.</li>
+                </ul>
+                <p><strong>🗑️ [ REMOVED / REPLACED ]</strong></p>
+                <ul>
+                    <li><strong>Removed</strong> dead <code>forceTopRef</code> code.</li>
+                    <li><strong>Replaced</strong> outer content <code>&lt;Text&gt;</code> wrapper with <code>&lt;View&gt;</code> and rendered each paragraph as its own sibling <code>&lt;Text&gt;</code> with <code>marginBottom</code> — spacing is now actually respected.</li>
+                </ul>
+                <p><strong>🐞 [ BUG FIXES ]</strong></p>
+                <ul>
+                    <li><strong>Fixed</strong> covers occasionally saving as corrupted or empty files.</li>
+                    <li><strong>Fixed</strong> cover file extension always being saved as <code>.jpg</code> regardless of source format.</li>
+                    <li><strong>Resolved</strong> rare crashes when switching chapters while TTS was active.</li>
+                    <li><strong>Corrected</strong> text color behavior on gradient backgrounds.</li>
+                    <li><strong>Fixed</strong> “Next Chapter” preloading sometimes failing on the first attempt.</li>
+                    <li><strong>Prevented</strong> TTS from continuing after chapter change or app backgrounding.</li>
+                    <li><strong><code>splitIntoSentences</code></strong> no longer splits on commas/semicolons — sentence-ending punctuation only (<code>.!?…</code>), preventing choppy TTS fragments.</li>
+                    <li><strong>Added</strong> much smarter paragraph and sentence detection that handles dialogue, punctuation, line breaks, and special characters (→, …, —) for a natural reading flow.</li>
+                    <li><strong>Previously loaded chapters</strong> are stored temporarily in cache to make switching chapters flow seamlessly.</li>
+                    <li><strong>Optimized</strong> scrolling and text rendering; old cache entries are automatically cleared after 30 minutes.</li>
+                    <li><strong>Improved</strong> the persistence settings of the reader so that font size, line spacing, margins, auto‑scroll speed, background choice, and TTS preferences are saved automatically.</li>
+                </ul>
+                <p><strong>♿ [ ACCESSIBILITY ]</strong></p>
+                <ul>
+                    <li><strong>Added</strong> haptic feedback for all major interactions.</li>
+                    <li><strong>Added</strong> visual feedback on press for all touch targets.</li>
+                    <li><strong>Long‑press interactions</strong> are clearly documented in the TTS guide (book button) modal.</li>
+                    <li><strong>Added</strong> a <code>Scroll to Top [ ↑ ]</code> button in the reader to scroll directly to the very start of the chapter.</li>
+                </ul>
+            </div>
             <div class="changelog-entry">
-                 <h3>v2.7.4rev260</h3>
-                 <p class="changelog-date">June 8, 2026 Update</p>
+                <h3>v2.7.4rev260</h3>
+                <p class="changelog-date">June 8, 2026 Update</p>
                 <ul>
                     <li><strong>🐛 [ PATCH FIX ] </strong></li>
                     <li><strong>Fixed</strong> deduplication for LightNovelWorld to prevent the repeating phrase when scraping chapters.</li>
                     <li><strong>Fixed</strong> fetcher for the novel cover on LightNovelWorld.</li>
-                    
                     <li><strong>✨ [ NEW ] </strong></li>
                     <li><strong>Added</strong> a lightweight fetch helper which makes skipping faster.</li>
                     <li><strong>Added</strong> Credits button under the Report Feedback button in the Settings menu.</li>
                     <li><strong>Added</strong> Credit's own modal that displays the authors in a scrollable view.</li>
-                    
                     <li><strong>⚡ [ IMPROVEMENTS ] </strong></li>
                     <li><strong>Reworked</strong> the skipping logic to work just like the Update Tab.</li>
                     <li><strong>Changed</strong> the old skipping logic (every 30 chapters) to 25%/50%/75% milestones instead.</li>
                     <li><strong>Reduced</strong> skip delay from 200ms to 50ms per chapter, increasing skipping speed further.</li>
                     <li><strong>Reworked</strong> the display modal for the Developer Profile Modal.</li>
                     <li><strong>Reworked</strong> the display modal for the Credits and Acknowledgements Modal.</li>
-                    
                     <li><strong>🗑️ [ REMOVED ] </strong></li>
                     <li><strong>Removed</strong> the old skipping logic "every 30 chapters".</li>
                     <li><strong>Removed</strong> old, redundant code that used a second navigation loop (unoptimized, crude, and made skipping slow).</li>
                     <li><strong>Removed</strong> old stale code from the previous skipping logic.</li>
                     <li><strong>Removed</strong> duplicated emoji prefixes used when logging to the Activity Log.</li>
                 </ul>
-            </div>  
-            
+            </div>
             <div class="changelog-entry">
                 <h3>v2.5.18rev250</h3>
                 <p class="changelog-date">May 21, 2026 Update</p>
@@ -963,12 +323,10 @@
                     <li><strong>Improved sentence highlighting</strong> — TTS highlight now accurately tracks sentences in real-time with reduced lag</li>
                     <li><strong>Better short word support</strong> — Minimum sentence length reduced from 8 to 2 characters, preventing skipped words like "What," and "(Well)"</li>
                     <li><strong>Symbol-to-speech conversion</strong> — Game lingo and navigation symbols now read naturally:
-                        <ul>
-                            <li><code>→</code>, <code>-></code>, <code>=></code> → reads as <strong>"to"</strong></li>
-                            <li><code>←</code>, <code><-</code>, <code><=</code> → reads as <strong>"from"</strong></li>
-                            <li><code>↔</code>, <code><-></code> → reads as <strong>"between"</strong></li>
-                            <li>Example: <code>[Thief 1 -&gt; Thief 2]</code> now reads as <strong>"from Thief 1 to Thief 2"</strong></li>
-                        </ul>
+                        <ul><li><code>→</code>, <code>-></code>, <code>=></code> → reads as <strong>"to"</strong></li>
+                        <li><code>←</code>, <code><-</code>, <code><=</code> → reads as <strong>"from"</strong></li>
+                        <li><code>↔</code>, <code><-></code> → reads as <strong>"between"</strong></li>
+                        <li>Example: <code>[Thief 1 -&gt; Thief 2]</code> now reads as <strong>"from Thief 1 to Thief 2"</strong></li></ul>
                     </li>
                     <li>Text like <code>Name: Gu Qingyang\nEssence: Ancient Tree</code> is split into individual readable chunks</li>
                     <li>Each line segment gets its own TTS sentence instead of being skipped</li>
@@ -985,11 +343,9 @@
                     <li><strong>Added</strong> Text-to-Speech with voice selection, speed control, and sentence highlighting.</li>
                     <li><strong>Added</strong> TTS error handling with auto-stop after 3 consecutive errors.</li>
                     <li><strong>Added</strong> <strong>"Report Issue / Feedback" button</strong> in Settings section.
-                        <ul>
-                            <li><strong>Added</strong> alias field (optional) and detailed description text area.</li>
-                            <li><strong>Added</strong> auto-filled device info (app version, platform, OS version) in email body.</li>
-                            <li><strong>Added</strong> email client integration — reports open directly in user's email app.</li>
-                        </ul>
+                        <ul><li><strong>Added</strong> alias field (optional) and detailed description text area.</li>
+                        <li><strong>Added</strong> auto-filled device info (app version, platform, OS version) in email body.</li>
+                        <li><strong>Added</strong> email client integration — reports open directly in user's email app.</li></ul>
                     </li>
                     <li><strong>Added</strong> 6 themes: Dark, Light, Sepia, AMOLED, Warm, and Slate.</li>
                     <li><STRONG>🐛 [ BUGFIXES ]</STRONG></li>
@@ -1000,21 +356,18 @@
                     <li><strong>Added</strong> proper line break preservation using \n\n between paragraphs.</li>
                     <li><strong>Fixed</strong> chapter titles now showing real names instead of generic "Chapter X".</li>
                     <li><strong>Fixed</strong> TTS initialization not loading saved voice preferences.</li>
-
                 </ul>
             </div>
-
             <div class="changelog-entry">
                 <h3>v1.4.4rev175</h3>
                 <p class="changelog-date">May 13, 2026 Update</p>
                 <ul>
-                    <li><strong>[FIXED]</strong> Fixed the doubling of chapter title of FreeWebNovel, e.g 'Chapter 1: Chapter 1: Prologue' </li>
+                    <li><strong>[FIXED]</strong> Fixed the doubling of chapter title of FreeWebNovel, e.g 'Chapter 1: Chapter 1: Prologue'</li>
                     <li><strong>[FIXED]</strong> Fixed the missing chapter title for domains like AllNovel, ReadNovelFull, Novelfull, & Novelbin</li>
-                    <li><strong>[FIXED]</strong> Fixed the stray ' , ' when trimming title for ReadNovelFull
+                    <li><strong>[FIXED]</strong> Fixed the stray ' , ' when trimming title for ReadNovelFull</li>
                     <li><strong>[IMPROVEMENT]</strong> Improved the downloader to utilized the new chapter title fetcher mechanism.</li>
                 </ul>
             </div>
-
             <div class="changelog-entry">
                 <h3>v1.4.3rev171</h3>
                 <p class="changelog-date">May 11, 2026 Update</p>
@@ -1034,7 +387,6 @@
                     <li><strong>[REMOVED]</strong> Removed the 'Clear' button in the Activity Log, its redundant to Clear Button</li>
                 </ul>
             </div>
-            
             <div class="changelog-entry">
                 <h3>v1.4.0rev147</h3>
                 <p class="changelog-date">May 7, 2026 Update</p>
@@ -1065,7 +417,6 @@
                     <li><strong>[FIXED]</strong> Progress bar not updating correctly during max chapter limits</li>
                 </ul>
             </div>
-
             <div class="changelog-entry">
                 <h3>v1.3.11rev137</h3>
                 <p class="changelog-date">Apr 28, 2026 Update</p>
@@ -1078,7 +429,6 @@
                     <li>[BUGFIX] Fixed the unresponsiveness of buttons</li>
                 </ul>
             </div>
-            
             <div class="changelog-entry">
                 <h3>v1.3.10rev131</h3>
                 <p class="changelog-date">Apr 25, 2026 Update</p>
@@ -1090,7 +440,6 @@
                     <li>[BUGFIX] Fixed the download code to avoid freezing when downloading existing novel</li>
                 </ul>
             </div>
-
             <div class="changelog-entry">
                 <h3>v1.3.9rev128</h3>
                 <p class="changelog-date">Apr 21, 2026 Update</p>
@@ -1115,7 +464,6 @@
                     <li>[FIXED] Minor bugs and performance issues</li>
                 </ul>
             </div>
-
             <div class="changelog-entry">
                 <h3>v1.3.8rev118</h3>
                 <p class="changelog-date">Apr 15, 2026 Update</p>
@@ -1138,7 +486,6 @@
                     <li>[NEEDS FIXING] Minor bugs and performance issues</li>
                 </ul>
             </div>
-
             <div class="changelog-entry">
                 <h3>v1.0.3rev055</h3>
                 <p class="changelog-date">Apr 13, 2026</p>
@@ -1159,7 +506,6 @@
                     <li>[FIXED] Improved Author & Synopsis extraction.</li>
                 </ul>
             </div>
-
             <div class="changelog-entry">
                 <h3>v1.0.2rev36</h3>
                 <p class="changelog-date">March 27, 2026</p>
@@ -1171,7 +517,6 @@
                     <li>[NEEDS FIXING] Improved Author & Synopsis extraction.</li>
                 </ul>
             </div>
-
             <div class="changelog-entry">
                 <h3>v1.0.1rev16</h3>
                 <p class="changelog-date">March 27, 2026</p>
@@ -1189,34 +534,30 @@
             <button id="back-to-home-changelog" class="back-btn">← Back to Home</button>
         </div>
 
-        <!-- ARCHIVES PAGE -->
         <div id="archives-page">
-            <h2 style="color:#2c211c; margin-bottom: 1.5rem; font-size: 1.8rem;">📦 App Archives</h2>
+            <h2 style="color:#2c211c;margin-bottom:1.5rem;font-size:1.8rem;">📦 App Archives</h2>
             <h3>Downloading old version is not recommended, its filled with bugs, problems, and errors.</h3>
             <table class="archives-table">
-                <thead>
-                    <tr><th>App Name</th><th>Version</th><th>Changelog</th><th>Size</th><th>Download Links</th></tr>
-                </thead>
+                <thead><tr><th>App Name</th><th>Version</th><th>Changelog</th><th>Size</th><th>Download Links</th></tr></thead>
                 <tbody>
-                    <tr><td><strong>Novel DR</strong></td><td>v1.4.4rev175</td><td><a href="#" onclick="showVersionChangelog('1.4.4rev175'); return false;" style="color: #8f5e4e; text-decoration: underline; font-weight: 500;">View</a></td><td>92.99 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.4.4rev175', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.4.4rev175', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.4.4rev175', 'itch'); return false;">Itch.io</a></div></td></tr>
-                    <tr><td><strong>Novel DR</strong></td><td>v1.4.3rev171</td><td><a href="#" onclick="showVersionChangelog('1.4.3rev171'); return false;" style="color: #8f5e4e; text-decoration: underline; font-weight: 500;">View</a></td><td>92.99 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.4.3rev171', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171', 'itch'); return false;">Itch.io</a></div></td></tr>
-                    
+                    <tr><td><strong>Novel DR</strong></td><td>v1.4.4rev175</td><td><a href="#" onclick="showVersionChangelog('1.4.4rev175'); return false;" style="color:#8f5e4e;text-decoration:underline;font-weight:500;">View</a></td><td>92.99 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.4.4rev175', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.4.4rev175', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.4.4rev175', 'itch'); return false;">Itch.io</a></div></td></tr>
+                    <tr><td><strong>Novel DR</strong></td><td>v1.4.3rev171</td><td><a href="#" onclick="showVersionChangelog('1.4.3rev171'); return false;" style="color:#8f5e4e;text-decoration:underline;font-weight:500;">View</a></td><td>92.99 MB</td><td><div class="download-links"><a href="#" onclick="downloadVersion('1.4.3rev171', 'site'); return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171', 'github'); return false;">Github</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171', 'mediafire'); return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171', 'itch'); return false;">Itch.io</a></div></td></tr>
                 </tbody>
             </table>
             <button id="back-to-home-archives" class="back-btn">← Back to Home</button>
         </div>
 
-        <!-- MODALS (same as before) -->
-        <div class="modal-overlay" id="versionChangelogModal"><div class="modal-card" style="text-align: left;"><h3 style="color:#2c211c;margin-bottom:0.25rem;text-align:center;">📋 Changelog: <span id="modalVersionTitle"></span></h3><div class="modal-scrollable-content" id="modalScrollableContent"><div id="modalChangelogContent"></div></div><button id="closeVersionChangelogBtn" style="padding:12px 24px;border-radius:30px;cursor:pointer;border:1px solid #e5d5ca;background:#fbf6f1;font-weight:600;width:100%;margin-top:0.5rem;">Close</button></div></div>
-        <div class="modal-overlay" id="downloadModal"><div class="modal-card"><h3>💾 Preparing Download</h3><div class="countdown-number" id="countdownDisplay">5</div><div class="modal-progress"><div class="modal-progress-bar" id="modalProgressBar"></div></div><div id="modalStatus">Your download will start in 5 seconds...</div><button id="closeModalBtn" style="margin-top:20px;padding:10px 20px;border-radius:30px;cursor:pointer;">Cancel</button></div></div>
+        <!-- MODALS (only for changelog – download modal removed) -->
+        <div class="modal-overlay" id="versionChangelogModal"><div class="modal-card" style="text-align:left;"><h3 style="color:#2c211c;margin-bottom:0.25rem;text-align:center;">📋 Changelog: <span id="modalVersionTitle"></span></h3><div class="modal-scrollable-content" id="modalScrollableContent"><div id="modalChangelogContent"></div></div><button id="closeVersionChangelogBtn" style="padding:12px 24px;border-radius:30px;cursor:pointer;border:1px solid #e5d5ca;background:#fbf6f1;font-weight:600;width:100%;margin-top:0.5rem;">Close</button></div></div>
     </div>
+
     <footer class="novel-footer">
         Novel DR — made for Android.<br>
         No tracking, no ads, just pure offline reading. <strong>#FOSS</strong>
     </footer>
 
     <script>
-        // DOM references
+        // ─── PAGE NAVIGATION ──────────────────────────────────────────────────
         const homePage = document.getElementById('home-page');
         const changelogPage = document.getElementById('changelog-page');
         const archivesPage = document.getElementById('archives-page');
@@ -1225,185 +566,195 @@
         function showChangelog() { homePage.style.display = 'none'; changelogPage.style.display = 'block'; archivesPage.style.display = 'none'; window.scrollTo(0,0); }
         function showArchives() { homePage.style.display = 'none'; changelogPage.style.display = 'none'; archivesPage.style.display = 'block'; window.scrollTo(0,0); }
 
-        document.getElementById('triggerChangelogBtn').addEventListener('click', showChangelog);
-        document.getElementById('triggerArchivesBtn').addEventListener('click', showArchives);
         document.getElementById('homeLogoLink').addEventListener('click', (e) => { e.preventDefault(); showHome(); });
         document.getElementById('link-to-changelog')?.addEventListener('click', showChangelog);
         document.getElementById('link-to-archives')?.addEventListener('click', showArchives);
         document.getElementById('back-to-home-changelog')?.addEventListener('click', showHome);
         document.getElementById('back-to-home-archives')?.addEventListener('click', showHome);
+        showHome();
 
-        // ─── FIXED DOWNLOAD LOGIC ──────────────────────────────────────────────
-        const modal = document.getElementById('downloadModal');
-        const downloadBtn = document.getElementById('downloadMainBtn');
+        // ─── NEW DOWNLOAD FLOW ──────────────────────────────────────────────
+        // Builds a full countdown page inside a new tab (opened on click)
+        function buildCountdownPage(url) {
+            return `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+                    <title>Starting Download · NovelDR</title>
+                    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+                    <style>
+                        * { margin: 0; padding: 0; box-sizing: border-box; }
+                        body {
+                            font-family: 'Inter', sans-serif;
+                            background: #fbf6f1;
+                            color: #2c211c;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            height: 100vh;
+                            margin: 0;
+                            text-align: center;
+                            padding: 1rem;
+                        }
+                        .card {
+                            background: #ffffff;
+                            border-radius: 32px;
+                            padding: 2.5rem 2rem;
+                            max-width: 400px;
+                            width: 100%;
+                            border: 1px solid #e5d5ca;
+                            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+                        }
+                        .icon { font-size: 3rem; margin-bottom: 1rem; }
+                        h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+                        .sub { color: #6e5b52; font-size: 0.95rem; margin-bottom: 2rem; }
+                        .countdown {
+                            font-size: 4rem;
+                            font-weight: 800;
+                            color: #8f5e4e;
+                            background: rgba(143,94,78,0.1);
+                            width: 110px;
+                            height: 110px;
+                            line-height: 110px;
+                            border-radius: 50%;
+                            margin: 0 auto 1.5rem;
+                            border: 3px solid #8f5e4e;
+                        }
+                        .progress {
+                            width: 100%;
+                            height: 8px;
+                            background: #e5d5ca;
+                            border-radius: 20px;
+                            overflow: hidden;
+                            margin-bottom: 1.5rem;
+                        }
+                        .progress-bar {
+                            height: 100%;
+                            width: 0%;
+                            background: linear-gradient(90deg, #8f5e4e, #b16e5c);
+                            transition: width 0.1s;
+                        }
+                        .note { font-size: 0.8rem; color: #8a7a70; }
+                        .spinner {
+                            display: inline-block;
+                            width: 20px;
+                            height: 20px;
+                            border: 3px solid rgba(143,94,78,0.2);
+                            border-radius: 50%;
+                            border-top-color: #8f5e4e;
+                            animation: spin 0.8s linear infinite;
+                            margin: 0.5rem auto;
+                        }
+                        @keyframes spin { to { transform: rotate(360deg); } }
+                    </style>
+                </head>
+                <body>
+                    <div class="card">
+                        <div class="icon">📥</div>
+                        <h1>NovelDR</h1>
+                        <p class="sub">Preparing your download…</p>
+                        <div class="countdown" id="countdownDisplay">5</div>
+                        <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+                        <p id="statusText">Starting in 5 seconds</p>
+                        <div class="spinner" style="display:none;" id="spinner"></div>
+                        <p class="note">You will be redirected automatically.</p>
+                    </div>
+                    <script>
+                        let count = 5;
+                        const countEl = document.getElementById('countdownDisplay');
+                        const progressBar = document.getElementById('progressBar');
+                        const statusText = document.getElementById('statusText');
+                        const spinner = document.getElementById('spinner');
+
+                        const interval = setInterval(() => {
+                            count--;
+                            if (countEl) countEl.textContent = count;
+                            if (progressBar) progressBar.style.width = ((5 - count) / 5 * 100) + '%';
+                            if (statusText) statusText.textContent = 'Starting in ' + count + ' seconds';
+
+                            if (count <= 0) {
+                                clearInterval(interval);
+                                if (statusText) statusText.textContent = 'Redirecting…';
+                                if (spinner) spinner.style.display = 'inline-block';
+                                setTimeout(() => {
+                                    window.location.href = '${url}';
+                                }, 200);
+                            }
+                        }, 1000);
+                    <\/script>
+                </body>
+                </html>
+            `;
+        }
+
+        function startDownload(url) {
+            // 1. Open a new tab immediately (user gesture → not blocked)
+            const win = window.open('', '_blank');
+            if (!win) {
+                // Fallback: if popup blocked, redirect in current tab after a short message
+                alert('Please allow pop-ups for this site, or try again. Redirecting in current tab…');
+                setTimeout(() => { window.location.href = url; }, 500);
+                return;
+            }
+            // 2. Write the countdown page into the new tab
+            win.document.write(buildCountdownPage(url));
+            win.document.title = 'NovelDR Download';
+            win.focus();
+        }
+
+        // Wire up download buttons
+        const mainBtn = document.getElementById('downloadMainBtn');
         const mirrorBtn = document.getElementById('downloadMirrorBtn');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        const countdownDisplay = document.getElementById('countdownDisplay');
-        const modalProgressBar = document.getElementById('modalProgressBar');
-        const modalStatus = document.getElementById('modalStatus');
-
-        let countdownInterval = null;
-        let progressInterval = null;
-        let currentCountdown = 5;
-        let downloadWindow = null;   // <-- holds reference to the new window
 
         const mainUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v3.7.55rev411/NovelDR.v3.7.55rev411.apk';
         const mirrorUrl = 'https://www.mediafire.com/file/boe07ev6epag45p/NovelDR.v3.7.55rev411.apk/file';
 
-        function resetModal() {
-            if (countdownInterval) clearInterval(countdownInterval);
-            if (progressInterval) clearInterval(progressInterval);
-            currentCountdown = 5;
-            if (countdownDisplay) countdownDisplay.textContent = '5';
-            if (modalProgressBar) modalProgressBar.style.width = '0%';
-            if (modalStatus) modalStatus.textContent = 'Your download will start in 5 seconds...';
-            downloadWindow = null;
-        }
+        if (mainBtn) mainBtn.addEventListener('click', (e) => { e.preventDefault(); startDownload(mainUrl); });
+        if (mirrorBtn) mirrorBtn.addEventListener('click', (e) => { e.preventDefault(); startDownload(mirrorUrl); });
 
-        function startCountdown(url) {
-            resetModal();
-            modal.style.display = 'flex';
-
-            // 1. Open a blank window right now (user gesture → not blocked)
-            downloadWindow = window.open('', '_blank');
-            if (!downloadWindow) {
-                // fallback: if popup was blocked, use location.href
-                modalStatus.textContent = '⚠️ Pop‑up blocked — starting download directly...';
-                setTimeout(() => {
-                    window.location.href = url;
-                    setTimeout(() => { modal.style.display = 'none'; resetModal(); }, 1500);
-                }, 800);
-                return;
-            }
-            // Write a minimal loading message so the user sees something
-            downloadWindow.document.write('<html><head><title>Downloading NovelDR…</title><style>body{font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#fbf6f1;color:#2c211c;text-align:center;}</style></head><body><div><h2>⏳ Starting download…</h2><p>Your APK will begin shortly.</p></div></body></html>');
-
-            // 2. Start the progress bar
-            let progress = 0;
-            progressInterval = setInterval(() => {
-                progress += 2;
-                if (modalProgressBar) modalProgressBar.style.width = Math.min(progress, 100) + '%';
-                if (progress >= 100) clearInterval(progressInterval);
-            }, 100);
-
-            // 3. Countdown
-            countdownInterval = setInterval(() => {
-                currentCountdown--;
-                if (countdownDisplay) countdownDisplay.textContent = currentCountdown;
-                if (modalStatus) modalStatus.textContent = `Download starting in ${currentCountdown} seconds…`;
-
-                if (currentCountdown <= 0) {
-                    clearInterval(countdownInterval);
-                    if (modalStatus) modalStatus.textContent = '✅ Starting download…';
-
-                    // 4. Navigate the pre‑opened window to the APK
-                    if (downloadWindow && !downloadWindow.closed) {
-                        downloadWindow.location.href = url;
-                        downloadWindow.focus();
-                    } else {
-                        // fallback: if window was closed, use current tab
-                        window.location.href = url;
-                    }
-
-                    // 5. Close the modal after a short delay
-                    setTimeout(() => {
-                        modal.style.display = 'none';
-                        resetModal();
-                    }, 2000);
-                }
-            }, 1000);
-        }
-
-        // Wire up the buttons
-        if (downloadBtn) {
-            downloadBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                startCountdown(mainUrl);
-            });
-        }
-
-        if (mirrorBtn) {
-            mirrorBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                startCountdown(mirrorUrl);
-            });
-        }
-
-        if (closeModalBtn) {
-            closeModalBtn.addEventListener('click', () => {
-                resetModal();
-                modal.style.display = 'none';
-                if (downloadWindow && !downloadWindow.closed) downloadWindow.close();
-            });
-        }
-
-        if (modal) {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    resetModal();
-                    modal.style.display = 'none';
-                    if (downloadWindow && !downloadWindow.closed) downloadWindow.close();
-                }
-            });
-        }
-
-        // ─── ARCHIVE DOWNLOADS (reuse the same fixed logic) ──────────────────
-        const downloadUrls = { 
-            '1.4.4rev175': {site: 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v1.4.4rev175/NovelDR.v1.4.4rev178.apk', github: 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v1.4.4rev175/NovelDR.v1.4.4rev178.apk', mediafire: 'https://www.mediafire.com/file/2idja3c1ncopbkh/NovelDR+v1.4.4rev178.apk/file', itch: '#' }, 
-            '1.4.3rev171': {site: 'https://github.com/Moggle-Khraum/NovelDR/actions/runs/25643889622/artifacts/6908402100', github: 'https://github.com/Moggle-Khraum/NovelDR/actions/runs/25643889622/artifacts/6908402100', mediafire: 'https://www.mediafire.com/file/j58qxny1byduwpk/NovelDR_v1.4.3rev171.apk/file', itch: '#' }, 
-            '1.3.11rev137': {site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.11/NovelDR.v1.3.11rev137.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.11/NovelDR.v1.3.11rev137.apk', mediafire: 'https://download1589.mediafire.com/wq2154h2miegtytGUMRtiQ-aPfh87uCHlPq0qz1sfUktSPQteITpOpnUbio9czO5_mEtidGhaKZFVAYM0EM7RJG8PPg50Jgda1auIghI7kE5c_2KzHjkfnGku7BS3vow_15IKx4Bwg_vkw3BLaLntLSbnMFF6p3JNJTTZ5lmp2U_/qcqnjoqm828753c/NovelDR+v1.3.11rev137.apk', itch: '#' }, 
-            '1.3.10rev131': {site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.10/NovelDR.v1.3.10rev131.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.10/NovelDR.v1.3.10rev131.apk', mediafire: 'https://download1326.mediafire.com/7oqxsmgcojxgrBm7PR2rDTytGLAEteS6ayeiQ2Oo9YlxQXywPsoB8T_TMghg62LLGeRnk9ygrxUOkiZc2Jy3Q_gmia-_KHuqf_X6EizwfjYhQzKtrz5miQbST-e0rmqMwQWCdaSG4wRJ70XcRhIpRCadSHmW0RcMc0mcl1avOB8/o53v8sbw0agdt58/NovelDR+v1.3.10rev131.apk', itch: '#' }, 
-            '1.3.9rev128': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.9/NovelDR.v1.3.9rev128.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.3.9/NovelDR.v1.3.9rev128.apk', mediafire: 'https://download942.mediafire.com/ovm3g12s63rg4NzZbGHNe9AsZeeuzYFIWH-_LJdillgsJU6M0krIkx6PYIqfY9y-pv1m58pkuOJpfhhdaIxZYstqqga-zIlDKCVx0ZD3Kp9QtGsQ29ABrfGzyAv-bQ7n_8JR8MASXQPEKSKHqvtLFhqNknTWk5t61EQf3dtrrRNU7A/18j1mucp3nm2wq2/NovelDR+v1.3.9rev128.apk', itch: '#' }, 
-            '1.3.8rev118': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.3.8rev118/NovelDR.v1.3.8rev118.apk', mediafire: 'https://download1326.mediafire.com/ac4tlso09zkgsglTb4JbR6Ne2XvsdNrhblXz-sZDl3gFZTzzbs1UTnAZbbQfBSM1Ym_kbdinDjSct946WQMnlgdbRwCbM9ViGlqDor6SDbyAwDfmdzVvUzgV_EwXqC-uChO-fvLy9gpM51rBSvdy2JZhJXbby5VOwYg_77L38-As3ok/2s903l8txenzshy/NovelDR+v1.3.8rev118.apk', itch: '#' }, 
-            '1.0.3rev055': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.3rev055/NovelDR.v1.0.3rev055.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.3rev055/NovelDR.v1.0.3rev055.apk', mediafire: 'https://download1588.mediafire.com/zq8r7i8doqlgJM5Hf43LK5QdYbykhR2hy9iXrQWSQ9fVEaqHh-2deGoxoLSsjm2qLue0ub1X1k84UYoq42ffN_KywIyBQhhNi7DdGxjOr_iGmScdBn3jE0l_5owGfeQWf8Tu1ixWleCH9irkQB5jPnAwopiVqljH33xS727ukWtfaw/y99wdh734uyhzxt/NovelDR+v1.0.3rev055.apk', itch: '#' }, 
-            '1.0.2rev36': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.2rev36/NovelDR.v1.0.2rev36.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v1.0.2rev36/NovelDR.v1.0.2rev36.apk', mediafire: 'https://download1590.mediafire.com/fp02lggtg5igYi2B4Z-ND5PaioBimZMEpqc-f-M-y1gGnTPW1rasrkKiXzoNorw5pRnS2vZi5aNUrwebmHh7_GO_VJ6AutAN5z-FNBKDPGPXWW_qfdqLpgWbkOHuKi_3LT9oF1GK93kCOT68pUV4WW74hjY6HtzR9V2fgMkhRadIHw/2ml2qrqdi595eqe/NovelDR+v1.0.2rev36.apk', itch: '#' }, 
-            '1.0.1rev16': { site: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.1rev16/NovelDR-Build-16.apk', github: 'https://github.com/Moggle-Khraum/noveldr-site/releases/download/v.1.0.1rev16/NovelDR-Build-16.apk', mediafire: 'https://download1323.mediafire.com/9jeliri9fefgZ_lHHO1wJM7yGf4fVaPAfDLognU0qX_tu_N51TvvIcpM4OWVUEXyYkkRsEt6Nra4_aOt4bZOgY_rvUlbOvTS0ZrY8anpHCZJxy0Lf-X8gTMqniqF-VtxavWiKCIAfn8jT-56sa3yyZ0LQwApsJBsFPdJyrr-iAacq7Q/p4fgkrzjvxl8a44/NovelDR-Build-16.apk', itch: '#' } 
+        // ─── ARCHIVE DOWNLOADS ──────────────────────────────────────────────
+        const archiveUrls = {
+            '1.4.4rev175': { site: 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v1.4.4rev175/NovelDR.v1.4.4rev178.apk', github: 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v1.4.4rev175/NovelDR.v1.4.4rev178.apk', mediafire: 'https://www.mediafire.com/file/2idja3c1ncopbkh/NovelDR+v1.4.4rev178.apk/file', itch: '#' },
+            '1.4.3rev171': { site: 'https://github.com/Moggle-Khraum/NovelDR/actions/runs/25643889622/artifacts/6908402100', github: 'https://github.com/Moggle-Khraum/NovelDR/actions/runs/25643889622/artifacts/6908402100', mediafire: 'https://www.mediafire.com/file/j58qxny1byduwpk/NovelDR_v1.4.3rev171.apk/file', itch: '#' }
         };
 
         function downloadVersion(version, source) {
-            const url = downloadUrls[version]?.[source];
-            if (url && url !== '#') {
-                startCountdown(url);
-            } else {
-                alert(`Download for ${version} from ${source} is not available yet.`);
-            }
+            const url = archiveUrls[version]?.[source];
+            if (url && url !== '#') { startDownload(url); }
+            else { alert('Download link not available.'); }
         }
         window.downloadVersion = downloadVersion;
 
-        // ─── CHANGELOG MODAL (unchanged) ───────────────────────────────────────
+        // ─── CHANGELOG MODAL ──────────────────────────────────────────────────
         const versionChangelogModal = document.getElementById('versionChangelogModal');
         const modalVersionTitle = document.getElementById('modalVersionTitle');
         const modalChangelogContent = document.getElementById('modalChangelogContent');
         const closeVersionChangelogBtn = document.getElementById('closeVersionChangelogBtn');
 
-        const versionChangelogs = { 
-            '1.4.4rev175': {
-                date: 'May 13, 2026',
-                changes: [
-                    "[NEW] Fixed the doubling of chapter title of FreeWebNovel, e.g 'Chapter 1: Chapter 1: Prologue'",
-                    "[NEW] Fixed the 'missing chapter title' for domains like AllNovel, ReadNovelFull, Novelfull, & Novelbin",
-                    "[NEW] Fixed the stray ' , ' when trimming titles for ReadNovelFull",
-                    "[IMPROVEMENT] Improved the downloader to utilized the new chapter title fetcher mechanism."
-                ]
-            },
-            '1.4.3rev171': {
-                date: 'May 11, 2026',
-                changes: [
-                    "[NEW] Overhauled Library UI to display author, cover, source, progress, and a continue button",
-                    "[NEW] Added a more robust synopsis extraction for new domains",
-                    "[NEW] Added PDF Letter to the list of supported export options",
-                    "[NEW] Added new supported domains to the app: NovelFull.com, AllNovel.org, and NovGo.net",
-                    "[IMPROVEMENT] Improved the LibraryContext to handle new fields (source, progress)",
-                    "[IMPROVEMENT] Added junk filter for new and old supported domains",
-                    "[IMPROVEMENT] Added update and download scraper support for the new domains",
-                    "[BUGFIX] Fixed the synopsis extraction for new added domains",
-                    "[BUGFIX] Fixed the 'Content not available for this chapter'",
-                    "[FIXED] Fixed the dysfunctional Synopsis' See More/See Less",
-                    "[FIXED] Fixed the spacing of the dysfunctional synopsis",
-                    "[FIXED] Fixed all the minor bugs and patched what needs to be patched",
-                    "[REMOVED] Removed the 'Clear' button in the Activity Log, its redundant to Clear Button"
-                ]
-            },
+        const versionChangelogs = {
+            '1.4.4rev175': { date: 'May 13, 2026', changes: [
+                "[NEW] Fixed the doubling of chapter title of FreeWebNovel, e.g 'Chapter 1: Chapter 1: Prologue'",
+                "[NEW] Fixed the 'missing chapter title' for domains like AllNovel, ReadNovelFull, Novelfull, & Novelbin",
+                "[NEW] Fixed the stray ' , ' when trimming titles for ReadNovelFull",
+                "[IMPROVEMENT] Improved the downloader to utilized the new chapter title fetcher mechanism."
+            ]},
+            '1.4.3rev171': { date: 'May 11, 2026', changes: [
+                "[NEW] Overhauled Library UI to display author, cover, source, progress, and a continue button",
+                "[NEW] Added a more robust synopsis extraction for new domains",
+                "[NEW] Added PDF Letter to the list of supported export options",
+                "[NEW] Added new supported domains to the app: NovelFull.com, AllNovel.org, and NovGo.net",
+                "[IMPROVEMENT] Improved the LibraryContext to handle new fields (source, progress)",
+                "[IMPROVEMENT] Added junk filter for new and old supported domains",
+                "[IMPROVEMENT] Added update and download scraper support for the new domains",
+                "[BUGFIX] Fixed the synopsis extraction for new added domains",
+                "[BUGFIX] Fixed the 'Content not available for this chapter'",
+                "[FIXED] Fixed the dysfunctional Synopsis' See More/See Less",
+                "[FIXED] Fixed the spacing of the dysfunctional synopsis",
+                "[FIXED] Fixed all the minor bugs and patched what needs to be patched",
+                "[REMOVED] Removed the 'Clear' button in the Activity Log, its redundant to Clear Button"
+            ]}
         };
 
         function showVersionChangelog(version) {
@@ -1417,23 +768,11 @@
                 html += '</ul>';
                 modalChangelogContent.innerHTML = html;
                 versionChangelogModal.style.display = 'flex';
-            } else {
-                alert('Changelog not available.');
-            }
+            } else { alert('Changelog not available.'); }
         }
         window.showVersionChangelog = showVersionChangelog;
-
-        if (closeVersionChangelogBtn) {
-            closeVersionChangelogBtn.addEventListener('click', () => versionChangelogModal.style.display = 'none');
-        }
-        if (versionChangelogModal) {
-            versionChangelogModal.addEventListener('click', (e) => {
-                if (e.target === versionChangelogModal) versionChangelogModal.style.display = 'none';
-            });
-        }
-
-        // Start on Home
-        showHome();
+        closeVersionChangelogBtn?.addEventListener('click', () => versionChangelogModal.style.display = 'none');
+        versionChangelogModal?.addEventListener('click', (e) => { if (e.target === versionChangelogModal) versionChangelogModal.style.display = 'none'; });
     </script>
 </body>
 </html>
