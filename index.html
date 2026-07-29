@@ -15,6 +15,7 @@
     <style>
         /*! Critical base styles */
         *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}  /* ← added smooth scrolling */
         body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Inter',sans-serif;background:#fff;color:#1e1b1a;line-height:1.5;min-height:100vh;display:flex;flex-direction:column;transition:background .6s ease,color .6s ease}
         .skip-link{position:absolute;top:-40px;left:0;background:#2c211c;color:#fff;padding:8px 16px;z-index:100;text-decoration:none;border-radius:0 0 8px 0}
         .skip-link:focus{top:0}
@@ -229,7 +230,6 @@
                 <h1>Download novels.<br><span class="gradient-text">Read anywhere.</span></h1>
                 <p class="hero-desc">NovelDR lets you download webnovels from supported sources. Easy updates, customizable reading.</p>
                 <a href="#downloadNow" class="cta-button" id="downloadButton" aria-label="Download the app"><i class="fas fa-cloud-download-alt" aria-hidden="true"></i> Download the App</a>
-               
             </div>
                 
             
@@ -267,23 +267,22 @@
             <div class="feature-card" role="listitem"><i class="fas fa-mobile-alt" aria-hidden="true"></i><h3>Customizable Reader</h3><p>Themes, font controls, backup & restore.</p></div>
         </div>
 
-        <!-- LATEST CHANGELOG SECTION (only v1.4.3) -->
+        <!-- LATEST CHANGELOG SECTION (summary preview) -->
         <div class="latest-changelog-section">
             <div class="section-header"><i class="fas fa-history" aria-hidden="true"></i><span>Latest Update</span></div>
             <div class="changelog-preview-card">
                 <div class="changelog-header">
-                    <span class="changelog-version">v3.10.25(446)</span>
-                    <span class="changelog-date">📅 July 20, 2026</span>
+                    <span class="changelog-version">v4.1.20 rev495</span>
+                    <span class="changelog-date">📅 July 28, 2026</span>
                 </div>
-                <div class="changelog-codename">✨ "Sentry Overhaul"</div>
+                <div class="changelog-codename">🛡️ “Stability & Recovery Patch”</div>
                 <ul class="changelog-list">
-                    <li><strong>☁️ Backup & Restore</strong> — Streaming ZIP exports, dual‑format restore, Share Backup button, and legacy JSON removal to prevent OOM crashes</li>
-                    <li><strong>💾 Updates & Download Engine</strong> — In‑app self‑updater (APK download/install), manual update check, notification bell, smarter skip‑guard logic, and fixed version detection</li>
-                    <li><strong>📖 Reader & Library</strong> — Chapter limiter (200 caution / 250 danger / 300 hard cap), chapter deletion, and battery drain fix via TTS render optimization</li>
-                    <li><strong>🛠️ Stability & Cleanup</strong> — Sentry native crash reporting, consolidated backup code, extended file‑picker MIME support, and silent background skip logging</li>
+                    <li><strong>🤖 Auto‑Backup & Safe Writes</strong> — Quietly backs up your library and protects data with file‑locking, atomic saves, and low‑storage warnings.</li>
+                    <li><strong>📥 Download Resilience</strong> — Failed chapters now retry automatically, and a new “Recently Added” tag helps you spot fresh novels.</li>
+                    <li><strong>🐞 Key Fixes & Polish</strong> — The Continue button jumps straight to your last‑read chapter, auto‑scroll speed changes apply instantly, and the default library tab is now “Reading”.</li>
                 </ul>
                 <div class="changelog-footer-link">
-                    <a href="changelog.html"><i class="fas fa-book-open"></i> View complete changelog history →</a>
+                    <a href="changelog.html"><i class="fas fa-book-open"></i> View complete changelog →</a>
                 </div>
             </div>
         </div>
@@ -311,7 +310,6 @@
                         <li role="listitem"><a href="./index.html" class="footer-link">🏡 Home</a></li>
                         <li role="listitem"><a href="https://github.com/Moggle-Khraum/noveldr-site/releases" class="footer-link" rel="noopener noreferrer" target="_blank">📣 GitHub Release</a></li>
                         <li role="listitem"><a href="https://github.com/Moggle-Khraum/NovelDRr" class="footer-link" rel="noopener noreferrer" target="_blank">📬 GitHub</a></li>
-                        <!---<li role="listitem"><a href="https://ko-fi.com/noveldrapp" class="footer-link" rel="noopener noreferrer" target="_blank">☕ Buy me a Ko-Fi</a></li> -->
                     </ul>
                 </div>
                 <div>
@@ -390,4 +388,3 @@
     </script>
 </body>
 </html>
-
