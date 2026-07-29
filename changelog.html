@@ -148,15 +148,68 @@
             </a>
         </div>
 
-        <h1><i class="fas fa-history"></i> Latest Version History</h1>
-        <p style="margin-bottom: 1.5rem; color: #6e5b52;">Build v3.7.55 (rev411) Changelog.</p>
-       
+        <h1><i class="fas fa-history"></i> Full Version History</h1>
+        <p style="margin-bottom: 1.5rem; color: #6e5b52;">Every release of Novel DR, from the latest to the beginning.</p>
+
+        <!-- ===== v4.1.20 rev495 ===== -->
+        <div class="changelog-entry">
+            <h3>v4.1.20 (rev495)</h3>
+            <p class="changelog-date">July 28, 2026</p>
+            <p class="changelog-codename">🛡️ “Stability & Recovery Patch”</p>
+
+            <p class="changelog-section-title"><strong>[ Compatibility ]</strong></p>
+            <ul>
+                <li>Verified compatibility with Android 8–14 for the updated crash-reporting stack.</li>
+            </ul>
+
+            <p class="changelog-section-title"><strong>[ Warning ]</strong></p>
+            <ul>
+                <li>A small number of Android 13 devices may experience a one‑time delay on first launch while crash‑reporting hooks reinitialize. This resolves after the first successful app open.</li>
+            </ul>
+
+            <p class="changelog-section-title"><strong>[ New Features ]</strong></p>
+            <ul>
+                <li><strong>Auto-Backup:</strong> optional toggle in Backup & Restore; silently creates backup on close/background. Auto-backups (tagged "auto", latest 3 kept) reuse the manual export pipeline and auto-clean older ones.</li>
+                <li><strong>Per-novel write lock:</strong> prevents concurrent saves (e.g. progress autosave during app resume) from colliding on the same file.</li>
+                <li><strong>Automatic cleanup</strong> of orphaned `.tmp` files from interrupted atomic writes.</li>
+                <li><strong>Low-storage warning</strong> before novel download: warns if &lt;200 MB free, shows exact free space, allows cancel or continue.</li>
+                <li><strong>Update-available badge:</strong> a dot on the Settings tab icon when a newer version is available.</li>
+                <li><strong>Backup size estimate:</strong> the "Label this backup" step now shows estimated size (before compression).</li>
+                <li><strong>Automatic chapter download retry:</strong> failed chapters retry up to 3 times, then skip; all skipped chapters retried again (3 attempts each) at the end before finalizing.</li>
+                <li><strong>"Recently Added" tag</strong> on library cards: unread novels added in the last 24 hours show "Recently Added" instead of "Unread", reverting automatically after 24h.</li>
+                <li><strong>"Last Read: Xd" tag:</strong> novels with reading progress not opened in 2+ days show the days since last read, replacing the normal status badge.</li>
+            </ul>
+
+            <p class="changelog-section-title"><strong>[ Fixes ]</strong></p>
+            <ul>
+                <li>Fixed a race condition where overlapping saves sharing the same temp filename caused a <code>moveAsync</code> rejection.</li>
+                <li>Fixed orphaned `.tmp` files left by failed atomic writes, which previously wasted storage over time.</li>
+                <li>Fixed the library card "Continue" button: it now jumps directly to the reader at the last-read chapter. Novels without progress still show "Read" and open the detail page.</li>
+                <li>Fixed the reader's close button returning to the library instead of the novel detail page when opened via "Continue". It now always returns to the detail screen.</li>
+                <li>Fixed auto-scroll speed changes requiring pause/resume to apply. Adjusting speed while auto-scroll is running now takes effect immediately.</li>
+            </ul>
+
+            <p class="changelog-section-title"><strong>[ Changes ]</strong></p>
+            <ul>
+                <li>Changed default library tab on app open from "All" to "Reading".</li>
+                <li>The filter tab bar now auto-scrolls to keep the active tab centered, whether selected by tap or swipe.</li>
+            </ul>
+
+            <p class="changelog-section-title"><strong>[ Improvements ]</strong></p>
+            <ul>
+                <li>Atomic file writes now serialized per destination path, queuing overlapping writes to avoid races.</li>
+                <li>Failed library writes now clean up partial state automatically.</li>
+                <li>Improved the chapter list empty state on the novel detail screen with an icon, clearer text, and a "Go to Updates" button.</li>
+                <li>Minor internal cleanup across reader, settings, and library context files to reduce <code>any</code> usage and tighten type coverage.</li>
+            </ul>
+        </div>
+
+        <!-- ===== v3.7.55 rev411 ===== -->
         <div class="changelog-entry">
             <h3>v3.7.55 (rev411)</h3>
             <p class="changelog-date">July 16, 2026</p>
             <p class="changelog-codename">📖 "Sentry Overhaul"</p>
 
-            <!-- ✨ NEW -->
             <p class="changelog-section-title"><strong>✨ [ NEW ]</strong></p>
             <ul>
                 <li><strong>ZIP‑only backups</strong> — New backups are now always created as a single <code>.zip</code> file, built via a streaming, memory‑safe export (chapters written in bounded NDJSON parts, covers compressed and copied directly) rather than one giant in‑memory JSON blob.</li>
@@ -188,7 +241,6 @@
                 </li>
             </ul>
 
-            <!-- ⚡ IMPROVEMENTS -->
             <p class="changelog-section-title"><strong>⚡ [ IMPROVEMENTS ]</strong></p>
             <ul>
                 <li><strong>Consolidated code</strong> — Removed <code>collectAppData()</code> and <code>exportBackupJSON()</code>, replaced with a single <code>exportBackup()</code> function for the streaming ZIP export.</li>
@@ -213,11 +265,150 @@
                 </li>
             </ul>
 
-            <!-- 🗑️ REMOVED / REPLACED -->
             <p class="changelog-section-title"><strong>🗑️ [ REMOVED / REPLACED ]</strong></p>
             <ul>
                 <li><strong>Removed JSON backup path</strong> — The old <code>exportBackupJSON()</code> and its supporting code are no longer used.</li>
                 <li><strong>Old single‑blob JSON export path removed</strong> — the original <code>collectAppData()</code> (full library + chapters + base64 covers built in memory, then double‑copied via <code>JSON.stringify</code>) is gone; this was the likely source of the OOM crashes on large libraries.</li>
+            </ul>
+        </div>
+
+        <!-- ===== v3.1.0 rev322 ===== -->
+        <div class="changelog-entry">
+            <h3>v3.1.0 (rev322)</h3>
+            <p class="changelog-date">July 4, 2026</p>
+            <p class="changelog-codename">🎨 "Reader Refresh"</p>
+            <ul>
+                <li><strong>✨ [ NEW ]</strong> — Margins presets (Compact, Comfortable, Spacious), 11 reader backgrounds (Parchment, Night, Forest, etc.), custom gallery images as background, tap-to-jump progress bar, TOC search with dynamic results.</li>
+                <li><strong>⚡ [ IMPROVEMENTS ]</strong> — Reworked skipping logic to match Update tab, reduced skip delay from 200ms to 50ms, floating control panel as bottom‑sheet overlay, TTS highlight map precomputed with <code>useMemo</code>, reading progress saved every 3s via debounce, TTS scroll follows highlighted sentence, background preferences persist, auto‑scroll stops when TTS starts and vice versa.</li>
+                <li><strong>🐞 [ BUG FIXES ]</strong> — Cover corruption, cover extension always saved as <code>.jpg</code>, rare TTS crash on chapter switch, text color on gradient backgrounds, "Next Chapter" preloading failure, TTS continuing after chapter change or app backgrounding, sentence splitting now uses only sentence-ending punctuation, proper handling of dialogue and line breaks.</li>
+                <li><strong>♿ [ ACCESSIBILITY ]</strong> — Haptic feedback, visual press feedback on touch targets, long‑press instructions in TTS guide, "Scroll to Top [ ↑ ]" button in reader.</li>
+            </ul>
+        </div>
+
+        <!-- ===== v2.7.4 rev260 ===== -->
+        <div class="changelog-entry">
+            <h3>v2.7.4 (rev260)</h3>
+            <p class="changelog-date">June 8, 2026</p>
+            <ul>
+                <li><strong>🐛 [ PATCH FIX ]</strong> — Deduplication for LightNovelWorld to prevent repeating phrases when scraping chapters; fixed cover fetcher for LightNovelWorld.</li>
+                <li><strong>✨ [ NEW ]</strong> — Lightweight fetch helper for faster skipping, Credits button and modal in Settings (displays authors in a scrollable view).</li>
+                <li><strong>⚡ [ IMPROVEMENTS ]</strong> — Reworked skipping logic to match Update tab (25%/50%/75% milestones instead of every 30 chapters), reduced skip delay from 200ms to 50ms, reworked display modals for Developer Profile and Credits.</li>
+                <li><strong>🗑️ [ REMOVED ]</strong> — Old skipping logic, redundant second navigation loop, stale code from previous skipping logic, duplicated emoji prefixes in Activity Log.</li>
+            </ul>
+        </div>
+
+        <!-- ===== v2.5.18 rev250 ===== -->
+        <div class="changelog-entry">
+            <h3>v2.5.18 (rev250)</h3>
+            <p class="changelog-date">May 21, 2026</p>
+            <ul>
+                <li><strong>⚙️ [ NEW/PATCHED/IMPROVEMENT ]</strong> — Automatic data migration fix for first‑run crash; migration now runs every launch to check for existing files; "Read" button on unstarted novels; refreshLibrary via Reload button and pull‑to‑refresh; Smart Text Formatting in reader; floating TTS button with status box, sentence highlighting, symbol‑to‑speech (e.g., → becomes "to"), better short‑word support (min 2 chars), proper line break preservation, circular URL detection, max chapter cap raised from 3000 to 5000, 6 themes (Dark, Light, Sepia, AMOLED, Warm, Slate), Report Issue / Feedback button with auto‑filled device info.</li>
+                <li><strong>🐛 [ BUGFIXES ]</strong> — TTS button position and z‑index, quote handling, paragraph formatting, chapter titles now show real names instead of "Chapter X", TTS voice preferences loading.</li>
+            </ul>
+        </div>
+
+        <!-- ===== v1.4.4 rev175 ===== -->
+        <div class="changelog-entry">
+            <h3>v1.4.4 (rev175)</h3>
+            <p class="changelog-date">May 13, 2026</p>
+            <ul>
+                <li>Fixed the doubling of chapter title of FreeWebNovel (e.g., "Chapter 1: Chapter 1: Prologue").</li>
+                <li>Fixed missing chapter titles for domains like AllNovel, ReadNovelFull, Novelfull, & Novelbin.</li>
+                <li>Fixed stray commas when trimming titles for ReadNovelFull.</li>
+                <li>Improved the downloader to utilize the new chapter title fetcher mechanism.</li>
+            </ul>
+        </div>
+
+        <!-- ===== v1.4.3 rev171 ===== -->
+        <div class="changelog-entry">
+            <h3>v1.4.3 (rev171)</h3>
+            <p class="changelog-date">May 11, 2026</p>
+            <ul>
+                <li><strong>✨ NEW</strong> — Overhauled Library UI (author, cover, source, progress, continue button), robust synopsis extraction for new domains, PDF Letter export option, new supported domains: NovelFull.com, AllNovel.org, NovGo.net.</li>
+                <li><strong>⚡ IMPROVEMENTS</strong> — LibraryContext handles new fields, junk filter for new/old domains, update and download scraper support for new domains.</li>
+                <li><strong>🐞 BUGFIXES</strong> — Synopsis extraction for new domains, "Content not available for this chapter", dysfunctional Synopsis' See More/See Less, spacing of synopsis, minor bugs and patches.</li>
+                <li><strong>🗑️ REMOVED</strong> — Redundant 'Clear' button in Activity Log (duplicate of Clear Button).</li>
+            </ul>
+        </div>
+
+        <!-- ===== v1.4.0 rev147 ===== -->
+        <div class="changelog-entry">
+            <h3>v1.4.0 (rev147)</h3>
+            <p class="changelog-date">May 7, 2026</p>
+            <ul>
+                <li><strong>✨ NEW</strong> — Migrated library storage from AsyncStorage to expo-file-system for better persistence; automatic data migration on first launch with visual progress; multi‑location data recovery after updates; individual chapter file storage for 3,000+ chapters support; manual refresh button and pull‑to‑refresh; swipe gesture support for filter tabs; search filtering by title/author with batch selection; complete backup system saving all novels and progress to a single file; real‑time Activity Log; 5 export formats (TXT, EPUB, DOCX, RTF, MOBI); animated initialization screen on first launch.</li>
+                <li><strong>⚡ IMPROVEMENTS</strong> — 85% RAM reduction with individual chapter file storage; enhanced chapter number extraction to support decimal and Roman numerals; cleaner milestone progress (25%, 50%, 75%); optimized chapter list with FlatList virtualization.</li>
+                <li><strong>🐞 BUGFIXES</strong> — Table of Contents out‑of‑order chapters; gear icon crash (removed recursive settings calls); data loss when updating from previous versions; duplicate chapter entries when updating novels; autoscroll not working with smooth continuous scrolling; chapter flashing when navigating (persisting previous content); backup not saving all chapters from multiple novels; reader settings not persisting; progress bar not updating correctly during max chapter limits.</li>
+            </ul>
+        </div>
+
+        <!-- ===== Older versions in a condensed style ===== -->
+        <div class="changelog-entry">
+            <h3>v1.3.11 (rev137)</h3>
+            <p class="changelog-date">Apr 28, 2026</p>
+            <ul>
+                <li>Added swiping gesture to change tag filters (All, Unread, Reading, Completed), ascending/descending TOC button, Page AutoSort (merges missing chapters automatically).</li>
+                <li>Improved author metadata fetcher for LightNovelWorld, fixed "Go to Updates" button and unresponsiveness of buttons.</li>
+            </ul>
+        </div>
+
+        <div class="changelog-entry">
+            <h3>v1.3.10 (rev131)</h3>
+            <p class="changelog-date">Apr 25, 2026</p>
+            <ul>
+                <li>Added Duplicity Guard to check for existing novel before download.</li>
+                <li>Improved Novelbin scraping with junk filters, streamlined title fetching. Fixed Author scraper for Novelbin and download freeze when downloading an existing novel.</li>
+            </ul>
+        </div>
+
+        <div class="changelog-entry">
+            <h3>v1.3.9 (rev128)</h3>
+            <p class="changelog-date">Apr 21, 2026</p>
+            <ul>
+                <li>Updates tab now downloads/saves novel covers locally, refreshes covers if changed on source, and updates author/synopsis when source changes.</li>
+                <li>System Action Required warning card is now clickable, opens Android settings for managing unused apps.</li>
+                <li>Batch delete confirmation with item count display, "Starting Chapter" input field added next to "Max Chapters".</li>
+                <li>Improved skipper for smoother skipping and resuming from specific chapter, better error handling and duplicate detection during updates.</li>
+                <li>Fixed: Batch Restore default for imported backups, dysfunctional Restore system, missing Fetcher in Update tab, Starting Chapter field, Delete tab only deleting one file, minor bugs.</li>
+            </ul>
+        </div>
+
+        <div class="changelog-entry">
+            <h3>v1.3.8 (rev118)</h3>
+            <p class="changelog-date">Apr 15, 2026</p>
+            <ul>
+                <li>Added support for LightNovelWorld (scraper for author, cover, synopsis, chapter content), About Developer tab with GitHub and website links, Import File function to Backup System.</li>
+                <li>Improved Skipper Code functionality, increased value presets for AutoScroll, Line Spacing, and Font Size, Download Tab now downloads cover locally.</li>
+                <li>Known issues: Delete Tab only deletes one file, missing Starting Chapter field in Update tab, missing Fetcher in Update tab, dysfunctional Restore in Import, Batch Restore not default.</li>
+            </ul>
+        </div>
+
+        <div class="changelog-entry">
+            <h3>v1.0.3 (rev055)</h3>
+            <p class="changelog-date">Apr 13, 2026</p>
+            <ul>
+                <li>Full support for NovelBin and FreeWebNovel; library filters (All, Unread, Reading, Completed), search, batch delete via long‑press; long‑press novel cover to update reading status.</li>
+                <li>AutoScroll with presets, Updates tab search, Skipper (skip existing chapters), Traverser (resume downloads), Backup & Restore system, 2‑prompt warning for novel deletion.</li>
+                <li>Improved Download tab stability, FreeWebNovel now shows author, cover, and synopsis. Fixed icon of Update tab, full FreeWebNovel support, Author & Synopsis extraction.</li>
+            </ul>
+        </div>
+
+        <div class="changelog-entry">
+            <h3>v1.0.2 (rev36)</h3>
+            <p class="changelog-date">March 27, 2026</p>
+            <ul>
+                <li>Activity Logs are now visible; stabilized downloader & update lifeline code.</li>
+                <li>Planned: Modify Update tab icon, full FreeWebNovel site support, improved Author & Synopsis extraction.</li>
+            </ul>
+        </div>
+
+        <div class="changelog-entry">
+            <h3>v1.0.1 (rev16)</h3>
+            <p class="changelog-date">March 27, 2026</p>
+            <ul>
+                <li>Initial release of NovelDR.</li>
+                <li>Added full support for ReadNovelFull & NovelFull, partial support for FreeWebNovel.</li>
+                <li>App themes: Dark, Light, Sepia. Basic Download and Updates tabs. Library Stats, Delete Novel by long‑press. Reader Settings: Font Size & Line Spacing.</li>
             </ul>
         </div>
 
