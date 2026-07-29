@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* (All previous CSS remains identical – only hero-buttons and related responsive rules are updated) */
         :root {
             --bg: #fafaf8;
             --surface: #ffffff;
@@ -242,7 +241,7 @@
             display: flex;
             flex-direction: column;
             gap: 1.2rem;
-            align-items: center; /* center inner content on mobile */
+            align-items: center;
             text-align: center;
         }
         .hero-badge {
@@ -309,7 +308,6 @@
             font-size: 0.75rem;
         }
 
-        /* ─── BUTTON CONTAINER (RESPONSIVE) ──────── */
         .hero-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -318,22 +316,18 @@
             gap: 1rem;
             width: 100%;
         }
-
-        /* Individual button wrapper (button + count) */
         .btn-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 0.4rem;
         }
-
-        /* On larger screens, ensure buttons sit side by side naturally */
         @media (min-width: 600px) {
             .hero-buttons {
-                flex-wrap: nowrap; /* keep side by side */
+                flex-wrap: nowrap;
             }
             .hero-left {
-                align-items: flex-start; /* left align on desktop */
+                align-items: flex-start;
                 text-align: left;
             }
             .hero-stats-row {
@@ -451,617 +445,137 @@
             font-weight: 500;
         }
 
-        /* (The rest of the CSS remains unchanged: screenshots, features, stats, etc.) */
-        /* ... (the unchanged CSS goes here – I've omitted it for brevity, but it's exactly the same as in the previous answer) ... */
-
-        /* ─── SCREENSHOTS STRIP ──────────────────── */
-        .screenshots-section {
-            margin: 2rem 0 2.5rem;
-        }
-        .screenshots-section h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
-        .screenshots-strip {
-            display: flex;
-            gap: 1rem;
-            overflow-x: auto;
-            padding-bottom: 0.5rem;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-        .screenshots-strip::-webkit-scrollbar {
-            height: 6px;
-        }
-        .screenshots-strip::-webkit-scrollbar-track {
-            background: var(--border-light);
-            border-radius: 10px;
-        }
-        .screenshots-strip::-webkit-scrollbar-thumb {
-            background: var(--accent);
-            border-radius: 10px;
-            opacity: 0.5;
-        }
-        .screenshot-card {
-            flex: 0 0 auto;
-            width: 180px;
-            height: 320px;
-            background: linear-gradient(160deg, #f5efe8 0%, #e8dcd0 100%);
-            border-radius: var(--radius-lg);
-            border: 1.5px solid var(--border);
-            scroll-snap-align: start;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow: hidden;
-            transition: var(--transition);
-            cursor: default;
-            box-shadow: var(--shadow-sm);
-        }
-        .screenshot-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--accent);
-        }
-        .screenshot-card img {
-            width: 100%;
-            flex: 1;
-            object-fit: cover;
-        }
-        .screenshot-card .screenshot-caption {
-            padding: 0.4rem 0.3rem;
-            font-size: 0.7rem;
+        /* Changelog link style */
+        .changelog-inline-link {
+            font-size: 0.85rem;
+            color: var(--accent);
             font-weight: 600;
-            color: var(--text-secondary);
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            background: rgba(255,255,255,0.7);
-            width: 100%;
-            margin-top: auto;
-        }
-
-        /* ─── FEATURES GRID ──────────────────────── */
-        .features-section {
-            margin: 2.5rem 0;
-        }
-        .features-section h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 1.2rem;
-            letter-spacing: -0.02em;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1rem;
-        }
-        .feature-card {
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            padding: 1.4rem;
-            border: 1px solid var(--border-light);
-            transition: var(--transition);
-            display: flex;
-            gap: 0.9rem;
-            align-items: flex-start;
-            box-shadow: var(--shadow-sm);
-        }
-        .feature-card:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-        .feature-card .feat-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: var(--radius-sm);
-            background: var(--accent-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            color: var(--accent);
-            font-size: 1.1rem;
-        }
-        .feature-card .feat-info h4 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 0.2rem;
-            letter-spacing: -0.01em;
-        }
-        .feature-card .feat-info p {
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-
-        /* ─── STATS BAR ──────────────────────────── */
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin: 2.5rem 0;
-        }
-        .stat-card {
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            padding: 1.3rem;
-            border: 1px solid var(--border-light);
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--shadow-sm);
-            cursor: default;
-        }
-        .stat-card:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-3px);
-        }
-        .stat-card.clickable:hover {
-            cursor: pointer;
-            background: var(--accent-bg);
-        }
-        .stat-card .stat-icon {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 0.4rem;
-        }
-        .stat-card .stat-value {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--text);
-            letter-spacing: -0.02em;
-        }
-        .stat-card .stat-label {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-        .stat-card .clean-tag {
-            color: var(--green);
-            font-weight: 700;
-        }
-
-        /* ─── VISITORS ───────────────────────────── */
-        .visitors-section {
-            margin: 2.5rem 0;
-            text-align: center;
-        }
-        .visitors-section h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-        }
-        .visitors-section img {
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            max-width: 100%;
-        }
-
-        /* ─── LINKS SECTION ──────────────────────── */
-        .links-section {
-            margin: 2.5rem 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-        .link-group {
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            padding: 1.5rem;
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-sm);
-        }
-        .link-group h4 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .link-group h4 i {
-            color: var(--accent);
-        }
-        .link-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border-light);
-            font-size: 0.88rem;
-            color: var(--text-secondary);
-        }
-        .link-row:last-child {
-            border-bottom: none;
-        }
-        .link-row a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-        .link-row a:hover {
-            color: #5a3e36;
             text-decoration: underline;
             text-underline-offset: 3px;
-        }
-
-        /* ─── CHANGELOG PAGE ─────────────────────── */
-        .page-title {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--text);
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.03em;
-        }
-        .changelog-entry {
-            background: var(--surface);
-            border: 1px solid var(--border-light);
-            border-radius: var(--radius-xl);
-            padding: 1.8rem;
-            margin-bottom: 1.2rem;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-        .changelog-entry:hover {
-            border-color: var(--accent);
-            box-shadow: var(--shadow-md);
-            transform: translateY(-2px);
-        }
-        .changelog-entry h3 {
-            color: var(--text);
-            font-size: 1.15rem;
-            margin-bottom: 0.25rem;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-        }
-        .changelog-entry h3.latest {
-            color: var(--green);
-        }
-        .changelog-date {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-        .changelog-entry ul {
-            padding-left: 1.2rem;
-            color: var(--text-secondary);
-            list-style: none;
-        }
-        .changelog-entry li {
-            margin-bottom: 0.35rem;
-            font-size: 0.88rem;
-            position: relative;
-            padding-left: 1.2rem;
-        }
-        .changelog-entry li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: 700;
-        }
-        .changelog-section-title {
-            font-weight: 700;
-            color: var(--text);
-            margin-top: 0.8rem;
-            margin-bottom: 0.4rem;
-            font-size: 0.9rem;
-            letter-spacing: 0.01em;
-        }
-        .back-btn {
-            padding: 12px 24px;
-            border-radius: 40px;
             cursor: pointer;
-            border: 2px solid var(--border);
-            background: var(--surface);
-            color: var(--text-secondary);
-            font-weight: 600;
-            font-size: 0.95rem;
             transition: var(--transition);
-            font-family: inherit;
-            letter-spacing: -0.01em;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            margin-top: 1rem;
+            gap: 4px;
+            margin-top: 0.2rem;
         }
-        .back-btn:hover {
-            background: var(--accent-bg);
-            border-color: var(--accent);
-            color: var(--accent);
-            transform: translateY(-2px);
+        .changelog-inline-link:hover {
+            color: #5a3e36;
         }
 
-        /* ─── ARCHIVES PAGE ──────────────────────── */
-        .archives-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--border-light);
-        }
-        .archives-table th {
-            background: var(--accent);
-            color: #fff;
-            padding: 14px 16px;
-            text-align: left;
-            font-weight: 600;
-            font-size: 0.85rem;
-            letter-spacing: 0.01em;
-        }
-        .archives-table td {
-            padding: 14px 16px;
-            border-bottom: 1px solid var(--border-light);
-            font-size: 0.88rem;
-            color: var(--text-secondary);
-        }
-        .archives-table tr:last-child td {
-            border-bottom: none;
-        }
-        .archives-table tr:hover {
-            background: var(--accent-bg);
-        }
-        .archives-table .dl-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px 8px;
-        }
-        .archives-table .dl-links a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.82rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-            background: var(--accent-bg);
-            transition: var(--transition);
-            white-space: nowrap;
-            cursor: pointer;
-        }
-        .archives-table .dl-links a:hover {
-            background: var(--accent);
-            color: #fff;
-        }
-        .archives-table .dl-links span {
-            color: var(--text-muted);
-            font-size: 0.78rem;
-            align-self: center;
-        }
-        .archives-warning {
-            background: #fff8e6;
-            border: 1px solid #e8d5a0;
-            border-radius: var(--radius);
-            padding: 1rem 1.3rem;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-            color: #7a6010;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        /* (Rest of CSS unchanged – screenshots, features, etc.) */
+        /* ... I'm omitting the unchanged sections for brevity; they remain identical to the last full code provided ... */
+        .screenshots-section { margin: 2rem 0 2.5rem; }
+        .screenshots-section h3 { font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; letter-spacing: -0.02em; }
+        .screenshots-strip { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 0.5rem; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+        .screenshots-strip::-webkit-scrollbar { height: 6px; }
+        .screenshots-strip::-webkit-scrollbar-track { background: var(--border-light); border-radius: 10px; }
+        .screenshots-strip::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; opacity: 0.5; }
+        .screenshot-card { flex: 0 0 auto; width: 180px; height: 320px; background: linear-gradient(160deg, #f5efe8 0%, #e8dcd0 100%); border-radius: var(--radius-lg); border: 1.5px solid var(--border); scroll-snap-align: start; display: flex; flex-direction: column; align-items: center; overflow: hidden; transition: var(--transition); cursor: default; box-shadow: var(--shadow-sm); }
+        .screenshot-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--accent); }
+        .screenshot-card img { width: 100%; flex: 1; object-fit: cover; }
+        .screenshot-card .screenshot-caption { padding: 0.4rem 0.3rem; font-size: 0.7rem; font-weight: 600; color: var(--text-secondary); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; background: rgba(255,255,255,0.7); width: 100%; margin-top: auto; }
 
-        /* ─── MODAL ──────────────────────────────── */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 20000;
-            padding: 1rem;
-        }
-        .modal-card {
-            background: var(--surface);
-            max-width: 520px;
-            width: 100%;
-            border-radius: var(--radius-2xl);
-            padding: 2rem;
-            text-align: left;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-xl);
-            max-height: 80vh;
-            display: flex;
-            flex-direction: column;
-        }
-        .modal-scrollable-content {
-            overflow-y: auto;
-            flex: 1;
-            padding-right: 4px;
-            margin: 0.5rem 0 1rem;
-        }
-        .modal-scrollable-content ul {
-            list-style: none;
-            padding: 0;
-        }
-        .modal-scrollable-content li {
-            padding: 8px 0 8px 24px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%238f5e4e"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat;
-            background-size: 16px;
-            border-bottom: 1px solid var(--border-light);
-            color: var(--text-secondary);
-            font-size: 0.88rem;
-        }
-        .modal-card .btn-close {
-            padding: 12px 24px;
-            border-radius: 40px;
-            cursor: pointer;
-            border: 2px solid var(--border);
-            background: var(--surface);
-            font-weight: 600;
-            width: 100%;
-            transition: var(--transition);
-            font-family: inherit;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-        }
-        .modal-card .btn-close:hover {
-            background: var(--accent-bg);
-            border-color: var(--accent);
-            color: var(--accent);
-        }
+        .features-section { margin: 2.5rem 0; }
+        .features-section h3 { font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 1.2rem; letter-spacing: -0.02em; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+        .feature-card { background: var(--surface); border-radius: var(--radius-lg); padding: 1.4rem; border: 1px solid var(--border-light); transition: var(--transition); display: flex; gap: 0.9rem; align-items: flex-start; box-shadow: var(--shadow-sm); }
+        .feature-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .feature-card .feat-icon { width: 40px; height: 40px; border-radius: var(--radius-sm); background: var(--accent-bg); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent); font-size: 1.1rem; }
+        .feature-card .feat-info h4 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 0.2rem; letter-spacing: -0.01em; }
+        .feature-card .feat-info p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.4; }
 
-        /* ─── FOOTER ─────────────────────────────── */
-        .site-footer {
-            width: 100%;
-            border-top: 1px solid var(--border-light);
-            background: var(--surface-alt);
-            padding: 2rem 1.5rem;
-            margin-top: 3rem;
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
-        .site-footer strong {
-            color: var(--text);
-        }
-        .site-footer .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 0.8rem;
-        }
-        .site-footer .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            font-size: 0.85rem;
-        }
-        .site-footer .footer-links a:hover {
-            color: var(--accent);
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
+        .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2.5rem 0; }
+        .stat-card { background: var(--surface); border-radius: var(--radius-lg); padding: 1.3rem; border: 1px solid var(--border-light); text-align: center; transition: var(--transition); box-shadow: var(--shadow-sm); cursor: default; }
+        .stat-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-3px); }
+        .stat-card.clickable:hover { cursor: pointer; background: var(--accent-bg); }
+        .stat-card .stat-icon { font-size: 1.5rem; color: var(--accent); margin-bottom: 0.4rem; }
+        .stat-card .stat-value { font-size: 1.4rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+        .stat-card .stat-label { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; }
+        .stat-card .clean-tag { color: var(--green); font-weight: 700; }
 
-        /* ─── RESPONSIVE ─────────────────────────── */
+        .visitors-section { margin: 2.5rem 0; text-align: center; }
+        .visitors-section h3 { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; letter-spacing: -0.02em; }
+        .visitors-section img { border-radius: var(--radius); box-shadow: var(--shadow-sm); max-width: 100%; }
+
+        .links-section { margin: 2.5rem 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .link-group { background: var(--surface); border-radius: var(--radius-lg); padding: 1.5rem; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm); }
+        .link-group h4 { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; letter-spacing: -0.01em; display: flex; align-items: center; gap: 8px; }
+        .link-group h4 i { color: var(--accent); }
+        .link-row { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border-light); font-size: 0.88rem; color: var(--text-secondary); }
+        .link-row:last-child { border-bottom: none; }
+        .link-row a { color: var(--accent); text-decoration: none; font-weight: 600; transition: var(--transition); }
+        .link-row a:hover { color: #5a3e36; text-decoration: underline; text-underline-offset: 3px; }
+
+        .page-title { font-size: 2rem; font-weight: 900; color: var(--text); margin-bottom: 1.5rem; letter-spacing: -0.03em; }
+        .changelog-entry { background: var(--surface); border: 1px solid var(--border-light); border-radius: var(--radius-xl); padding: 1.8rem; margin-bottom: 1.2rem; box-shadow: var(--shadow-sm); transition: var(--transition); }
+        .changelog-entry:hover { border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+        .changelog-entry h3 { color: var(--text); font-size: 1.15rem; margin-bottom: 0.25rem; font-weight: 700; letter-spacing: -0.01em; }
+        .changelog-entry h3.latest { color: var(--green); }
+        .changelog-date { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; font-weight: 500; }
+        .changelog-entry ul { padding-left: 1.2rem; color: var(--text-secondary); list-style: none; }
+        .changelog-entry li { margin-bottom: 0.35rem; font-size: 0.88rem; position: relative; padding-left: 1.2rem; }
+        .changelog-entry li::before { content: '•'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+        .changelog-section-title { font-weight: 700; color: var(--text); margin-top: 0.8rem; margin-bottom: 0.4rem; font-size: 0.9rem; letter-spacing: 0.01em; }
+        .back-btn { padding: 12px 24px; border-radius: 40px; cursor: pointer; border: 2px solid var(--border); background: var(--surface); color: var(--text-secondary); font-weight: 600; font-size: 0.95rem; transition: var(--transition); font-family: inherit; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 6px; margin-top: 1rem; }
+        .back-btn:hover { background: var(--accent-bg); border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+        .archives-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); margin-bottom: 1.5rem; border: 1px solid var(--border-light); }
+        .archives-table th { background: var(--accent); color: #fff; padding: 14px 16px; text-align: left; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.01em; }
+        .archives-table td { padding: 14px 16px; border-bottom: 1px solid var(--border-light); font-size: 0.88rem; color: var(--text-secondary); }
+        .archives-table tr:last-child td { border-bottom: none; }
+        .archives-table tr:hover { background: var(--accent-bg); }
+        .archives-table .dl-links { display: flex; flex-wrap: wrap; gap: 4px 8px; }
+        .archives-table .dl-links a { color: var(--accent); text-decoration: none; font-weight: 500; font-size: 0.82rem; padding: 4px 10px; border-radius: 20px; background: var(--accent-bg); transition: var(--transition); white-space: nowrap; cursor: pointer; }
+        .archives-table .dl-links a:hover { background: var(--accent); color: #fff; }
+        .archives-table .dl-links span { color: var(--text-muted); font-size: 0.78rem; align-self: center; }
+        .archives-warning { background: #fff8e6; border: 1px solid #e8d5a0; border-radius: var(--radius); padding: 1rem 1.3rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: #7a6010; font-weight: 500; display: flex; align-items: center; gap: 8px; }
+
+        .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; z-index: 20000; padding: 1rem; }
+        .modal-card { background: var(--surface); max-width: 520px; width: 100%; border-radius: var(--radius-2xl); padding: 2rem; text-align: left; border: 1px solid var(--border); box-shadow: var(--shadow-xl); max-height: 80vh; display: flex; flex-direction: column; }
+        .modal-scrollable-content { overflow-y: auto; flex: 1; padding-right: 4px; margin: 0.5rem 0 1rem; }
+        .modal-scrollable-content ul { list-style: none; padding: 0; }
+        .modal-scrollable-content li { padding: 8px 0 8px 24px; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="%238f5e4e"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat; background-size: 16px; border-bottom: 1px solid var(--border-light); color: var(--text-secondary); font-size: 0.88rem; }
+        .modal-card .btn-close { padding: 12px 24px; border-radius: 40px; cursor: pointer; border: 2px solid var(--border); background: var(--surface); font-weight: 600; width: 100%; transition: var(--transition); font-family: inherit; font-size: 0.95rem; color: var(--text-secondary); }
+        .modal-card .btn-close:hover { background: var(--accent-bg); border-color: var(--accent); color: var(--accent); }
+
+        .site-footer { width: 100%; border-top: 1px solid var(--border-light); background: var(--surface-alt); padding: 2rem 1.5rem; margin-top: 3rem; text-align: center; font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
+        .site-footer strong { color: var(--text); }
+        .site-footer .footer-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
+        .site-footer .footer-links a { color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: var(--transition); font-size: 0.85rem; }
+        .site-footer .footer-links a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+
+        .download-count { font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+        .download-count i { font-size: 0.9rem; color: var(--accent); }
+
         @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                padding: 1rem 0;
-            }
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            .hero-right {
-                order: -1;
-            }
-            .hero-mockup {
-                max-width: 220px;
-                aspect-ratio: 3/4;
-            }
-            .hero-mockup .mockup-icon {
-                width: 64px;
-                height: 64px;
-                border-radius: 20px;
-                font-size: 2rem;
-            }
-            .stats-bar {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .links-section {
-                grid-template-columns: 1fr;
-            }
-            .nav-links .nav-link {
-                display: none;
-            }
-            .nav-links .nav-link.show-mobile {
-                display: inline-flex;
-            }
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            .archives-table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-            /* Ensure hero-left is centered on mobile */
-            .hero-left {
-                align-items: center;
-                text-align: center;
-            }
-            .hero-stats-row {
-                justify-content: center;
-            }
-            .hero-buttons {
-                justify-content: center;
-            }
+            .hero { grid-template-columns: 1fr; gap: 1.5rem; padding: 1rem 0; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-right { order: -1; }
+            .hero-mockup { max-width: 220px; aspect-ratio: 3/4; }
+            .hero-mockup .mockup-icon { width: 64px; height: 64px; border-radius: 20px; font-size: 2rem; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .links-section { grid-template-columns: 1fr; }
+            .nav-links .nav-link { display: none; }
+            .nav-links .nav-link.show-mobile { display: inline-flex; }
+            .features-grid { grid-template-columns: 1fr; }
+            .archives-table { display: block; overflow-x: auto; white-space: nowrap; }
+            .hero-left { align-items: center; text-align: center; }
+            .hero-stats-row { justify-content: center; }
+            .hero-buttons { justify-content: center; }
         }
         @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            .hero-desc {
-                font-size: 0.95rem;
-            }
+            .hero h1 { font-size: 1.8rem; }
+            .hero-desc { font-size: 0.95rem; }
             .btn-primary,
-            .btn-secondary {
-                width: 100%; /* full width on very small screens – still looks good */
-                justify-content: center;
-            }
-            .stats-bar {
-                grid-template-columns: 1fr 1fr;
-                gap: 0.6rem;
-            }
-            .stat-card {
-                padding: 1rem;
-            }
-            .stat-card .stat-value {
-                font-size: 1.1rem;
-            }
-            .screenshots-strip .screenshot-card {
-                width: 140px;
-            }
-            .navbar-inner {
-                height: 52px;
-            }
-            .nav-brand .logo-text {
-                font-size: 1.1rem;
-            }
-            .btn-wrapper {
-                width: 100%; /* allow button to stretch full width on mobile */
-            }
-        }
-
-        /* Additional style for download count display */
-        .download-count {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            white-space: nowrap;
-        }
-        .download-count i {
-            font-size: 0.9rem;
-            color: var(--accent);
+            .btn-secondary { width: 100%; justify-content: center; }
+            .stats-bar { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+            .stat-card { padding: 1rem; }
+            .stat-card .stat-value { font-size: 1.1rem; }
+            .screenshots-strip .screenshot-card { width: 140px; }
+            .navbar-inner { height: 52px; }
+            .nav-brand .logo-text { font-size: 1.1rem; }
+            .btn-wrapper { width: 100%; }
         }
     </style>
 </head>
@@ -1108,7 +622,6 @@
                         <span><i class="fas fa-shield-virus"></i> Clean ✓</span>
                     </div>
 
-                    <!-- BUTTON CONTAINER (centered & responsive) -->
                     <div class="hero-buttons">
                         <div class="btn-wrapper">
                             <button class="btn-primary" id="heroDownloadBtn"><i class="fas fa-download"></i> Download</button>
@@ -1123,6 +636,11 @@
                             </span>
                         </div>
                     </div>
+
+                    <!-- Latest version changelog link -->
+                    <a class="changelog-inline-link" id="latestChangelogLink">
+                        <i class="fas fa-list-ul"></i> What's new in v4.1.20rev495
+                    </a>
                 </div>
                 <div class="hero-right">
                     <div class="hero-mockup">
@@ -1136,42 +654,18 @@
                 </div>
             </section>
 
-            <!-- SCREENSHOTS with centered captions, following GitHub arrangement -->
+            <!-- SCREENSHOTS -->
             <section class="screenshots-section">
                 <h3>📱 App Preview</h3>
                 <div class="screenshots-strip">
-                    <div class="screenshot-card">
-                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Library.jpg?raw=true" alt="Library View">
-                        <span class="screenshot-caption">Library</span>
-                    </div>
-                    <div class="screenshot-card">
-                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Download.jpg?raw=true" alt="Download Tab">
-                        <span class="screenshot-caption">Download</span>
-                    </div>
-                    <div class="screenshot-card">
-                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Updates.jpg?raw=true" alt="Updates">
-                        <span class="screenshot-caption">Updates</span>
-                    </div>
-                    <div class="screenshot-card">
-                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Settings.jpg?raw=true" alt="Settings">
-                        <span class="screenshot-caption">Settings</span>
-                    </div>
-                    <div class="screenshot-card">
-                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Novel%20Index.jpg?raw=true" alt="Novel Index">
-                        <span class="screenshot-caption">Novel Index</span>
-                    </div>
-                    <div class="screenshot-card">
-                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Novel%20Export.jpg?raw=true" alt="Export Formats">
-                        <span class="screenshot-caption">Export</span>
-                    </div>
-                    <div class="screenshot-card">
-                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Reader.jpg?raw=true" alt="Reader Screen">
-                        <span class="screenshot-caption">Reader</span>
-                    </div>
-                    <div class="screenshot-card">
-                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Reader%20Settings.jpg?raw=true" alt="Reader Settings">
-                        <span class="screenshot-caption">Reader Settings</span>
-                    </div>
+                    <div class="screenshot-card"><img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Library.jpg?raw=true" alt="Library"><span class="screenshot-caption">Library</span></div>
+                    <div class="screenshot-card"><img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Download.jpg?raw=true" alt="Download"><span class="screenshot-caption">Download</span></div>
+                    <div class="screenshot-card"><img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Updates.jpg?raw=true" alt="Updates"><span class="screenshot-caption">Updates</span></div>
+                    <div class="screenshot-card"><img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Settings.jpg?raw=true" alt="Settings"><span class="screenshot-caption">Settings</span></div>
+                    <div class="screenshot-card"><img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Novel%20Index.jpg?raw=true" alt="Novel Index"><span class="screenshot-caption">Novel Index</span></div>
+                    <div class="screenshot-card"><img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Novel%20Export.jpg?raw=true" alt="Export"><span class="screenshot-caption">Export</span></div>
+                    <div class="screenshot-card"><img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Reader.jpg?raw=true" alt="Reader"><span class="screenshot-caption">Reader</span></div>
+                    <div class="screenshot-card"><img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Reader%20Settings.jpg?raw=true" alt="Reader Settings"><span class="screenshot-caption">Reader Settings</span></div>
                 </div>
             </section>
 
@@ -1179,59 +673,22 @@
             <section class="features-section">
                 <h3>✦ Powerful Features</h3>
                 <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feat-icon"><i class="fas fa-globe"></i></div>
-                        <div class="feat-info"><h4>Multiple Sources</h4><p>Download novels from multiple supported public sites and sources.</p></div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feat-icon"><i class="fas fa-text-height"></i></div>
-                        <div class="feat-info"><h4>Reading Comfort</h4><p>Adjustable font size, margins, line spacing, auto-scroll, background images & TTS.</p></div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feat-icon"><i class="fas fa-bell"></i></div>
-                        <div class="feat-info"><h4>In-app Updates</h4><p>Click the bell, download, and apply updates — or check manually in Settings.</p></div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feat-icon"><i class="fas fa-file-export"></i></div>
-                        <div class="feat-info"><h4>Novel Export</h4><p>Export to TXT, RTF, DOCX, PDF Letter, EPUB, and Kindle MOBI.</p></div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feat-icon"><i class="fas fa-palette"></i></div>
-                        <div class="feat-info"><h4>6 App Themes</h4><p>Dark, Light, Sepia, AMOLED, Warm, and Slate.</p></div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feat-icon"><i class="fas fa-shield-alt"></i></div>
-                        <div class="feat-info"><h4>Data Control</h4><p>Full backup with restore, import file, and bug reporting.</p></div>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feat-icon"><i class="fas fa-sync-alt"></i></div>
-                        <div class="feat-info"><h4>Stay Updated</h4><p>Easy novel updates: select novel, set range, and tap update.</p></div>
-                    </div>
+                    <div class="feature-card"><div class="feat-icon"><i class="fas fa-globe"></i></div><div class="feat-info"><h4>Multiple Sources</h4><p>Download novels from multiple supported public sites and sources.</p></div></div>
+                    <div class="feature-card"><div class="feat-icon"><i class="fas fa-text-height"></i></div><div class="feat-info"><h4>Reading Comfort</h4><p>Adjustable font size, margins, line spacing, auto-scroll, background images & TTS.</p></div></div>
+                    <div class="feature-card"><div class="feat-icon"><i class="fas fa-bell"></i></div><div class="feat-info"><h4>In-app Updates</h4><p>Click the bell, download, and apply updates — or check manually in Settings.</p></div></div>
+                    <div class="feature-card"><div class="feat-icon"><i class="fas fa-file-export"></i></div><div class="feat-info"><h4>Novel Export</h4><p>Export to TXT, RTF, DOCX, PDF Letter, EPUB, and Kindle MOBI.</p></div></div>
+                    <div class="feature-card"><div class="feat-icon"><i class="fas fa-palette"></i></div><div class="feat-info"><h4>6 App Themes</h4><p>Dark, Light, Sepia, AMOLED, Warm, and Slate.</p></div></div>
+                    <div class="feature-card"><div class="feat-icon"><i class="fas fa-shield-alt"></i></div><div class="feat-info"><h4>Data Control</h4><p>Full backup with restore, import file, and bug reporting.</p></div></div>
+                    <div class="feature-card"><div class="feat-icon"><i class="fas fa-sync-alt"></i></div><div class="feat-info"><h4>Stay Updated</h4><p>Easy novel updates: select novel, set range, and tap update.</p></div></div>
                 </div>
             </section>
 
             <!-- STATS BAR -->
             <section class="stats-bar">
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-hdd"></i></div>
-                    <div class="stat-value">~101.55 MB</div>
-                    <div class="stat-label">APK Size</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon"><i class="fas fa-tag"></i></div>
-                    <div class="stat-value">v4.1.20</div>
-                    <div class="stat-label">Build Number</div>
-                </div>
-                <div class="stat-card clickable" onclick="window.open('https://virusscan.jotti.org/en-US/filescanjob/oql6v3ec5k', '_blank')" title="View scan results">
-                    <div class="stat-icon"><i class="fas fa-shield-virus"></i></div>
-                    <div class="stat-value clean-tag">Clean ✓</div>
-                    <div class="stat-label">Jotti's Malware (0/15)</div>
-                </div>
-                <div class="stat-card clickable" onclick="window.open('https://github.com/Moggle-Khraum/noveldr-site/releases', '_blank')" title="View on GitHub">
-                    <div class="stat-icon"><i class="fab fa-github"></i></div>
-                    <div class="stat-value">Official</div>
-                    <div class="stat-label">GitHub Release</div>
-                </div>
+                <div class="stat-card"><div class="stat-icon"><i class="fas fa-hdd"></i></div><div class="stat-value">~101.55 MB</div><div class="stat-label">APK Size</div></div>
+                <div class="stat-card"><div class="stat-icon"><i class="fas fa-tag"></i></div><div class="stat-value">v4.1.20</div><div class="stat-label">Build Number</div></div>
+                <div class="stat-card clickable" onclick="window.open('https://virusscan.jotti.org/en-US/filescanjob/oql6v3ec5k', '_blank')"><div class="stat-icon"><i class="fas fa-shield-virus"></i></div><div class="stat-value clean-tag">Clean ✓</div><div class="stat-label">Jotti's Malware (0/15)</div></div>
+                <div class="stat-card clickable" onclick="window.open('https://github.com/Moggle-Khraum/noveldr-site/releases', '_blank')"><div class="stat-icon"><i class="fab fa-github"></i></div><div class="stat-value">Official</div><div class="stat-label">GitHub Release</div></div>
             </section>
 
             <!-- LINKS & VISITORS -->
@@ -1262,9 +719,63 @@
         <!-- ═══════════════════════════════════════════ -->
         <div id="changelog-page">
             <h2 class="page-title">📜 Version History</h2>
-            <div class="changelog-entry">
+
+            <!-- Latest entry – v4.1.20rev495 -->
+            <div class="changelog-entry" id="changelog-latest">
                 <h3 class="latest">v4.1.20rev495 <span style="font-size:0.75rem;color:var(--green);font-weight:600;">— LATEST</span></h3>
-                <p class="changelog-date">July 29, 2026 Update</p>
+                <p class="changelog-date">July 28, 2026 · Patch Update</p>
+
+                <p class="changelog-section-title"><strong>[ Compatibility ]</strong></p>
+                <ul>
+                    <li>Verified compatibility with Android 8–14 for the updated crash-reporting stack.</li>
+                </ul>
+
+                <p class="changelog-section-title"><strong>[ Warning ]</strong></p>
+                <ul>
+                    <li>A small number of Android 13 devices may experience a one‑time delay on first launch while crash‑reporting hooks reinitialize. This resolves after the first successful app open.</li>
+                </ul>
+
+                <p class="changelog-section-title"><strong>[ New Features ]</strong></p>
+                <ul>
+                    <li><strong>Auto-Backup:</strong> optional toggle in Backup & Restore; silently creates backup on close/background. Auto-backups (tagged "auto", latest 3 kept) reuse the manual export pipeline and auto-clean older ones.</li>
+                    <li><strong>Per-novel write lock:</strong> prevents concurrent saves (e.g. progress autosave during app resume) from colliding on the same file.</li>
+                    <li><strong>Automatic cleanup</strong> of orphaned `.tmp` files from interrupted atomic writes.</li>
+                    <li><strong>Low-storage warning</strong> before novel download: warns if &lt;200 MB free, shows exact free space, allows cancel or continue.</li>
+                    <li><strong>Update-available badge:</strong> a dot on the Settings tab icon when a newer version is available.</li>
+                    <li><strong>Backup size estimate:</strong> the "Label this backup" step now shows estimated size (before compression).</li>
+                    <li><strong>Automatic chapter download retry:</strong> failed chapters retry up to 3 times, then skip; all skipped chapters retried again (3 attempts each) at the end before finalizing.</li>
+                    <li><strong>"Recently Added" tag</strong> on library cards: unread novels added in the last 24 hours show "Recently Added" instead of "Unread", reverting automatically after 24h.</li>
+                    <li><strong>"Last Read: Xd" tag:</strong> novels with reading progress not opened in 2+ days show the days since last read, replacing the normal status badge.</li>
+                </ul>
+
+                <p class="changelog-section-title"><strong>[ Fixes ]</strong></p>
+                <ul>
+                    <li>Fixed a race condition where overlapping saves sharing the same temp filename caused a <code>moveAsync</code> rejection.</li>
+                    <li>Fixed orphaned `.tmp` files left by failed atomic writes, which previously wasted storage over time.</li>
+                    <li>Fixed the library card "Continue" button: it now jumps directly to the reader at the last-read chapter. Novels without progress still show "Read" and open the detail page.</li>
+                    <li>Fixed the reader's close button returning to the library instead of the novel detail page when opened via "Continue". It now always returns to the detail screen.</li>
+                    <li>Fixed auto-scroll speed changes requiring pause/resume to apply. Adjusting speed while auto-scroll is running now takes effect immediately.</li>
+                </ul>
+
+                <p class="changelog-section-title"><strong>[ Changes ]</strong></p>
+                <ul>
+                    <li>Changed default library tab on app open from "All" to "Reading".</li>
+                    <li>The filter tab bar now auto-scrolls to keep the active tab centered, whether selected by tap or swipe.</li>
+                </ul>
+
+                <p class="changelog-section-title"><strong>[ Improvements ]</strong></p>
+                <ul>
+                    <li>Atomic file writes now serialized per destination path, queuing overlapping writes to avoid races.</li>
+                    <li>Failed library writes now clean up partial state automatically.</li>
+                    <li>Improved the chapter list empty state on the novel detail screen with an icon, clearer text, and a "Go to Updates" button.</li>
+                    <li>Minor internal cleanup across reader, settings, and library context files to reduce <code>any</code> usage and tighten type coverage.</li>
+                </ul>
+            </div>
+
+            <!-- Older entries (unchanged) -->
+            <div class="changelog-entry">
+                <h3>v3.7.55rev411</h3>
+                <p class="changelog-date">July 16, 2026 Update</p>
                 <p class="changelog-section-title"><strong>⚙️ [ NEW ]</strong></p>
                 <ul>
                     <li><strong>ZIP‑only backups</strong> — New backups are now always created as a single <code>.zip</code> file, built via a streaming, memory‑safe export.</li>
@@ -1293,8 +804,8 @@
                 </ul>
             </div>
             <div class="changelog-entry">
-                <h3>v3.7.55rev411</h3>
-                <p class="changelog-date">July 16, 2026 Update</p>
+                <h3>v3.1.0rev322</h3>
+                <p class="changelog-date">July 4, 2026 Update</p>
                 <ul>
                     <li><strong>✨ [ NEW ]</strong> — Margins presets, 11 reader backgrounds, custom gallery images, tap-to-jump progress bar, TOC search, dynamic chapter search.</li>
                     <li><strong>⚡ [ IMPROVEMENTS ]</strong> — Reworked skipping logic, improved LNW scraping, reduced skip delay to 50ms, floating control panel, TTS optimizations.</li>
@@ -1302,7 +813,74 @@
                     <li><strong>♿ [ ACCESSIBILITY ]</strong> — Haptic feedback, visual press feedback, scroll-to-top button.</li>
                 </ul>
             </div>
-           
+            <div class="changelog-entry">
+                <h3>v2.7.4rev260</h3>
+                <p class="changelog-date">June 8, 2026 Update</p>
+                <ul>
+                    <li><strong>🐛 [ PATCH FIX ]</strong> — Deduplication for LightNovelWorld, cover fetcher fix.</li>
+                    <li><strong>✨ [ NEW ]</strong> — Lightweight fetch helper, Credits button and modal.</li>
+                    <li><strong>⚡ [ IMPROVEMENTS ]</strong> — Reworked skipping to milestone-based, reduced skip delay, reworked modals.</li>
+                </ul>
+            </div>
+            <div class="changelog-entry">
+                <h3>v2.5.18rev250</h3>
+                <p class="changelog-date">May 21, 2026 Update</p>
+                <ul>
+                    <li><strong>⚙️ [ NEW/PATCHED/IMPROVEMENT ]</strong> — Data migration fix, "Read" button, refreshLibrary, Smart Text Formatting, floating TTS button, sentence highlighting, symbol-to-speech, 6 themes, Report Issue button.</li>
+                    <li><strong>🐛 [ BUGFIXES ]</strong> — TTS button position, quote handling, paragraph formatting, chapter titles, TTS voice preferences.</li>
+                </ul>
+            </div>
+            <div class="changelog-entry">
+                <h3>v1.4.4rev175</h3>
+                <p class="changelog-date">May 13, 2026 Update</p>
+                <ul><li>Fixed chapter title doubling, missing titles, stray commas, improved downloader.</li></ul>
+            </div>
+            <div class="changelog-entry">
+                <h3>v1.4.3rev171</h3>
+                <p class="changelog-date">May 11, 2026 Update</p>
+                <ul><li>Overhauled Library UI, new domains, PDF Letter export, synopsis extraction, junk filters, bugfixes.</li></ul>
+            </div>
+            <div class="changelog-entry">
+                <h3>v1.4.0rev147</h3>
+                <p class="changelog-date">May 7, 2026 Update</p>
+                <ul><li>File-system migration, 3000+ chapter support, backup system, 5 export formats, 85% RAM reduction.</li></ul>
+            </div>
+            <div class="changelog-entry">
+                <h3>v1.3.11rev137</h3>
+                <p class="changelog-date">Apr 28, 2026 Update</p>
+                <ul><li>Swipe gestures, ascending/descending TOC, Page AutoSort, improved author fetcher, bugfixes.</li></ul>
+            </div>
+            <div class="changelog-entry">
+                <h3>v1.3.10rev131</h3>
+                <p class="changelog-date">Apr 25, 2026 Update</p>
+                <ul><li>Duplicity Guard, improved Novelbin scraping, streamlined title fetching, bugfixes.</li></ul>
+            </div>
+            <div class="changelog-entry">
+                <h3>v1.3.9rev128</h3>
+                <p class="changelog-date">Apr 21, 2026 Update</p>
+                <ul><li>Local covers, System Action Required card, batch delete, Starting Chapter field, improved skipper.</li></ul>
+            </div>
+            <div class="changelog-entry">
+                <h3>v1.3.8rev118</h3>
+                <p class="changelog-date">Apr 15, 2026 Update</p>
+                <ul><li>LightNovelWorld support, About Developer tab, Import File function, improved skipper.</li></ul>
+            </div>
+            <div class="changelog-entry">
+                <h3>v1.0.3rev055</h3>
+                <p class="changelog-date">Apr 13, 2026</p>
+                <ul><li>NovelBin & FreeWebNovel support, library filters, AutoScroll, Backup & Restore, batch delete.</li></ul>
+            </div>
+            <div class="changelog-entry">
+                <h3>v1.0.2rev36</h3>
+                <p class="changelog-date">March 27, 2026</p>
+                <ul><li>Activity Logs visible, stabilized downloader & update lifeline.</li></ul>
+            </div>
+            <div class="changelog-entry">
+                <h3>v1.0.1rev16</h3>
+                <p class="changelog-date">March 27, 2026</p>
+                <ul><li>Initial release — ReadNovelFull, NovelFull, partial FreeWebNovel, 3 themes, basic download & updates.</li></ul>
+            </div>
+
             <button id="back-to-home-changelog" class="back-btn">← Back to Home</button>
         </div>
 
@@ -1315,20 +893,8 @@
             <table class="archives-table">
                 <thead><tr><th>App Name</th><th>Version</th><th>Changelog</th><th>Size</th><th>Download Links</th></tr></thead>
                 <tbody>
-                    <tr>
-                        <td><strong>Novel DR</strong></td>
-                        <td>v1.4.4rev175</td>
-                        <td><a href="#" onclick="showVersionChangelog('1.4.4rev175'); return false;" style="color:#8f5e4e;text-decoration:underline;font-weight:600;">View</a></td>
-                        <td>92.99 MB</td>
-                        <td><div class="dl-links"><a href="#" onclick="downloadVersion('1.4.4rev175','site');return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.4.4rev175','github');return false;">GitHub</a><span>/</span><a href="#" onclick="downloadVersion('1.4.4rev175','mediafire');return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.4.4rev175','itch');return false;">Itch.io</a></div></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Novel DR</strong></td>
-                        <td>v1.4.3rev171</td>
-                        <td><a href="#" onclick="showVersionChangelog('1.4.3rev171'); return false;" style="color:#8f5e4e;text-decoration:underline;font-weight:600;">View</a></td>
-                        <td>92.99 MB</td>
-                        <td><div class="dl-links"><a href="#" onclick="downloadVersion('1.4.3rev171','site');return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171','github');return false;">GitHub</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171','mediafire');return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171','itch');return false;">Itch.io</a></div></td>
-                    </tr>
+                    <tr><td><strong>Novel DR</strong></td><td>v1.4.4rev175</td><td><a href="#" onclick="showVersionChangelog('1.4.4rev175'); return false;" style="color:#8f5e4e;text-decoration:underline;font-weight:600;">View</a></td><td>92.99 MB</td><td><div class="dl-links"><a href="#" onclick="downloadVersion('1.4.4rev175','site');return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.4.4rev175','github');return false;">GitHub</a><span>/</span><a href="#" onclick="downloadVersion('1.4.4rev175','mediafire');return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.4.4rev175','itch');return false;">Itch.io</a></div></td></tr>
+                    <tr><td><strong>Novel DR</strong></td><td>v1.4.3rev171</td><td><a href="#" onclick="showVersionChangelog('1.4.3rev171'); return false;" style="color:#8f5e4e;text-decoration:underline;font-weight:600;">View</a></td><td>92.99 MB</td><td><div class="dl-links"><a href="#" onclick="downloadVersion('1.4.3rev171','site');return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171','github');return false;">GitHub</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171','mediafire');return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171','itch');return false;">Itch.io</a></div></td></tr>
                 </tbody>
             </table>
             <button id="back-to-home-archives" class="back-btn">← Back to Home</button>
@@ -1339,9 +905,7 @@
     <div class="modal-overlay" id="versionChangelogModal">
         <div class="modal-card">
             <h3 style="color:var(--text);margin-bottom:0.25rem;text-align:center;font-weight:700;">📋 Changelog: <span id="modalVersionTitle"></span></h3>
-            <div class="modal-scrollable-content" id="modalScrollableContent">
-                <div id="modalChangelogContent"></div>
-            </div>
+            <div class="modal-scrollable-content" id="modalScrollableContent"><div id="modalChangelogContent"></div></div>
             <button class="btn-close" id="closeVersionChangelogBtn">Close</button>
         </div>
     </div>
@@ -1359,7 +923,6 @@
     </footer>
 
     <script>
-        // (All JavaScript remains identical – no changes needed)
         // ─── PAGE NAVIGATION ──────────────────────────────────────────────────
         const homePage = document.getElementById('home-page');
         const changelogPage = document.getElementById('changelog-page');
@@ -1381,12 +944,19 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function showChangelog() {
+        function showChangelog(scrollToId) {
             homePage.style.display = 'none';
             changelogPage.style.display = 'block';
             archivesPage.style.display = 'none';
             setActiveNav(navChangelogBtn);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (scrollToId) {
+                setTimeout(() => {
+                    const el = document.getElementById(scrollToId);
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         }
 
         function showArchives() {
@@ -1398,22 +968,23 @@
         }
 
         // Nav buttons
-        document.getElementById('navHomeLogo')?.addEventListener('click', (e) => { e.preventDefault();
-            showHome(); });
+        document.getElementById('navHomeLogo')?.addEventListener('click', (e) => { e.preventDefault(); showHome(); });
         navHomeBtn?.addEventListener('click', showHome);
-        navChangelogBtn?.addEventListener('click', showChangelog);
+        navChangelogBtn?.addEventListener('click', () => showChangelog());
         navArchivesBtn?.addEventListener('click', showArchives);
         document.getElementById('navDownloadBtn')?.addEventListener('click', () => {
             showHome();
-            setTimeout(() => document.getElementById('heroDownloadBtn')?.scrollIntoView({ behavior: 'smooth',
-                block: 'center' }), 300);
+            setTimeout(() => document.getElementById('heroDownloadBtn')?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
         });
 
         // Inline links
-        document.getElementById('linkToChangelog2')?.addEventListener('click', showChangelog);
+        document.getElementById('linkToChangelog2')?.addEventListener('click', () => showChangelog());
         document.getElementById('linkToArchives2')?.addEventListener('click', showArchives);
         document.getElementById('back-to-home-changelog')?.addEventListener('click', showHome);
         document.getElementById('back-to-home-archives')?.addEventListener('click', showHome);
+
+        // Latest changelog link
+        document.getElementById('latestChangelogLink')?.addEventListener('click', () => showChangelog('changelog-latest'));
 
         // Initialize
         showHome();
@@ -1452,67 +1023,16 @@
                     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
                     <style>
                         * { margin: 0; padding: 0; box-sizing: border-box; }
-                        body {
-                            font-family: 'Inter', sans-serif;
-                            background: #fafaf8;
-                            color: #1a1512;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            height: 100vh;
-                            margin: 0;
-                            text-align: center;
-                            padding: 1rem;
-                        }
-                        .card {
-                            background: #ffffff;
-                            border-radius: 28px;
-                            padding: 2.5rem 2rem;
-                            max-width: 400px;
-                            width: 100%;
-                            border: 1px solid #e8e0d8;
-                            box-shadow: 0 20px 60px rgba(0,0,0,0.10);
-                        }
+                        body { font-family: 'Inter', sans-serif; background: #fafaf8; color: #1a1512; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; text-align: center; padding: 1rem; }
+                        .card { background: #ffffff; border-radius: 28px; padding: 2.5rem 2rem; max-width: 400px; width: 100%; border: 1px solid #e8e0d8; box-shadow: 0 20px 60px rgba(0,0,0,0.10); }
                         .icon { font-size: 3rem; margin-bottom: 1rem; }
                         h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
                         .sub { color: #5c4f47; font-size: 0.95rem; margin-bottom: 2rem; }
-                        .countdown {
-                            font-size: 4rem;
-                            font-weight: 900;
-                            color: #8f5e4e;
-                            background: rgba(143,94,78,0.08);
-                            width: 110px;
-                            height: 110px;
-                            line-height: 110px;
-                            border-radius: 50%;
-                            margin: 0 auto 1.5rem;
-                            border: 3px solid #8f5e4e;
-                        }
-                        .progress {
-                            width: 100%;
-                            height: 8px;
-                            background: #e8e0d8;
-                            border-radius: 20px;
-                            overflow: hidden;
-                            margin-bottom: 1.5rem;
-                        }
-                        .progress-bar {
-                            height: 100%;
-                            width: 0%;
-                            background: linear-gradient(90deg, #8f5e4e, #b16e5c);
-                            transition: width 0.1s;
-                        }
+                        .countdown { font-size: 4rem; font-weight: 900; color: #8f5e4e; background: rgba(143,94,78,0.08); width: 110px; height: 110px; line-height: 110px; border-radius: 50%; margin: 0 auto 1.5rem; border: 3px solid #8f5e4e; }
+                        .progress { width: 100%; height: 8px; background: #e8e0d8; border-radius: 20px; overflow: hidden; margin-bottom: 1.5rem; }
+                        .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #8f5e4e, #b16e5c); transition: width 0.1s; }
                         .note { font-size: 0.8rem; color: #8a7a6e; }
-                        .spinner {
-                            display: inline-block;
-                            width: 20px;
-                            height: 20px;
-                            border: 3px solid rgba(143,94,78,0.2);
-                            border-radius: 50%;
-                            border-top-color: #8f5e4e;
-                            animation: spin 0.8s linear infinite;
-                            margin: 0.5rem auto;
-                        }
+                        .spinner { display: inline-block; width: 20px; height: 20px; border: 3px solid rgba(143,94,78,0.2); border-radius: 50%; border-top-color: #8f5e4e; animation: spin 0.8s linear infinite; margin: 0.5rem auto; }
                         @keyframes spin { to { transform: rotate(360deg); } }
                     </style>
                 </head>
@@ -1542,9 +1062,7 @@
                                 clearInterval(interval);
                                 if (statusText) statusText.textContent = 'Redirecting…';
                                 if (spinner) spinner.style.display = 'inline-block';
-                                setTimeout(() => {
-                                    window.location.href = '${url}';
-                                }, 200);
+                                setTimeout(() => { window.location.href = '${url}'; }, 200);
                             }
                         }, 1000);
                     <\/script>
@@ -1565,30 +1083,16 @@
             win.focus();
         }
 
-        const mainUrl =
-            'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v4.1.20rev495/NovelDR.v4.1.20rev495.apk';
-        const mirrorUrl =
-            'https://www.mediafire.com/file/u1anz59tnc05yca/NovelDR.v4.1.20rev495.apk/file';
+        const mainUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v4.1.20rev495/NovelDR.v4.1.20rev495.apk';
+        const mirrorUrl = 'https://www.mediafire.com/file/u1anz59tnc05yca/NovelDR.v4.1.20rev495.apk/file';
 
-        document.getElementById('heroDownloadBtn')?.addEventListener('click', (e) => { e.preventDefault();
-            startDownload(mainUrl); });
-        document.getElementById('heroMirrorBtn')?.addEventListener('click', (e) => { e.preventDefault();
-            startDownload(mirrorUrl); });
+        document.getElementById('heroDownloadBtn')?.addEventListener('click', (e) => { e.preventDefault(); startDownload(mainUrl); });
+        document.getElementById('heroMirrorBtn')?.addEventListener('click', (e) => { e.preventDefault(); startDownload(mirrorUrl); });
 
         // ─── ARCHIVE DOWNLOADS ──────────────────────────────────────────────
         const archiveUrls = {
-            '1.4.4rev175': {
-                site: 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v1.4.4rev175/NovelDR.v1.4.4rev178.apk',
-                github: 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v1.4.4rev175/NovelDR.v1.4.4rev178.apk',
-                mediafire: 'https://www.mediafire.com/file/2idja3c1ncopbkh/NovelDR+v1.4.4rev178.apk/file',
-                itch: '#'
-            },
-            '1.4.3rev171': {
-                site: 'https://github.com/Moggle-Khraum/NovelDR/actions/runs/25643889622/artifacts/6908402100',
-                github: 'https://github.com/Moggle-Khraum/NovelDR/actions/runs/25643889622/artifacts/6908402100',
-                mediafire: 'https://www.mediafire.com/file/j58qxny1byduwpk/NovelDR_v1.4.3rev171.apk/file',
-                itch: '#'
-            }
+            '1.4.4rev175': { site: 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v1.4.4rev175/NovelDR.v1.4.4rev178.apk', github: 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v1.4.4rev175/NovelDR.v1.4.4rev178.apk', mediafire: 'https://www.mediafire.com/file/2idja3c1ncopbkh/NovelDR+v1.4.4rev178.apk/file', itch: '#' },
+            '1.4.3rev171': { site: 'https://github.com/Moggle-Khraum/NovelDR/actions/runs/25643889622/artifacts/6908402100', github: 'https://github.com/Moggle-Khraum/NovelDR/actions/runs/25643889622/artifacts/6908402100', mediafire: 'https://www.mediafire.com/file/j58qxny1byduwpk/NovelDR_v1.4.3rev171.apk/file', itch: '#' }
         };
 
         function downloadVersion(version, source) {
@@ -1604,31 +1108,8 @@
         const closeVersionChangelogBtn = document.getElementById('closeVersionChangelogBtn');
 
         const versionChangelogs = {
-            '1.4.4rev175': {
-                date: 'May 13, 2026',
-                changes: [
-                    "[FIXED] Fixed the doubling of chapter title of FreeWebNovel, e.g 'Chapter 1: Chapter 1: Prologue'",
-                    "[FIXED] Fixed the missing chapter title for domains like AllNovel, ReadNovelFull, Novelfull, & Novelbin",
-                    "[FIXED] Fixed the stray ' , ' when trimming title for ReadNovelFull",
-                    "[IMPROVEMENT] Improved the downloader to utilize the new chapter title fetcher mechanism."
-                ]
-            },
-            '1.4.3rev171': {
-                date: 'May 11, 2026',
-                changes: [
-                    "[NEW] Overhauled Library UI to display author, cover, source, progress, and a continue button",
-                    "[NEW] Added a more robust synopsis extraction for new domains",
-                    "[NEW] Added PDF Letter to the list of supported export options",
-                    "[NEW] Added new supported domains: NovelFull.com, AllNovel.org, and NovGo.net",
-                    "[IMPROVEMENT] Improved the LibraryContext to handle new fields (source, progress)",
-                    "[IMPROVEMENT] Added junk filter for new and old supported domains",
-                    "[BUGFIX] Fixed the synopsis extraction for new added domains",
-                    "[BUGFIX] Fixed the 'Content not available for this chapter'",
-                    "[FIXED] Fixed the dysfunctional Synopsis' See More/See Less",
-                    "[FIXED] Fixed all the minor bugs and patched what needs to be patched",
-                    "[REMOVED] Removed the 'Clear' button in the Activity Log, redundant to Clear Button"
-                ]
-            }
+            '1.4.4rev175': { date: 'May 13, 2026', changes: ["[FIXED] Fixed the doubling of chapter title of FreeWebNovel", "[FIXED] Fixed missing chapter title for AllNovel, ReadNovelFull, etc.", "[FIXED] Stray commas in ReadNovelFull titles", "[IMPROVEMENT] Downloader uses new chapter title fetcher."] },
+            '1.4.3rev171': { date: 'May 11, 2026', changes: ["[NEW] Overhauled Library UI", "[NEW] PDF Letter export", "[NEW] New domains: NovelFull.com, AllNovel.org, NovGo.net", "[IMPROVEMENT] Junk filters, updated scrapers", "[BUGFIX] Synopsis extraction, Content not available error", "[FIXED] See More/See Less, spacing, minor bugs"] }
         };
 
         function showVersionChangelog(version) {
@@ -1637,8 +1118,7 @@
                 modalVersionTitle.textContent = version;
                 let html = `<p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:0.8rem;">📅 ${log.date}</p><ul style="list-style:none;padding:0;">`;
                 log.changes.forEach(c => {
-                    html +=
-                        `<li style="padding:8px 0 8px 24px;background:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22%238f5e4e%22><path d=%22M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z%22/></svg>') left center no-repeat;background-size:16px;border-bottom:1px solid #f0ebe4;color:#3d2e28;">${c}</li>`;
+                    html += `<li style="padding:8px 0 8px 24px;background:url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 viewBox=%220 0 24 24%22 fill=%22%238f5e4e%22><path d=%22M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z%22/></svg>') left center no-repeat;background-size:16px;border-bottom:1px solid #f0ebe4;color:#3d2e28;">${c}</li>`;
                 });
                 html += '</ul>';
                 modalChangelogContent.innerHTML = html;
@@ -1647,8 +1127,7 @@
         }
         window.showVersionChangelog = showVersionChangelog;
         closeVersionChangelogBtn?.addEventListener('click', () => versionChangelogModal.style.display = 'none');
-        versionChangelogModal?.addEventListener('click', (e) => { if (e.target === versionChangelogModal)
-                versionChangelogModal.style.display = 'none'; });
+        versionChangelogModal?.addEventListener('click', (e) => { if (e.target === versionChangelogModal) versionChangelogModal.style.display = 'none'; });
     </script>
 </body>
 </html>
