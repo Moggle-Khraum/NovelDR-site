@@ -452,19 +452,15 @@
         .screenshot-card {
             flex: 0 0 auto;
             width: 180px;
-            aspect-ratio: 9/16;
+            height: 320px;
             background: linear-gradient(160deg, #f5efe8 0%, #e8dcd0 100%);
             border-radius: var(--radius-lg);
             border: 1.5px solid var(--border);
             scroll-snap-align: start;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            text-align: center;
-            padding: 1rem;
+            overflow: hidden;
             transition: var(--transition);
             cursor: default;
             box-shadow: var(--shadow-sm);
@@ -474,11 +470,23 @@
             box-shadow: var(--shadow-lg);
             border-color: var(--accent);
         }
-        .screenshot-card i {
-            font-size: 2rem;
-            color: var(--accent);
-            opacity: 0.5;
-            margin-bottom: 0.5rem;
+        .screenshot-card img {
+            width: 100%;
+            flex: 1;
+            object-fit: cover;
+        }
+        .screenshot-card .screenshot-caption {
+            padding: 0.4rem 0.3rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            background: rgba(255,255,255,0.7);
+            width: 100%;
+            margin-top: auto;
         }
 
         /* ─── FEATURES GRID ──────────────────────── */
@@ -1053,27 +1061,41 @@
                 </div>
             </section>
 
-            <!-- SCREENSHOTS -->
+            <!-- SCREENSHOTS with centered captions, following GitHub arrangement -->
             <section class="screenshots-section">
                 <h3>📱 App Preview</h3>
                 <div class="screenshots-strip">
                     <div class="screenshot-card">
-                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Library.jpg?raw=true" alt="Library View" style="width:100%; height:100%; object-fit:cover; border-radius:inherit;" />
+                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Library.jpg?raw=true" alt="Library View">
+                        <span class="screenshot-caption">Library</span>
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Reader.jpg?raw=true" alt="Reader Screen" style="width:100%; height:100%; object-fit:cover; border-radius:inherit;" />
+                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Download.jpg?raw=true" alt="Download Tab">
+                        <span class="screenshot-caption">Download</span>
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Updates.jpg?raw=true" alt="Updates" style="width:100%; height:100%; object-fit:cover; border-radius:inherit;" />
+                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Updates.jpg?raw=true" alt="Updates">
+                        <span class="screenshot-caption">Updates</span>
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Download.jpg?raw=true" alt="Download Tab" style="width:100%; height:100%; object-fit:cover; border-radius:inherit;" />
+                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Settings.jpg?raw=true" alt="Settings">
+                        <span class="screenshot-caption">Settings</span>
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Settings.jpg?raw=true" alt="Settings" style="width:100%; height:100%; object-fit:cover; border-radius:inherit;" />
+                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Novel%20Index.jpg?raw=true" alt="Novel Index">
+                        <span class="screenshot-caption">Novel Index</span>
                     </div>
                     <div class="screenshot-card">
-                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Novel%20Export.jpg?raw=true" alt="Export Formats" style="width:100%; height:100%; object-fit:cover; border-radius:inherit;" />
+                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Novel%20Export.jpg?raw=true" alt="Export Formats">
+                        <span class="screenshot-caption">Export</span>
+                    </div>
+                    <div class="screenshot-card">
+                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Reader.jpg?raw=true" alt="Reader Screen">
+                        <span class="screenshot-caption">Reader</span>
+                    </div>
+                    <div class="screenshot-card">
+                        <img src="https://github.com/Moggle-Khraum/resources_for_display/blob/main/screenshots/Reader%20Settings.jpg?raw=true" alt="Reader Settings">
+                        <span class="screenshot-caption">Reader Settings</span>
                     </div>
                 </div>
             </section>
