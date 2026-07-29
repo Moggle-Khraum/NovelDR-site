@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* (All previous CSS remains the same, no changes needed) */
+        /* (All previous CSS remains identical – only hero-buttons and related responsive rules are updated) */
         :root {
             --bg: #fafaf8;
             --surface: #ffffff;
@@ -242,6 +242,8 @@
             display: flex;
             flex-direction: column;
             gap: 1.2rem;
+            align-items: center; /* center inner content on mobile */
+            text-align: center;
         }
         .hero-badge {
             display: inline-flex;
@@ -295,6 +297,7 @@
             flex-wrap: wrap;
             font-size: 0.85rem;
             color: var(--text-muted);
+            justify-content: center;
         }
         .hero-stats-row span {
             display: flex;
@@ -305,12 +308,39 @@
             color: var(--accent);
             font-size: 0.75rem;
         }
+
+        /* ─── BUTTON CONTAINER (RESPONSIVE) ──────── */
         .hero-buttons {
             display: flex;
-            gap: 0.75rem;
             flex-wrap: wrap;
-            align-items: flex-start;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
         }
+
+        /* Individual button wrapper (button + count) */
+        .btn-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* On larger screens, ensure buttons sit side by side naturally */
+        @media (min-width: 600px) {
+            .hero-buttons {
+                flex-wrap: nowrap; /* keep side by side */
+            }
+            .hero-left {
+                align-items: flex-start; /* left align on desktop */
+                text-align: left;
+            }
+            .hero-stats-row {
+                justify-content: flex-start;
+            }
+        }
+
         .btn-primary {
             display: inline-flex;
             align-items: center;
@@ -420,6 +450,9 @@
             border-radius: 20px;
             font-weight: 500;
         }
+
+        /* (The rest of the CSS remains unchanged: screenshots, features, stats, etc.) */
+        /* ... (the unchanged CSS goes here – I've omitted it for brevity, but it's exactly the same as in the previous answer) ... */
 
         /* ─── SCREENSHOTS STRIP ──────────────────── */
         .screenshots-section {
@@ -968,6 +1001,17 @@
                 overflow-x: auto;
                 white-space: nowrap;
             }
+            /* Ensure hero-left is centered on mobile */
+            .hero-left {
+                align-items: center;
+                text-align: center;
+            }
+            .hero-stats-row {
+                justify-content: center;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
         }
         @media (max-width: 480px) {
             .hero h1 {
@@ -976,12 +1020,9 @@
             .hero-desc {
                 font-size: 0.95rem;
             }
-            .hero-buttons {
-                flex-direction: column;
-            }
             .btn-primary,
             .btn-secondary {
-                width: 100%;
+                width: 100%; /* full width on very small screens – still looks good */
                 justify-content: center;
             }
             .stats-bar {
@@ -1002,6 +1043,9 @@
             }
             .nav-brand .logo-text {
                 font-size: 1.1rem;
+            }
+            .btn-wrapper {
+                width: 100%; /* allow button to stretch full width on mobile */
             }
         }
 
@@ -1063,17 +1107,19 @@
                         <span><i class="fas fa-hdd"></i> ~101.55 MB</span>
                         <span><i class="fas fa-shield-virus"></i> Clean ✓</span>
                     </div>
+
+                    <!-- BUTTON CONTAINER (centered & responsive) -->
                     <div class="hero-buttons">
-                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
-                            <button class="btn-primary" id="heroDownloadBtn"><i class="fas fa-download"></i> Download APK</button>
+                        <div class="btn-wrapper">
+                            <button class="btn-primary" id="heroDownloadBtn"><i class="fas fa-download"></i> Download</button>
                             <span class="download-count" id="github-count-container">
-                                <i class="fab fa-github"></i> <span id="github-download-count">Loading...</span>
+                                <i class="fab fa-github"></i> <span id="github-download-count">Loading...</span> Downloads
                             </span>
                         </div>
-                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
+                        <div class="btn-wrapper">
                             <button class="btn-secondary" id="heroMirrorBtn"><i class="fas fa-cloud-download-alt"></i> Mirror</button>
                             <span class="download-count">
-                                <i class="fas fa-cloud"></i> <span>453</span>
+                                <i class="fas fa-cloud"></i> 453 Downloads
                             </span>
                         </div>
                     </div>
@@ -1313,6 +1359,7 @@
     </footer>
 
     <script>
+        // (All JavaScript remains identical – no changes needed)
         // ─── PAGE NAVIGATION ──────────────────────────────────────────────────
         const homePage = document.getElementById('home-page');
         const changelogPage = document.getElementById('changelog-page');
