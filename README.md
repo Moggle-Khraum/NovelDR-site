@@ -39,7 +39,7 @@ NovelDR is a free, open-source Android application that lets you download webnov
 
 <!--**Total Download Counts: 1.3K+**-->
 
-[![Github Downloads](https://img.shields.io/github/downloads/Moggle-Khraum/NovelDR-site/total?style=for-the-badge&logo=github&logoColor=white&color=1565C0&label=Downloads)](https://github.com/Moggle-Khraum/NovelDR-site/releases) [![MediaFire Downloads](https://img.shields.io/badge/Downloads-475-F05023?style=for-the-badge&logo=mediafire&logoColor=white)](https://www.mediafire.com/folder/hcecxy0e22g7c/apk)
+[![Github Downloads](https://img.shields.io/github/downloads/Moggle-Khraum/NovelDR-site/total?style=for-the-badge&logo=github&logoColor=white&color=1565C0&label=Downloads)](https://github.com/Moggle-Khraum/NovelDR-site/releases) [![MediaFire Downloads](https://img.shields.io/badge/Downloads-611-F05023?style=for-the-badge&logo=mediafire&logoColor=white)](https://www.mediafire.com/folder/hcecxy0e22g7c/apk)
 
 **Download webnovels. Read anywhere. No ads, no login, just pure offline reading.**
 
@@ -76,11 +76,11 @@ NovelDR is a free, open-source Android application that lets you download webnov
 | Source Domain                                   | Status         | Source Domain                               | Status         | Source Domain                          | Status         |
 | ----------------------------------------------- | -------------- | ------------------------------------------- | -------------- | -------------------------------------- | -------------- |
 | [ReadNovelFull](https://readnovelfull.com/)     | ✅ Site Active | [NovelFull.com](https://novelfull.com/)     | ✅ Site Active | [NovelbinCC](https://www.novelbin.cc/) | ✅ Site Active |
-| [NovelFull.net](https://novelfull.net/)         | ✅ Site Active | [AllNovel](https://allnovel.org/)           | ✅ Site Active | [NovelArrow](https://novelarrow.com/)  | ✅ Site Active |
+| [NovelFull.net](https://novelfull.net/)         | ✅ Site Active | [AllNovel](https://allnovel.org/)           | ✅ Site Active | [NovelPing](https://novelping.com/)| ✅ Site Active |
 | [FreeWebNovel](https://freewebnovel.com/)       | ✅ Site Active | [NovGo](https://novgo.net/)                 | ✅ Site Active | [NovelArchive.cc](https://novelarchive.cc/)     | ✅ Site Active  |
-| [LightNovelWorld](https://lightnovelworld.org/) | ✅ Site Active | [WuxiaWorld.site](https://wuxiaworld.site/) | ✅ Site Active |
-| [RoyalRoad](https://www.royalroad.com/)         | ✅ Site Active | [AsiaNovel](https://www.asianovel.net/)     | ✅ Site Active |
-| [NovelPhoenix](https://novelphoenix.com/)       | ✅ Site Active | [Novel-bin](https://novel-bin.com/)         | ✅ Site Active |
+| [LightNovelWorld](https://lightnovelworld.org/) | ✅ Site Active | [WuxiaWorld.site](https://wuxiaworld.site/) | ✅ Site Active | [FanMTL](https://fanmtl.com/)     | ✅ Site Active  |
+| [RoyalRoad](https://www.royalroad.com/)         | ✅ Site Active | [AsiaNovel](https://www.asianovel.net/)     | ✅ Site Active | [WuxiaBox](https://www.wuxiabox.com/) |  ✅ Site Active  |
+| [NovelPhoenix](https://novelphoenix.com/)       | ✅ Site Active | [Novel-bin](https://novel-bin.com/)         | ✅ Site Active | [WuxiaClick](https://wuxia.click/) |  ✅ Site Active  |
 
 ---
 
@@ -91,7 +91,7 @@ NovelDR is a free, open-source Android application that lets you download webnov
 | Source Domain                       | Status       | Source Domain                         | Status       |
 | ----------------------------------- | ------------ | ------------------------------------- | ------------ |
 | [Novelbin.me](https://novelbin.me/) | ❌ Site Dead | [Novelbin.com](https://novelbin.com/) | ❌ Site Dead |
-|                                     |              |                                       |              |
+| [NovelArrow](https://novelarrow.com/)   | ❌ Changed Domain |                              |              |
 
 ---
 
