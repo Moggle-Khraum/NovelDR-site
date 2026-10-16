@@ -3,6 +3,7 @@ name: Update releases feed
 on:
   release:
     types: [published, edited, deleted]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -20,7 +21,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh api "repos/${{ github.repository }}/releases?per_page=100" \
-            --jq '[.[] | {tag_name, name, published_at, html_url, body, prerelease}]' \
+            --jq '[.[] | {tag_name, name, published_at, html_url, body, prerelease, assets: [.assets[] | {name, size, url: .browser_download_url}]}]' \
             > releases.json
 
       - name: Commit if changed
