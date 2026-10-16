@@ -569,7 +569,16 @@
             .nav-brand .logo-text { font-size: 1.1rem; }
             .btn-wrapper { width: 100%; }
         }
-    </style>
+    
+        .faq-section { margin: 2rem 0 2.5rem; }
+        .faq-section h3 { font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 1rem; letter-spacing: -0.02em; }
+        .faq-item { background: var(--surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 0.9rem 1.1rem; margin-bottom: 0.6rem; }
+        .faq-item summary { cursor: pointer; font-weight: 600; color: var(--text); list-style: none; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: '+'; float: right; color: var(--accent); font-weight: 700; }
+        .faq-item[open] summary::after { content: '–'; }
+        .faq-item p { margin-top: 0.5rem; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; }
+</style>
 </head>
 <body>
 
@@ -608,8 +617,9 @@
                     <h1>Read Wuxia &<br><span class="highlight">Xianxia</span> Offline</h1>
                     <p class="hero-desc">Download novels from multiple sources and read them anywhere — no ads, no tracking, just pure reading comfort.</p>
                     <div class="hero-stats-row">
-                        <span><i class="fas fa-tag"></i> v4.6.6rev546</span>
-                        <span><i class="fas fa-hdd"></i> ~101.55 MB</span>
+                        <span id="hero-version"><i class="fas fa-tag"></i> v4.6.6rev546</span>
+                        <span id="hero-size"><i class="fas fa-hdd"></i> ~101.55 MB</span>
+                        <span id="hero-date"></span>
                         <span><i class="fas fa-shield-virus"></i> Clean ✓</span>
                     </div>
 
@@ -630,17 +640,17 @@
 
                     <!-- Latest version changelog link -->
                     <a class="changelog-inline-link" id="latestChangelogLink">
-                        <i class="fas fa-list-ul"></i> What's new in v4.6.6rev546
+                        <i class="fas fa-list-ul"></i> <span id="hero-whatsnew">What's new</span>
                     </a>
                 </div>
                 <div class="hero-right">
-                    <div class="hero-mockup">
+                    <div class="hero-mockup" style="aspect-ratio:auto;">
                         <div class="mockup-icon">
                             <img src="app-icon.png" alt="NovelDR icon">
                         </div>
                         <span class="mockup-name">Novel DR</span>
-                        <span class="mockup-version">v4.6.6rev546</span>
-                        <span style="font-size:0.75rem;color:var(--text-muted);">Offline Reader</span>
+                        <span class="mockup-version" id="mockup-version">v4.6.6rev546</span>
+                        <p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.5;margin:0.6rem 0 0;text-align:center;">Read Wuxia and Xianxia novels offline, anywhere. Save from multiple sources, with no ads and no tracking.</p>
                     </div>
                 </div>
             </section>
@@ -676,13 +686,63 @@
 
             <!-- STATS BAR -->
             <section class="stats-bar">
-                <div class="stat-card"><div class="stat-icon"><i class="fas fa-hdd"></i></div><div class="stat-value">~101.55 MB</div><div class="stat-label">APK Size</div></div>
-                <div class="stat-card"><div class="stat-icon"><i class="fas fa-tag"></i></div><div class="stat-value">v4.1.20</div><div class="stat-label">Build Number</div></div>
+                <div class="stat-card"><div class="stat-icon"><i class="fas fa-hdd"></i></div><div class="stat-value" id="stat-size">~101.55 MB</div><div class="stat-label">APK Size</div></div>
+                <div class="stat-card"><div class="stat-icon"><i class="fas fa-tag"></i></div><div class="stat-value" id="stat-build">v4.1.20</div><div class="stat-label">Build Number</div></div>
                 <div class="stat-card clickable" onclick="window.open('https://virusscan.jotti.org/en-US/filescanjob/oql6v3ec5k', '_blank')"><div class="stat-icon"><i class="fas fa-shield-virus"></i></div><div class="stat-value clean-tag">Clean ✓</div><div class="stat-label">Jotti's Malware (0/15)</div></div>
                 <div class="stat-card clickable" onclick="window.open('https://github.com/Moggle-Khraum/noveldr-site/releases', '_blank')"><div class="stat-icon"><i class="fab fa-github"></i></div><div class="stat-value">Official</div><div class="stat-label">GitHub Release</div></div>
             </section>
 
             <!-- LINKS & VISITORS -->
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <h3>Frequently asked questions</h3>
+            <details class="faq-item">
+                <summary>What is Novel DR?</summary>
+                <p>Novel DR is an Android app for reading wuxia and xianxia novels offline. You download chapters from supported novel sites, then read them anywhere without a connection.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Where do the novels come from?</summary>
+                <p>Novel DR downloads from several public novel sites. It doesn't host the novels itself.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Is the app safe to install?</summary>
+                <p>Each release is scanned for viruses before it's shared. You can check the latest scan report from the Clean stat on this page.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Which Android version do I need?</summary>
+                <p>Android 8 or newer.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Do I need an account, and are there ads?</summary>
+                <p>No. There's no login, no ads, and no tracking.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Can I read without internet?</summary>
+                <p>Yes. Once a novel's chapters are downloaded, you can read them offline.</p>
+            </details>
+            <details class="faq-item">
+                <summary>What formats can I export to?</summary>
+                <p>TXT, RTF, DOCX, PDF (Letter), EPUB, and Kindle MOBI.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How do I update the app?</summary>
+                <p>Tap the bell icon in the app to download and apply a new version, or check for updates manually in Settings.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Is my data backed up?</summary>
+                <p>Yes. Settings includes a full backup and restore option, and you can turn on auto-backup to keep backups up to date.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Where can I see what changed in each version?</summary>
+                <p>The Changelog tab on this page lists every release with its notes, pulled straight from GitHub.</p>
+            </details>
+            <details class="faq-item">
+                <summary>How do I report a bug?</summary>
+                <p>Use the bug reporting option in the app's Data Control settings.</p>
+            </details>
+        </section>
+
             <section class="links-section">
                 <div class="link-group">
                     <h4><i class="fas fa-link"></i> Quick Links</h4>
@@ -710,125 +770,7 @@
         <div id="changelog-page">
             <h2 class="page-title">📜 Version History</h2>
 
-            <!-- Latest entry – v4.6.6rev546 -->
-            <div class="changelog-entry" id="changelog-latest">
-                <h3 class="latest">v4.6.6rev546 <span style="font-size:0.75rem;color:var(--green);font-weight:600;">— LATEST</span></h3>
-                <p class="changelog-date">October 3, 2026 · Patch Update</p>
-
-                <p class="changelog-section-title"><strong>[ Compatibility ]</strong></p>
-                <ul>
-                    <li>Changelog will be posted soon~ Read the complete one [here](https://github.com/Moggle-Khraum/NovelDR-site/releases/tag/v4.6.6rev546).</li>
-                </ul>
-            </div>
-
-            <!-- Older entries (unchanged) -->
-            <div class="changelog-entry">
-                <h3>v3.7.55rev411</h3>
-                <p class="changelog-date">July 16, 2026 Update</p>
-                <p class="changelog-section-title"><strong>⚙️ [ NEW ]</strong></p>
-                <ul>
-                    <li><strong>ZIP‑only backups</strong> — New backups are now always created as a single <code>.zip</code> file, built via a streaming, memory‑safe export.</li>
-                    <li><strong>Dual‑format restore</strong> — The restore flow supports both ZIP (v5+) and legacy JSON (v4 and earlier).</li>
-                    <li><strong>Share button restored</strong> — The backup completion alert now includes a "Share Backup" button.</li>
-                    <li><strong>Native crash reporting (Sentry)</strong> — Native crash capture wired in at app launch, plus Session Replay.</li>
-                    <li><strong>Novel Cover compression</strong> — Covers are resized/compressed via <code>expo-image-manipulator</code>.</li>
-                    <li><strong>Check for Updates</strong> — Added the button in Settings to manually check for new versions.</li>
-                    <li><strong>Notif Bell Update</strong> — Bell icon appears when a new update is available.</li>
-                    <li><strong>Chapter Deletion</strong> — Proper chapter deletion system added.</li>
-                    <li><strong>Self Updater Implementation</strong> — In-app APK download and install with progress tracking.</li>
-                    <li><strong>Chapter Limiter</strong> — Thresholds at 200/250/300 chapters with a shared hook and modal.</li>
-                </ul>
-                <p class="changelog-section-title"><strong>⚡ [ IMPROVEMENTS ]</strong></p>
-                <ul>
-                    <li><strong>Consolidated code</strong> — Single <code>exportBackup()</code> for streaming ZIP export.</li>
-                    <li><strong>Silent skip guard</strong> — No more per‑chapter skip logging.</li>
-                    <li><strong>Faster stuck-loop detection</strong> — Consecutive-skip counter breaks the loop at 5 skips.</li>
-                    <li><strong>Battery drain fix</strong> — TTS highlight matching optimized with <code>useMemo</code>.</li>
-                    <li><strong>Update checker fix</strong> — Correctly recognizes installed version to avoid false update prompts.</li>
-                </ul>
-                <p class="changelog-section-title"><strong>🗑️ [ REMOVED / REPLACED ]</strong></p>
-                <ul>
-                    <li><strong>Removed JSON backup path</strong> — Old <code>exportBackupJSON()</code> is gone.</li>
-                    <li><strong>Old single‑blob JSON export</strong> — Likely source of OOM crashes on large libraries.</li>
-                </ul>
-            </div>
-            <div class="changelog-entry">
-                <h3>v3.1.0rev322</h3>
-                <p class="changelog-date">July 4, 2026 Update</p>
-                <ul>
-                    <li><strong>✨ [ NEW ]</strong> — Margins presets, 11 reader backgrounds, custom gallery images, tap-to-jump progress bar, TOC search, dynamic chapter search.</li>
-                    <li><strong>⚡ [ IMPROVEMENTS ]</strong> — Reworked skipping logic, improved LNW scraping, reduced skip delay to 50ms, floating control panel, TTS optimizations.</li>
-                    <li><strong>🐞 [ BUG FIXES ]</strong> — Cover corruption, TTS crash on chapter switch, text color on gradients, chapter preloading, sentence splitting.</li>
-                    <li><strong>♿ [ ACCESSIBILITY ]</strong> — Haptic feedback, visual press feedback, scroll-to-top button.</li>
-                </ul>
-            </div>
-            <div class="changelog-entry">
-                <h3>v2.7.4rev260</h3>
-                <p class="changelog-date">June 8, 2026 Update</p>
-                <ul>
-                    <li><strong>🐛 [ PATCH FIX ]</strong> — Deduplication for LightNovelWorld, cover fetcher fix.</li>
-                    <li><strong>✨ [ NEW ]</strong> — Lightweight fetch helper, Credits button and modal.</li>
-                    <li><strong>⚡ [ IMPROVEMENTS ]</strong> — Reworked skipping to milestone-based, reduced skip delay, reworked modals.</li>
-                </ul>
-            </div>
-            <div class="changelog-entry">
-                <h3>v2.5.18rev250</h3>
-                <p class="changelog-date">May 21, 2026 Update</p>
-                <ul>
-                    <li><strong>⚙️ [ NEW/PATCHED/IMPROVEMENT ]</strong> — Data migration fix, "Read" button, refreshLibrary, Smart Text Formatting, floating TTS button, sentence highlighting, symbol-to-speech, 6 themes, Report Issue button.</li>
-                    <li><strong>🐛 [ BUGFIXES ]</strong> — TTS button position, quote handling, paragraph formatting, chapter titles, TTS voice preferences.</li>
-                </ul>
-            </div>
-            <div class="changelog-entry">
-                <h3>v1.4.4rev175</h3>
-                <p class="changelog-date">May 13, 2026 Update</p>
-                <ul><li>Fixed chapter title doubling, missing titles, stray commas, improved downloader.</li></ul>
-            </div>
-            <div class="changelog-entry">
-                <h3>v1.4.3rev171</h3>
-                <p class="changelog-date">May 11, 2026 Update</p>
-                <ul><li>Overhauled Library UI, new domains, PDF Letter export, synopsis extraction, junk filters, bugfixes.</li></ul>
-            </div>
-            <div class="changelog-entry">
-                <h3>v1.4.0rev147</h3>
-                <p class="changelog-date">May 7, 2026 Update</p>
-                <ul><li>File-system migration, 3000+ chapter support, backup system, 5 export formats, 85% RAM reduction.</li></ul>
-            </div>
-            <div class="changelog-entry">
-                <h3>v1.3.11rev137</h3>
-                <p class="changelog-date">Apr 28, 2026 Update</p>
-                <ul><li>Swipe gestures, ascending/descending TOC, Page AutoSort, improved author fetcher, bugfixes.</li></ul>
-            </div>
-            <div class="changelog-entry">
-                <h3>v1.3.10rev131</h3>
-                <p class="changelog-date">Apr 25, 2026 Update</p>
-                <ul><li>Duplicity Guard, improved Novelbin scraping, streamlined title fetching, bugfixes.</li></ul>
-            </div>
-            <div class="changelog-entry">
-                <h3>v1.3.9rev128</h3>
-                <p class="changelog-date">Apr 21, 2026 Update</p>
-                <ul><li>Local covers, System Action Required card, batch delete, Starting Chapter field, improved skipper.</li></ul>
-            </div>
-            <div class="changelog-entry">
-                <h3>v1.3.8rev118</h3>
-                <p class="changelog-date">Apr 15, 2026 Update</p>
-                <ul><li>LightNovelWorld support, About Developer tab, Import File function, improved skipper.</li></ul>
-            </div>
-            <div class="changelog-entry">
-                <h3>v1.0.3rev055</h3>
-                <p class="changelog-date">Apr 13, 2026</p>
-                <ul><li>NovelBin & FreeWebNovel support, library filters, AutoScroll, Backup & Restore, batch delete.</li></ul>
-            </div>
-            <div class="changelog-entry">
-                <h3>v1.0.2rev36</h3>
-                <p class="changelog-date">March 27, 2026</p>
-                <ul><li>Activity Logs visible, stabilized downloader & update lifeline.</li></ul>
-            </div>
-            <div class="changelog-entry">
-                <h3>v1.0.1rev16</h3>
-                <p class="changelog-date">March 27, 2026</p>
-                <ul><li>Initial release — ReadNovelFull, NovelFull, partial FreeWebNovel, 3 themes, basic download & updates.</li></ul>
-            </div>
+            <div id="changelog-list"><p class="changelog-date">Loading releases…</p></div>
 
             <button id="back-to-home-changelog" class="back-btn">← Back to Home</button>
         </div>
@@ -1003,7 +945,7 @@
             win.focus();
         }
 
-        const mainUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v4.6.6rev546/NovelDR.v4.6.6rev546.apk';
+        let mainUrl = 'https://github.com/Moggle-Khraum/NovelDR-site/releases/latest';
         const mirrorUrl = 'https://www.mediafire.com/file/pimk7alwpb5i2p2/NovelDR.v4.6.6rev546.apk/file';
 
         document.getElementById('heroDownloadBtn')?.addEventListener('click', (e) => { e.preventDefault(); startDownload(mainUrl); });
@@ -1037,6 +979,79 @@
         window.showVersionChangelog = showVersionChangelog;
         closeVersionChangelogBtn?.addEventListener('click', () => versionChangelogModal.style.display = 'none');
         versionChangelogModal?.addEventListener('click', (e) => { if (e.target === versionChangelogModal) versionChangelogModal.style.display = 'none'; });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.0/purify.min.js"></script>
+    <script>
+        (function () {
+            const esc = s => String(s ?? '').replace(/[&<>"']/g, c =>
+                ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+            const fmtDate = iso => new Date(iso).toLocaleDateString(undefined,
+                { year: 'numeric', month: 'long', day: 'numeric' });
+
+            const setText = (id, text) => { const el = document.getElementById(id); if (el) el.textContent = text; };
+            const setHtml = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
+            const hide = id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; };
+
+            function renderChangelog(releases) {
+                const list = document.getElementById('changelog-list');
+                if (!releases.length) {
+                    list.innerHTML = '<p class="changelog-date">No releases yet.</p>';
+                    return;
+                }
+                list.innerHTML = releases.map((r, i) => {
+                    const notes = DOMPurify.sanitize(marked.parse(r.body || '_No release notes._'));
+                    const isLatest = i === 0;
+                    return `
+                      <div class="changelog-entry"${isLatest ? ' id="changelog-latest"' : ''}>
+                        <h3${isLatest ? ' class="latest"' : ''}>
+                          ${esc(r.tag_name)}
+                          ${isLatest ? '<span style="font-size:0.75rem;color:var(--green);font-weight:600;"> — LATEST</span>' : ''}
+                        </h3>
+                        <p class="changelog-date">${esc(fmtDate(r.published_at))}${r.name && r.name !== r.tag_name ? ' · ' + esc(r.name) : ''}</p>
+                        <div class="release-notes">${notes}</div>
+                        <a href="${esc(r.html_url)}" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--accent);">Full release on GitHub</a>
+                      </div>`;
+                }).join('');
+            }
+
+            function updateHero(latest) {
+                const tag = latest.tag_name;
+                const apk = (latest.assets || []).find(a => /\.apk$/i.test(a.name));
+                const sizeText = apk ? (apk.size / 1048576).toFixed(2) + ' MB' : '';
+
+                setHtml('hero-version', '<i class="fas fa-tag"></i> ' + esc(tag));
+                if (apk) setHtml('hero-size', '<i class="fas fa-hdd"></i> ' + esc(sizeText));
+                else hide('hero-size');
+                setHtml('hero-date', '<i class="fas fa-calendar"></i> ' + esc(fmtDate(latest.published_at)));
+                setText('hero-whatsnew', "What's new in " + tag);
+                setText('mockup-version', tag);
+                setText('stat-size', sizeText || '—');
+                setText('stat-build', tag);
+
+                mainUrl = apk ? apk.url : latest.html_url;
+            }
+
+            async function init() {
+                let releases = [];
+                try {
+                    const res = await fetch('releases.json', { cache: 'no-cache' });
+                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                    releases = (await res.json())
+                        .filter(r => r.published_at && !r.prerelease)
+                        .sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
+                } catch (err) {
+                    document.getElementById('changelog-list').innerHTML =
+                        '<p class="changelog-date">Could not load the changelog right now. <a href="https://github.com/Moggle-Khraum/NovelDR-site/releases" target="_blank" rel="noopener">View releases on GitHub</a></p>';
+                    return;
+                }
+                renderChangelog(releases);
+                if (releases.length) updateHero(releases[0]);
+            }
+
+            init();
+        })();
     </script>
 </body>
 </html>
