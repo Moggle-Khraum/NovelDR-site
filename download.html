@@ -182,12 +182,10 @@
 
         /* ─── PAGES ──────────────────────────────── */
         #home-page,
-        #changelog-page,
-        #archives-page {
+        #changelog-page {
             animation: fadeSlideIn 0.4s ease-out;
         }
-        #changelog-page,
-        #archives-page {
+        #changelog-page {
             display: none;
         }
         @keyframes fadeSlideIn {
@@ -475,6 +473,11 @@
         .screenshot-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--accent); }
         .screenshot-card img { width: 100%; flex: 1; object-fit: cover; }
         .screenshot-card .screenshot-caption { padding: 0.4rem 0.3rem; font-size: 0.7rem; font-weight: 600; color: var(--text-secondary); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; background: rgba(255,255,255,0.7); width: 100%; margin-top: auto; }
+        @media (min-width: 900px) {
+            .screenshots-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); overflow: visible; }
+            .screenshot-card { width: auto; height: auto; }
+            .screenshot-card img { width: 100%; height: auto; flex: none; aspect-ratio: 9 / 16; }
+        }
 
         .features-section { margin: 2.5rem 0; }
         .features-section h3 { font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 1.2rem; letter-spacing: -0.02em; }
@@ -520,16 +523,6 @@
         .back-btn { padding: 12px 24px; border-radius: 40px; cursor: pointer; border: 2px solid var(--border); background: var(--surface); color: var(--text-secondary); font-weight: 600; font-size: 0.95rem; transition: var(--transition); font-family: inherit; letter-spacing: -0.01em; display: inline-flex; align-items: center; gap: 6px; margin-top: 1rem; }
         .back-btn:hover { background: var(--accent-bg); border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
-        .archives-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); margin-bottom: 1.5rem; border: 1px solid var(--border-light); }
-        .archives-table th { background: var(--accent); color: #fff; padding: 14px 16px; text-align: left; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.01em; }
-        .archives-table td { padding: 14px 16px; border-bottom: 1px solid var(--border-light); font-size: 0.88rem; color: var(--text-secondary); }
-        .archives-table tr:last-child td { border-bottom: none; }
-        .archives-table tr:hover { background: var(--accent-bg); }
-        .archives-table .dl-links { display: flex; flex-wrap: wrap; gap: 4px 8px; }
-        .archives-table .dl-links a { color: var(--accent); text-decoration: none; font-weight: 500; font-size: 0.82rem; padding: 4px 10px; border-radius: 20px; background: var(--accent-bg); transition: var(--transition); white-space: nowrap; cursor: pointer; }
-        .archives-table .dl-links a:hover { background: var(--accent); color: #fff; }
-        .archives-table .dl-links span { color: var(--text-muted); font-size: 0.78rem; align-self: center; }
-        .archives-warning { background: #fff8e6; border: 1px solid #e8d5a0; border-radius: var(--radius); padding: 1rem 1.3rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: #7a6010; font-weight: 500; display: flex; align-items: center; gap: 8px; }
 
         .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); display: none; align-items: center; justify-content: center; z-index: 20000; padding: 1rem; }
         .modal-card { background: var(--surface); max-width: 520px; width: 100%; border-radius: var(--radius-2xl); padding: 2rem; text-align: left; border: 1px solid var(--border); box-shadow: var(--shadow-xl); max-height: 80vh; display: flex; flex-direction: column; }
@@ -559,7 +552,6 @@
             .nav-links .nav-link { display: none; }
             .nav-links .nav-link.show-mobile { display: inline-flex; }
             .features-grid { grid-template-columns: 1fr; }
-            .archives-table { display: block; overflow-x: auto; white-space: nowrap; }
             .hero-left { align-items: center; text-align: center; }
             .hero-stats-row { justify-content: center; }
             .hero-buttons { justify-content: center; }
@@ -591,7 +583,6 @@
             <div class="nav-links">
                 <button class="nav-link active" id="navHomeBtn">Home</button>
                 <button class="nav-link" id="navChangelogBtn">📜 Changelog</button>
-                <button class="nav-link" id="navArchivesBtn">📦 Archives</button>
                 <button class="nav-cta" id="navDownloadBtn"><i class="fas fa-download"></i> Download</button>
             </div>
         </div>
@@ -698,7 +689,6 @@
                     <div class="link-row"><span>Home</span><a href="/index.html">Novel DR Home</a></div>
                     <div class="link-row"><span>GitHub</span><a href="https://github.com/Moggle-Khraum/noveldr-site/releases" target="_blank">Releases</a></div>
                     <div class="link-row"><span>Changelog</span><a id="linkToChangelog2">View history</a></div>
-                    <div class="link-row"><span>Old Versions</span><a id="linkToArchives2">Browse archives</a></div>
                 </div>
                 <div class="link-group">
                     <h4><i class="fas fa-gavel"></i> Legal</h4>
@@ -843,21 +833,6 @@
             <button id="back-to-home-changelog" class="back-btn">← Back to Home</button>
         </div>
 
-        <!-- ═══════════════════════════════════════════ -->
-        <!-- ARCHIVES PAGE -->
-        <!-- ═══════════════════════════════════════════ -->
-        <div id="archives-page">
-            <h2 class="page-title">📦 App Archives</h2>
-            <div class="archives-warning">⚠️ <strong>Heads up:</strong> Downloading old versions is not recommended — they contain bugs, issues, and errors that have since been fixed.</div>
-            <table class="archives-table">
-                <thead><tr><th>App Name</th><th>Version</th><th>Changelog</th><th>Size</th><th>Download Links</th></tr></thead>
-                <tbody>
-                    <tr><td><strong>Novel DR</strong></td><td>v1.4.4rev175</td><td><a href="#" onclick="showVersionChangelog('1.4.4rev175'); return false;" style="color:#8f5e4e;text-decoration:underline;font-weight:600;">View</a></td><td>92.99 MB</td><td><div class="dl-links"><a href="#" onclick="downloadVersion('1.4.4rev175','site');return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.4.4rev175','github');return false;">GitHub</a><span>/</span><a href="#" onclick="downloadVersion('1.4.4rev175','mediafire');return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.4.4rev175','itch');return false;">Itch.io</a></div></td></tr>
-                    <tr><td><strong>Novel DR</strong></td><td>v1.4.3rev171</td><td><a href="#" onclick="showVersionChangelog('1.4.3rev171'); return false;" style="color:#8f5e4e;text-decoration:underline;font-weight:600;">View</a></td><td>92.99 MB</td><td><div class="dl-links"><a href="#" onclick="downloadVersion('1.4.3rev171','site');return false;">Site</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171','github');return false;">GitHub</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171','mediafire');return false;">Mediafire</a><span>/</span><a href="#" onclick="downloadVersion('1.4.3rev171','itch');return false;">Itch.io</a></div></td></tr>
-                </tbody>
-            </table>
-            <button id="back-to-home-archives" class="back-btn">← Back to Home</button>
-        </div>
     </div>
 
     <!-- ───── MODAL ───── -->
@@ -885,20 +860,17 @@
         // ─── PAGE NAVIGATION ──────────────────────────────────────────────────
         const homePage = document.getElementById('home-page');
         const changelogPage = document.getElementById('changelog-page');
-        const archivesPage = document.getElementById('archives-page');
         const navHomeBtn = document.getElementById('navHomeBtn');
         const navChangelogBtn = document.getElementById('navChangelogBtn');
-        const navArchivesBtn = document.getElementById('navArchivesBtn');
 
         function setActiveNav(activeBtn) {
-            [navHomeBtn, navChangelogBtn, navArchivesBtn].forEach(b => b.classList.remove('active'));
+            [navHomeBtn, navChangelogBtn].forEach(b => b.classList.remove('active'));
             if (activeBtn) activeBtn.classList.add('active');
         }
 
         function showHome() {
             homePage.style.display = 'block';
             changelogPage.style.display = 'none';
-            archivesPage.style.display = 'none';
             setActiveNav(navHomeBtn);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -906,7 +878,6 @@
         function showChangelog(scrollToId) {
             homePage.style.display = 'none';
             changelogPage.style.display = 'block';
-            archivesPage.style.display = 'none';
             setActiveNav(navChangelogBtn);
             if (scrollToId) {
                 setTimeout(() => {
@@ -918,19 +889,11 @@
             }
         }
 
-        function showArchives() {
-            homePage.style.display = 'none';
-            changelogPage.style.display = 'none';
-            archivesPage.style.display = 'block';
-            setActiveNav(navArchivesBtn);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
 
         // Nav buttons
         document.getElementById('navHomeLogo')?.addEventListener('click', (e) => { e.preventDefault(); showHome(); });
         navHomeBtn?.addEventListener('click', showHome);
         navChangelogBtn?.addEventListener('click', () => showChangelog());
-        navArchivesBtn?.addEventListener('click', showArchives);
         document.getElementById('navDownloadBtn')?.addEventListener('click', () => {
             showHome();
             setTimeout(() => document.getElementById('heroDownloadBtn')?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
@@ -938,9 +901,7 @@
 
         // Inline links
         document.getElementById('linkToChangelog2')?.addEventListener('click', () => showChangelog());
-        document.getElementById('linkToArchives2')?.addEventListener('click', showArchives);
         document.getElementById('back-to-home-changelog')?.addEventListener('click', showHome);
-        document.getElementById('back-to-home-archives')?.addEventListener('click', showHome);
 
         // Latest changelog link
         document.getElementById('latestChangelogLink')?.addEventListener('click', () => showChangelog('changelog-latest'));
@@ -1048,17 +1009,6 @@
         document.getElementById('heroDownloadBtn')?.addEventListener('click', (e) => { e.preventDefault(); startDownload(mainUrl); });
         document.getElementById('heroMirrorBtn')?.addEventListener('click', (e) => { e.preventDefault(); startDownload(mirrorUrl); });
 
-        // ─── ARCHIVE DOWNLOADS ──────────────────────────────────────────────
-        const archiveUrls = {
-            '1.4.4rev175': { site: 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v1.4.4rev175/NovelDR.v1.4.4rev178.apk', github: 'https://github.com/Moggle-Khraum/NovelDR-site/releases/download/v1.4.4rev175/NovelDR.v1.4.4rev178.apk', mediafire: 'https://www.mediafire.com/file/2idja3c1ncopbkh/NovelDR+v1.4.4rev178.apk/file', itch: '#' },
-            '1.4.3rev171': { site: 'https://github.com/Moggle-Khraum/NovelDR/actions/runs/25643889622/artifacts/6908402100', github: 'https://github.com/Moggle-Khraum/NovelDR/actions/runs/25643889622/artifacts/6908402100', mediafire: 'https://www.mediafire.com/file/j58qxny1byduwpk/NovelDR_v1.4.3rev171.apk/file', itch: '#' }
-        };
-
-        function downloadVersion(version, source) {
-            const url = archiveUrls[version]?.[source];
-            if (url && url !== '#') { startDownload(url); } else { alert('Download link not available.'); }
-        }
-        window.downloadVersion = downloadVersion;
 
         // ─── CHANGELOG MODAL ──────────────────────────────────────────────────
         const versionChangelogModal = document.getElementById('versionChangelogModal');
