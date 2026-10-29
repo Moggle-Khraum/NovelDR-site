@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NovelDR Privacy Policy - No personal data collection, all reading data stays on your device.">
+    <meta name="description" content="NovelDR Privacy Policy - what data the app sends, and to which third-party services.">
     <title>Privacy Policy · NovelDR</title>
     <link rel="icon" type="image/png" href="app-icon.png">
     <style>
@@ -12,6 +12,7 @@
         .container{max-width:800px;margin:0 auto;background:#fff;border-radius:24px;padding:2.5rem;box-shadow:0 10px 30px rgba(0,0,0,.05)}
         h1{font-size:2rem;margin-bottom:1rem;color:#2c211c}
         h2{font-size:1.3rem;margin:1.5rem 0 0.8rem;color:#5a3e36}
+        h3{font-size:1.1rem;margin:1.2rem 0 0.5rem;color:#5a3e36}
         p,li{color:#4d3e37;margin-bottom:0.8rem}
         ul{padding-left:1.5rem;margin-bottom:1rem}
         .back-link{display:inline-block;margin-top:2rem;color:#8f5e4e;text-decoration:none}
@@ -23,24 +24,35 @@
 <body>
     <div class="container">
         <h1>Privacy Policy</h1>
-        <p><strong>Last Updated: April 26, 2026</strong></p>
-        <p>NovelDR is designed with your privacy in mind. We do not collect, store, or share any personal information.</p>
-        
+        <p><strong>Last Updated: October 29, 2026</strong></p>
+        <p>NovelDR is built to keep your reading private. Your library, downloaded novels, reading progress and settings stay on your device. The app does send a small amount of data to two third-party services, described below. This policy explains what they receive and why we use them.</p>
+
         <h2>1. Information We Collect</h2>
-        <p><strong>None.</strong> NovelDR does not collect any personal data, analytics, or usage statistics. The app works entirely offline.</p>
-        
+        <p><strong>Your reading data is not collected.</strong> Your library, reading history, downloaded novels and personal information are never sent to us or to any third party.</p>
+        <p>Two third-party services receive limited data from the app:</p>
+        <ul>
+            <li><strong>Crash reports (Sentry):</strong> if the app crashes or hits an error, a report is sent to Sentry. It may include the error message, the app version, and basic device information such as the operating system and device model.</li>
+            <li><strong>Online counter (Cloudflare Workers):</strong> while the app is open, it sends a simple "someone is online" ping. Like any web request, the ping reaches Cloudflare with your IP address attached. The developer receives only the ping and uses it only to count how many people are using NovelDR.</li>
+        </ul>
+
         <h2>2. Data Storage</h2>
         <p>All downloaded novels, reading progress, and settings are stored locally on your device only. We have no access to this data.</p>
-        
+
         <h2>3. Permissions</h2>
-        <p>NovelDR may request storage permission only to save downloaded novels to your device. No other permissions are required.</p>
-        
+        <p>NovelDR may request storage permission only to save downloaded novels to your device. The app also needs network access to send the crash reports and online counter signals described above.</p>
+
         <h2>4. Third-Party Services</h2>
-        <p>NovelDR does not use any third-party analytics, crash reporting, or advertising services.</p>
-        
+        <p>NovelDR uses two third-party services, listed below with the reason for each.</p>
+
+        <h3>Sentry (crash reporting)</h3>
+        <p><strong>Why we use it:</strong> Sentry was added in version 3.8.60 (July 2026), because the app was crashing often and unpredictably, sometimes with no clear error. Sentry helps us catch and diagnose a handful of these errors. It is used for debugging, not for tracking users. Sentry's privacy policy is available at <a href="https://sentry.io/privacy/">sentry.io/privacy</a>.</p>
+
+        <h3>Cloudflare online counter</h3>
+        <p><strong>Why we use it:</strong> The counter answers one question: how many people use NovelDR. Nothing more. The developer sees only the count from the ping, and no library, reading, or personal information. Cloudflare's privacy policy is available at <a href="https://www.cloudflare.com/privacypolicy/">cloudflare.com/privacypolicy</a>.</p>
+
         <h2>5. Contact</h2>
         <p>If you have privacy concerns, please contact us via GitHub.</p>
-        
+
         <hr>
         <a href="index.html" class="back-link">← Back to NovelDR</a>
     </div>
