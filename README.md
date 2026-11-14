@@ -29,6 +29,10 @@
 
 NovelDR is a free, open-source Android application that lets you download webnovels from multiple sources and read them offline. Built for readers who want uninterrupted access to their favorite stories without ads, or account creation, only use internet when downloading.
 
+**Export formats:** TXT, EPUB 3, PDF, DOCX, and RTF. Long novels are exported in parts.
+
+**Updating saved novels:** Each saved novel updates from the source it was added from. If that site is marked as dead in this README, the app blocks the update and shows a message.
+
 ---
 
 <a id="download-counts"></a>
@@ -76,7 +80,7 @@ NovelDR is a free, open-source Android application that lets you download webnov
 | Source Domain | Status | Source Domain | Status | Source Domain | Status |
 | --- | --- | --- | --- | --- | --- |
 | [ReadNovelFull](https://readnovelfull.com/) | ✅ Site Active | [NovelFull.com](https://novelfull.com/) | ✅ Site Active | [NovelbinCC](https://www.novelbin.cc/) | ✅ Site Active |
-| [FreeWebNovel](https://freewebnovel.com/) | ✅ Site Active | [NovGo](https://novgo.net/) | ✅ Site Active | [NovelArchive.cc](https://novelarchive.cc/) | ✅ Site Active |
+| [FreeWebNovel](https://freewebnovel.com/) | ✅ Site Active | [NovGo](https://novgo.net/) | ✅ Site Active | [NovelArchive.st](https://novelarchive.st/) | ✅ Site Active |
 | [MTLNovel.me](https://mtlnovel.me/) | ✅ Site Active | [WuxiaWorld.site](https://wuxiaworld.site/) | ✅ Site Active | [FanMTL](https://fanmtl.com/) | ✅ Site Active |
 | [RoyalRoad](https://www.royalroad.com/) | ✅ Site Active | [AsiaNovel](https://www.asianovel.net/) | ✅ Site Active | [WuxiaBox](https://www.wuxiabox.com/) | ✅ Site Active |
 | [NovelPhoenix](https://novelphoenix.com/) | ✅ Site Active | [Novel-bin](https://novel-bin.com/) | ✅ Site Active | [WuxiaClick](https://wuxia.click/) | ✅ Site Active |
@@ -92,7 +96,7 @@ NovelDR is a free, open-source Android application that lets you download webnov
 | --- | --- | --- | --- |
 | [Novelbin.me](https://novelbin.me/) | ❌ Site Dead | [Novelbin.com](https://novelbin.com/) | ❌ Site Dead |
 | [LightNovelWorld](https://lightnovelworld.org/) | ❌ Site Dead | [AllNovel](https://allnovel.org/) | ❌ Site Dead |
-
+| [NovelArrow](https://novelarrow.com/) | ❌ Changed Domain |  |  |
 
 ---
 
@@ -107,7 +111,7 @@ Got a webnovel site you want NovelDR to support? There are two paths, depending 
 
 Full step-by-step instructions (how to capture a site's HTML, how to prompt Claude Code to build the scraper, and how to register it in the app) are already written up here:
 
-👉 **[NovelDR Scraper Guide](https://github.com/Moggle-Khraum/NovelDR/blob/Prod-Dev/NovelDR%20Scraper%20Guide.md)**
+👉 **[NovelDR Scraper Guide](https://github.com/Moggle-Khraum/NovelDR/blob/5.1.5/NovelDR%20Scraper%20Guide.md)**
 
 That guide walks through the whole process from start to finish, so you don't need to touch any other files — just follow it top to bottom.
 
