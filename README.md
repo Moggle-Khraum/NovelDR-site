@@ -14,7 +14,6 @@
 - [📈 Download Counts](#download-counts)
 - [🖼️ App Screenshots](#app-screenshots)
 - [🌐 Supported Sources](#supported-sources)
-- [💀 Deprecated Sources](#dead-sources)
 - [📚 Add Source or Request Source](#wiki-add-or-requestsource)
 - [🌟 Appreciation](#appreciation)
 - [📖 Source Scraper Acknowledgements](#source-scraper)
@@ -31,7 +30,7 @@ NovelDR is a free, open-source Android application that lets you download webnov
 
 **Export formats:** TXT, EPUB 3, PDF, DOCX, and RTF. Long novels are exported in parts.
 
-**Updating saved novels:** Each saved novel updates from the source it was added from. If that site is marked as dead in this README, the app blocks the update and shows a message.
+**Updating saved novels:** Each saved novel updates from the source it was added from. If that site is no longer available, the app blocks the update and shows a message.
 
 ---
 
@@ -84,19 +83,10 @@ NovelDR is a free, open-source Android application that lets you download webnov
 | [MTLNovel.me](https://mtlnovel.me/) | ✅ Site Active | [WuxiaWorld.site](https://wuxiaworld.site/) | ✅ Site Active | [FanMTL](https://fanmtl.com/) | ✅ Site Active |
 | [RoyalRoad](https://www.royalroad.com/) | ✅ Site Active | [AsiaNovel](https://www.asianovel.net/) | ✅ Site Active | [WuxiaBox](https://www.wuxiabox.com/) | ✅ Site Active |
 | [NovelPhoenix](https://novelphoenix.com/) | ✅ Site Active | [Novel-bin](https://novel-bin.com/) | ✅ Site Active | [WuxiaClick](https://wuxia.click/) | ✅ Site Active |
-| [NovelPing](https://novelping.com/) | ✅ Site Active | [NovelFull.net](https://novelfull.net/) | ✅ Site Active |  |  |
-
----
-
-<a id="dead-sources"></a>
-
-## 💀 Deprecated Sources
-
-| Source Domain | Status | Source Domain | Status |
-| --- | --- | --- | --- |
-| [Novelbin.me](https://novelbin.me/) | ❌ Site Dead | [Novelbin.com](https://novelbin.com/) | ❌ Site Dead |
-| [LightNovelWorld](https://lightnovelworld.org/) | ❌ Site Dead | [AllNovel](https://allnovel.org/) | ❌ Site Dead |
-| [NovelArrow](https://novelarrow.com/) | ❌ Changed Domain |  |  |
+| [NovelPing](https://novelping.com/) | ✅ Site Active | [NovelFull.net](https://novelfull.net/) | ✅ Site Active | [CentralNovel](https://centralnovel.com/) | ✅ Site Active |
+| [MTL-Novel](https://mtl-novel.com/) | ✅ Site Active | [LightNovelWorld](https://lightnovelworld.net/) | ✅ Site Active | [MeioNovels](https://meionovels.com/) | ✅ Site Active |
+| [NovelasLigera](https://novelasligeras.net/) | ✅ Site Active | [Jaomix](https://jaomix.ru/) | ✅ Site Active | [LightNovelVF](https://www.lightnovelvf.com/) | ✅ Site Active |
+| [Webnovel.vn](https://webnovel.vn/) | ✅ Site Active | [RaNovel](https://ranovel.com/) | ✅ Site Active |  |  |
 
 ---
 
@@ -145,6 +135,7 @@ If this project helps you somehow, please dont forget to Star the Repo~!
 | Author | Repository | Credited For |
 |-------------|-----------|--------------|
 |~~[@TUVIMEN](https://github.com/TUVIMEN)~~ | ~~[lightnovelworld](https://github.com/TUVIMEN/lightnovelworld)~~ |~~Forked LightNovelWorld Scraper into the App.~~ [💀DEPRECATED]|
+| [@LNReader](https://github.com/LNReader/lnreader-plugins) | [lnreader-plugins](https://github.com/LNReader/lnreader-plugins) | Ported the Jaomix plugin (MIT) into the App as a Source Scraper. |
 | [@lncrawl](https://github.com/lncrawl) | [lightnovel-crawler](https://github.com/lncrawl/lightnovel-crawler/tree/dev) | Adapted and ported 3 novel scraper sources into the App. |
 | [@5ghzx](https://github.com/5ghzx) | [novelarchive-lnreader](https://github.com/5ghzx/novelarchive-lnreader) | Adapted and ported the NovelArchive Extension into a Source Scraper. |
 
